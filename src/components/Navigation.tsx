@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 export default function Navigation() {
   const pathname = usePathname();
@@ -28,8 +29,10 @@ export default function Navigation() {
     <nav className="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md shadow-sm border-b border-surface-container-low/30">
       <div className="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
         <Link href="/" className="flex items-center gap-3 group cursor-pointer">
-          <img
+          <Image
             alt="AWS Cloud Club Logo"
+            width={40}
+            height={40}
             className="h-10 w-10 object-contain transition-transform group-hover:rotate-12"
             src="/club_logo.png"
           />

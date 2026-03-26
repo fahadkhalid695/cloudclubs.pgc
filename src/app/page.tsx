@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Metadata } from "next";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "AWS Cloud Club PGC | Home",
@@ -153,8 +154,10 @@ export default function Home() {
             {/* Event Card */}
             <div className="group overflow-hidden rounded-[3rem] bg-white shadow-xl hover:shadow-2xl transition-all duration-700 flex flex-col h-full hover-lift card-shine">
               <div className="overflow-hidden h-72">
-                <img
+                <Image
                   alt="Cloud Workshop"
+                  width={960}
+                  height={720}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3uQZikpvsTeHQT7yJq4L99RiNKRSWhMnuaDb1tb5jOXPTW7238tPV0R6NmxV4--p9HTZNtHrjH-F_WIHu15612MkozXq6AuRiRo6HV-vG57YlMqebm0a6qDrQhooMOxcM0MIpFxBrupJbKv6ADdz_6lopvDjrOFooBDk3S3u0f_kluSPXM3863Dd27vXMgQAecUor6Lk_RnadLSHIzeNzGBcToTOkNM80sgxqpqb6VskV8SJgVvZGnJAzLxAPanpzMuKI9Aa2x9kK"
                 />
@@ -197,8 +200,10 @@ A big thank you to Certopus for supporting our initiative.</p>
                 </div>
               </Link>
               <div className="flex-grow flex items-center justify-center bg-brand-orange/5 border-2 border-dashed border-brand-orange/20 rounded-[3rem] p-12 text-center">
-                <img
+                <Image
                   alt="AWS Logo"
+                  width={96}
+                  height={96}
                   className="w-24 opacity-20 grayscale"
                   src="https://lh3.googleusercontent.com/aida/ADBb0ujeenimgmkVGSGH5ZIB0a1fqk0_MePscqAqmUWS7UBQ0dAogRCUWUM-bviTW0q7FX3jM_4fVvTKNqmQKHsLfOC0wMyTtG-vawLT3iR7Q_chQ6s6EcTrS_6-bkF9BWWL_RXYgCySwvGQux8G1zerEhM4xBcB8X9hewg0VVTfadLuKgqny1jgdk3mjzJfOpNiHFwA79adKFAChzf_8kszxCDIdm68w6INmGhqlKiM30l4FmKnJHkmUUiE4Pz74tH-1AxaRF85F9GBsw4"
                 />

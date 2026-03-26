@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -6,8 +7,10 @@ export default function Footer() {
       <div className="flex flex-col md:flex-row justify-between items-center px-8 py-16 max-w-7xl mx-auto gap-12">
         <div className="flex flex-col items-center md:items-start gap-4">
           <div className="flex items-center gap-3">
-            <img
+            <Image
               alt="AWS Cloud Club Logo"
+              width={32}
+              height={32}
               className="h-8 w-8 hover:rotate-12 transition-transform"
               src="/club_logo.png"
             />
