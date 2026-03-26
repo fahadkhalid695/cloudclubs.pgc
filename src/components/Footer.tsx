@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Linkedin, Mail, MessageCircle, CalendarDays } from "lucide-react";
+import { LinkIcon, Mail, MessageCircle, CalendarDays } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -28,7 +28,7 @@ export default function Footer() {
             <CalendarDays size={16} />
           </a>
           <a href="https://www.linkedin.com/company/aws-cloud-club-pgc/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white shadow-sm border border-gray-100 flex items-center justify-center hover:bg-brand-purple hover:text-white transition-all hover:scale-110" aria-label="LinkedIn">
-            <Linkedin size={16} />
+            <LinkIcon size={16} />
           </a>
           <a href="https://chat.whatsapp.com/LKpcfS8joSs94WM3UWg0b6" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white shadow-sm border border-gray-100 flex items-center justify-center hover:bg-[#25D366] hover:text-white transition-all hover:scale-110" aria-label="WhatsApp">
             <MessageCircle size={16} />
