@@ -70,7 +70,7 @@ export default function Team() {
         <div className="bg-surface-container-low rounded-[2rem] overflow-hidden flex flex-col lg:flex-row items-center gap-0 lg:gap-12 group transition-all duration-500 border border-brand-purple/10 hover:border-brand-purple/30">
           <div className="w-full lg:w-1/2 aspect-square relative overflow-hidden">
             <img
-              alt="Zain Ul Abadin"
+              alt=" Rana Fahad Khalid"
               className="w-full h-full object-cover transition-all duration-700"
               src="/profile.png"
             />
@@ -81,14 +81,14 @@ export default function Team() {
               <span className="material-symbols-outlined text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>
                 workspace_premium
               </span>
-              CLUB CAPTAIN
+              CLUB Founding CAPTAIN
             </div>
-            <h2 className="font-headline text-4xl font-bold mb-4">Zain Ul Abadin</h2>
+            <h2 className="font-headline text-4xl font-bold mb-4">Rana Fahad Khalid</h2>
             <p className="text-xl text-brand-purple font-headline font-medium mb-8">
-              AWS Certified Cloud Practitioner
+              AWS Certified Cloud Foundations
             </p>
             <p className="text-on-surface-variant leading-loose mb-10 text-lg">
-              Driving the cloud-first vision at PGC Muridke, Zain leads the community with a passion for serverless architectures and DevOps automation. He believes in the power of community-driven learning to bridge the gap between academia and industry.
+              Driving the cloud-first vision at PGC Muridke, Fahad leads the community with a passion for serverless architectures and DevOps automation. He believes in the power of community-driven learning to bridge the gap between academia and industry.
             </p>
             <div className="flex gap-6">
               <span className="w-12 h-12 rounded-xl bg-surface-container-highest flex items-center justify-center text-on-surface-variant hover:bg-brand-purple hover:text-white transition-all duration-300 cursor-pointer">
@@ -162,7 +162,7 @@ export default function Team() {
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-6 relative z-10">
             <Link
-              href="https://forms.google.com" target="_blank" rel="noopener noreferrer"
+              href="https://forms.gle/dbgRxAiYFdLFWfme7" target="_blank" rel="noopener noreferrer"
               className="bg-brand-orange text-white px-10 py-4 rounded-xl font-headline font-bold hover:shadow-[0_0_30px_rgba(255,153,0,0.4)] transition-all duration-300 active:scale-95"
             >
               Apply for Team

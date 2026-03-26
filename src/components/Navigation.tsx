@@ -22,10 +22,10 @@ export default function Navigation() {
           <img
             alt="AWS Cloud Club Logo"
             className="h-10 w-10 object-contain transition-transform group-hover:rotate-12"
-            src="https://lh3.googleusercontent.com/aida/ADBb0ujeenimgmkVGSGH5ZIB0a1fqk0_MePscqAqmUWS7UBQ0dAogRCUWUM-bviTW0q7FX3jM_4fVvTKNqmQKHsLfOC0wMyTtG-vawLT3iR7Q_chQ6s6EcTrS_6-bkF9BWWL_RXYgCySwvGQux8G1zerEhM4xBcB8X9hewg0VVTfadLuKgqny1jgdk3mjzJfOpNiHFwA79adKFAChzf_8kszxCDIdm68w6INmGhqlKiM30l4FmKnJHkmUUiE4Pz74tH-1AxaRF85F9GBsw4"
+            src="club_logo.png"
           />
           <span className="text-xl font-bold tracking-tighter text-gray-900 font-headline">
-            AWS Cloud Club
+            AWS Cloud Club PGC
           </span>
         </Link>
 
@@ -55,7 +55,7 @@ export default function Navigation() {
 
         <div className="flex items-center gap-4">
           <Link
-            href="https://forms.google.com" target="_blank" rel="noopener noreferrer"
+            href="https://www.meetup.com/aws-cloud-club-at-punjab-group-of-colleges/" target="_blank" rel="noopener noreferrer"
             className="hidden sm:inline-block bg-brand-orange text-white px-6 py-2.5 rounded-full font-headline font-bold text-sm hover:shadow-[0_0_20px_rgba(255,153,0,0.4)] transition-all duration-300 active:scale-95 hover:scale-105"
           >
             Become a club member
@@ -100,7 +100,7 @@ export default function Navigation() {
               );
             })}
             <Link
-              href="https://forms.google.com" target="_blank" rel="noopener noreferrer"
+              href="https://www.meetup.com/aws-cloud-club-at-punjab-group-of-colleges/" target="_blank" rel="noopener noreferrer"
               onClick={() => setMobileOpen(false)}
               className="mt-4 bg-brand-orange text-white px-6 py-3 rounded-full font-headline font-bold text-center hover:shadow-[0_0_20px_rgba(255,153,0,0.4)] transition-all"
             >

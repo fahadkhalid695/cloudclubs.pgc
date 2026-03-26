@@ -9,10 +9,10 @@ export default function Footer() {
             <img
               alt="AWS Cloud Club Logo"
               className="h-8 w-8 hover:rotate-12 transition-transform"
-              src="https://lh3.googleusercontent.com/aida/ADBb0ujeenimgmkVGSGH5ZIB0a1fqk0_MePscqAqmUWS7UBQ0dAogRCUWUM-bviTW0q7FX3jM_4fVvTKNqmQKHsLfOC0wMyTtG-vawLT3iR7Q_chQ6s6EcTrS_6-bkF9BWWL_RXYgCySwvGQux8G1zerEhM4xBcB8X9hewg0VVTfadLuKgqny1jgdk3mjzJfOpNiHFwA79adKFAChzf_8kszxCDIdm68w6INmGhqlKiM30l4FmKnJHkmUUiE4Pz74tH-1AxaRF85F9GBsw4"
+              src="club_logo.png"
             />
             <span className="text-xl font-bold text-gray-900 font-headline">
-              AWS Cloud Club
+              AWS Cloud Club PGC
             </span>
           </div>
           <p className="font-inter text-sm text-gray-500">
