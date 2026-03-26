@@ -20,24 +20,24 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-8 relative z-10 w-full text-center">
           <div className="space-y-8">
             <h1 className="font-headline text-5xl md:text-7xl lg:text-[5.5rem] font-bold tracking-tight text-white leading-[1.1]">
-              Empowering Minds.<br />Building Futures.
+              Learn Cloud Skills.<br />Build Real Projects.
             </h1>
             <p className="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto font-light leading-relaxed">
-              Join a community of learners, innovators, and future leaders
+              Join the AWS Cloud Club at PGC Muridke to grow with workshops, mentorship, and hands-on learning.
             </p>
 
             <div className="flex flex-col sm:flex-row justify-center items-center gap-6 pt-8">
               <Link
                 href="https://www.meetup.com/aws-cloud-club-at-punjab-group-of-colleges/" target="_blank" rel="noopener noreferrer"
-                className="w-full sm:w-auto bg-[#e60000] text-white px-10 py-4 rounded-full font-body font-bold text-lg shadow-lg hover:bg-[#cc0000] transition-all hover:-translate-y-1 hover:shadow-red-500/30 active:scale-95"
+                className="w-full sm:w-auto bg-brand-orange text-white px-10 py-4 rounded-full font-body font-bold text-lg shadow-lg hover:bg-[#e68900] transition-all hover:-translate-y-1 hover:shadow-brand-orange/30 active:scale-95"
               >
-                Become a club member
+                Join the Club
               </Link>
               <Link
                 href="/programs"
                 className="w-full sm:w-auto px-10 py-4 rounded-full border border-white/40 bg-white/10 backdrop-blur-md text-white font-body font-bold text-lg hover:bg-white/20 transition-all hover:-translate-y-1 active:scale-95"
               >
-                Explore Programs
+                Explore Roadmap
               </Link>
             </div>
 
@@ -61,6 +61,9 @@ export default function Home() {
             <div className="md:w-2/3 space-y-8">
               <p className="text-xl text-on-surface-variant font-light leading-relaxed">
                 AWS Cloud Clubs are student-led organizations for higher education students who are passionate about Amazon Web Services (AWS) and Cloud Computing. At the PGC Muridke Campus, we foster an environment of peer-to-peer learning, hands-on experimentation, and professional networking.
+              </p>
+              <p className="text-lg text-on-surface-variant leading-relaxed">
+                From beginner-friendly orientations to advanced architecture sessions, our programs help students move from curiosity to confidence.
               </p>
               <div className="grid grid-cols-2 gap-8">
                 <div className="p-6 rounded-2xl bg-white shadow-sm hover-lift">
@@ -142,13 +145,13 @@ export default function Home() {
               <h2 className="font-headline text-5xl font-bold tracking-tight mb-4">Latest from Muridke Campus</h2>
               <p className="text-on-surface-variant text-lg">Stay updated with our recent adventures in the cloud ecosystem.</p>
             </div>
-            <Link className="text-brand-purple font-bold flex items-center gap-2 hover:underline group hover:scale-105 transition-all" href="/events">
-              All Events <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">chevron_right</span>
+            <Link className="text-brand-purple font-bold flex items-center gap-2 hover:underline group hover:scale-105 transition-all" href="/news">
+              All News <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">chevron_right</span>
             </Link>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             {/* Event Card */}
-            <div className="group overflow-hidden rounded-[3rem] bg-white shadow-xl hover:shadow-2xl transition-all duration-700 flex flex-col h-full hover-lift">
+            <div className="group overflow-hidden rounded-[3rem] bg-white shadow-xl hover:shadow-2xl transition-all duration-700 flex flex-col h-full hover-lift card-shine">
               <div className="overflow-hidden h-72">
                 <img
                   alt="Cloud Workshop"
@@ -172,17 +175,17 @@ export default function Home() {
             </div>
             {/* News Items */}
             <div className="flex flex-col gap-8">
-              <div className="p-8 rounded-3xl bg-surface-container-low hover:bg-white transition-all border border-transparent hover:border-brand-purple/20 flex gap-6 hover-lift cursor-pointer group">
+              <Link href="/team" className="p-8 rounded-3xl bg-surface-container-low hover:bg-white transition-all border border-transparent hover:border-brand-purple/20 flex gap-6 hover-lift cursor-pointer group">
                 <div className="flex-shrink-0 w-20 h-20 rounded-2xl bg-brand-orange text-white flex flex-col items-center justify-center font-headline font-bold shadow-lg">
                   <span className="text-2xl">6</span>
                   <span className="text-xs uppercase">Feb</span>
                 </div>
                 <div>
                   <h5 className="font-headline font-bold text-xl mb-2 group-hover:text-brand-purple">New Captain Appointment</h5>
-                  <p className="text-on-surface-variant">Welcoming our New Founding Captain for the 2026-27 session. Read their vision for the club.</p>
+                  <p className="text-on-surface-variant">Welcoming our new captain for the 2026-27 session. Read their vision for the club.</p>
                 </div>
-              </div>
-              <div className="p-8 rounded-3xl bg-surface-container-low hover:bg-white transition-all border border-transparent hover:border-brand-purple/20 flex gap-6 hover-lift cursor-pointer group">
+              </Link>
+              <Link href="/news" className="p-8 rounded-3xl bg-surface-container-low hover:bg-white transition-all border border-transparent hover:border-brand-purple/20 flex gap-6 hover-lift cursor-pointer group">
                 <div className="flex-shrink-0 w-20 h-20 rounded-2xl bg-brand-purple text-white flex flex-col items-center justify-center font-headline font-bold shadow-lg">
                   <span className="text-2xl">13</span>
                   <span className="text-xs uppercase">March</span>
@@ -192,7 +195,7 @@ export default function Home() {
                   <p className="text-on-surface-variant">We are excited to share an important milestone for our community — AWS Cloud Club PGC has received its first official sponsorship!
 A big thank you to Certopus for supporting our initiative.</p>
                 </div>
-              </div>
+              </Link>
               <div className="flex-grow flex items-center justify-center bg-brand-orange/5 border-2 border-dashed border-brand-orange/20 rounded-[3rem] p-12 text-center">
                 <img
                   alt="AWS Logo"
@@ -221,7 +224,7 @@ A big thank you to Certopus for supporting our initiative.</p>
                 href="https://www.meetup.com/aws-cloud-club-at-punjab-group-of-colleges/" target="_blank" rel="noopener noreferrer"
                 className="inline-block bg-brand-orange text-white px-16 py-6 rounded-full font-headline font-extrabold text-2xl shadow-2xl hover:scale-110 transition-all duration-300 hover:shadow-brand-orange/40 active:scale-95"
               >
-                Join the Cloud
+                Become a Member
               </Link>
             </div>
           </div>

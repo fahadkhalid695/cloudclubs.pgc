@@ -1,6 +1,7 @@
 import { getEventById, eventsData } from "@/data/events";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
@@ -24,19 +25,21 @@ export default async function EventDetails({ params }: { params: Promise<{ id: s
   }
 
   return (
-    <div className="pt-32 pb-24 max-w-4xl mx-auto px-6 md:px-8">
+    <div className="pt-32 pb-24 max-w-5xl mx-auto px-6 md:px-8">
       {/* Back Button */}
-      <Link href="/events" className="inline-flex items-center gap-2 text-brand-purple font-bold hover:gap-4 transition-all mb-8">
+      <Link href="/events" className="inline-flex items-center gap-2 text-brand-purple font-bold hover:gap-4 transition-all mb-8 animate-fade-up">
         <span className="material-symbols-outlined">arrow_back</span>
         Back to Events
       </Link>
 
-      <article className="bg-surface-container-low rounded-[2rem] overflow-hidden border border-outline-variant/20 shadow-xl">
+      <article className="bg-white rounded-[2rem] overflow-hidden border border-outline-variant/20 shadow-xl animate-fade-up animate-stagger-1">
         {/* Banner */}
         <div className="h-64 md:h-96 w-full relative overflow-hidden">
-          <img
+          <Image
             src={event.image}
             alt={event.title}
+            width={1200}
+            height={540}
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-8">
@@ -55,11 +58,11 @@ export default async function EventDetails({ params }: { params: Promise<{ id: s
             <div className="md:col-span-2 space-y-8">
               <div>
                 <h3 className="text-xl font-bold font-headline mb-4">About this Event</h3>
-                <p className="text-on-surface-variant text-lg leading-relaxed">{event.longDescription}</p>
+                <p className="text-on-surface-variant text-lg leading-relaxed">{event.longDescription ?? event.description}</p>
               </div>
             </div>
 
-            <div className="bg-surface-container-highest p-8 rounded-2xl h-max border border-outline-variant/30 text-on-surface">
+            <div className="bg-surface-container-low p-8 rounded-2xl h-max border border-outline-variant/30 text-on-surface">
               <h4 className="font-bold font-headline mb-6 text-xl">Event Details</h4>
               <ul className="space-y-6">
                 <li className="flex gap-4">

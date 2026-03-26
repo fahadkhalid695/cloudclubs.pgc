@@ -17,6 +17,11 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "AWS Cloud Club PGC",
   description: "AWS Cloud Club - PGC Muridke",
+  icons: {
+    icon: "/club_logo.png",
+    shortcut: "/club_logo.png",
+    apple: "/club_logo.png",
+  },
 };
 
 export default function RootLayout({
@@ -26,9 +31,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <head>
-        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
-      </head>
       <body
         className={`${spaceGrotesk.variable} ${inter.variable} font-body antialiased selection:bg-brand-orange/30 text-on-surface bg-background flex flex-col min-h-screen`}
       >

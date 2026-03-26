@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Navigation() {
   const pathname = usePathname();
@@ -10,19 +10,28 @@ export default function Navigation() {
 
   const links = [
     { name: "Home", href: "/" },
-    { name: "Captain & Team", href: "/team" },
+    { name: "Roadmap", href: "/programs" },
+    { name: "Team", href: "/team" },
     { name: "Events", href: "/events" },
+    { name: "News", href: "/news" },
     { name: "Resources", href: "/resources" },
   ];
 
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileOpen]);
+
   return (
-    <nav className="fixed top-0 w-full z-50 bg-surface/70 backdrop-blur-md shadow-sm border-b border-surface-container-low/10">
+    <nav className="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md shadow-sm border-b border-surface-container-low/30">
       <div className="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
         <Link href="/" className="flex items-center gap-3 group cursor-pointer">
           <img
             alt="AWS Cloud Club Logo"
             className="h-10 w-10 object-contain transition-transform group-hover:rotate-12"
-            src="club_logo.png"
+            src="/club_logo.png"
           />
           <span className="text-xl font-bold tracking-tighter text-gray-900 font-headline">
             AWS Cloud Club PGC
@@ -55,10 +64,12 @@ export default function Navigation() {
 
         <div className="flex items-center gap-4">
           <Link
-            href="https://www.meetup.com/aws-cloud-club-at-punjab-group-of-colleges/" target="_blank" rel="noopener noreferrer"
+            href="https://www.meetup.com/aws-cloud-club-at-punjab-group-of-colleges/"
+            target="_blank"
+            rel="noopener noreferrer"
             className="hidden sm:inline-block bg-brand-orange text-white px-6 py-2.5 rounded-full font-headline font-bold text-sm hover:shadow-[0_0_20px_rgba(255,153,0,0.4)] transition-all duration-300 active:scale-95 hover:scale-105"
           >
-            Become a club member
+            Join the Club
           </Link>
 
           {/* Mobile Hamburger */}
@@ -100,11 +111,13 @@ export default function Navigation() {
               );
             })}
             <Link
-              href="https://www.meetup.com/aws-cloud-club-at-punjab-group-of-colleges/" target="_blank" rel="noopener noreferrer"
+              href="https://www.meetup.com/aws-cloud-club-at-punjab-group-of-colleges/"
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => setMobileOpen(false)}
               className="mt-4 bg-brand-orange text-white px-6 py-3 rounded-full font-headline font-bold text-center hover:shadow-[0_0_20px_rgba(255,153,0,0.4)] transition-all"
             >
-              Become a club member
+              Join the Club
             </Link>
           </div>
         </div>
