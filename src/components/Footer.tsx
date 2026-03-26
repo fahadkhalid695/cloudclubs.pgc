@@ -1,5 +1,5 @@
-import Link from "next/link";
 import Image from "next/image";
+import { Linkedin, Mail, MessageCircle, CalendarDays } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -22,23 +22,19 @@ export default function Footer() {
             © {new Date().getFullYear()} AWS Cloud Club - Punjab Group of Colleges, Muridke Campus
           </p>
         </div>
-        <div className="flex flex-wrap justify-center gap-x-12 gap-y-4">
-          <Link href="/events" className="text-xs text-on-surface-variant hover:text-brand-purple transition-all hover:translate-y-[-2px] hover:underline decoration-brand-purple underline-offset-4">Events</Link>
-          <Link href="/news" className="text-xs text-on-surface-variant hover:text-brand-purple transition-all hover:translate-y-[-2px] hover:underline decoration-brand-purple underline-offset-4">News</Link>
-          <Link href="/programs" className="text-xs text-on-surface-variant hover:text-brand-purple transition-all hover:translate-y-[-2px] hover:underline decoration-brand-purple underline-offset-4">Roadmap</Link>
-          <Link href="/resources" className="text-xs text-on-surface-variant hover:text-brand-purple transition-all hover:translate-y-[-2px] hover:underline decoration-brand-purple underline-offset-4">Resources</Link>
-          <Link href="/guidelines" className="text-xs text-on-surface-variant hover:text-brand-purple transition-all hover:translate-y-[-2px] hover:underline decoration-brand-purple underline-offset-4">Guidelines</Link>
-          <Link href="/team" className="text-xs text-on-surface-variant hover:text-brand-purple transition-all hover:translate-y-[-2px] hover:underline decoration-brand-purple underline-offset-4">Team</Link>
-        </div>
-        <div className="flex gap-4">
+        <div className="hidden lg:block" />
+        <div className="flex gap-3 flex-wrap justify-center">
           <a href="https://www.meetup.com/aws-cloud-club-at-punjab-group-of-colleges/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white shadow-sm border border-gray-100 flex items-center justify-center hover:bg-brand-orange hover:text-white transition-all hover:scale-110" aria-label="Meetup">
-            <span className="material-symbols-outlined text-sm">event</span>
+            <CalendarDays size={16} />
           </a>
           <a href="https://www.linkedin.com/company/aws-cloud-club-pgc/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white shadow-sm border border-gray-100 flex items-center justify-center hover:bg-brand-purple hover:text-white transition-all hover:scale-110" aria-label="LinkedIn">
-            <span className="material-symbols-outlined text-sm">work</span>
+            <Linkedin size={16} />
           </a>
-          <a href="https://chat.whatsapp.com/LKpcfS8joSs94WM3UWg0b6" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white shadow-sm border border-gray-100 flex items-center justify-center hover:bg-brand-purple hover:text-white transition-all hover:scale-110" aria-label="WhatsApp">
-            <span className="material-symbols-outlined text-sm">forum</span>
+          <a href="https://chat.whatsapp.com/LKpcfS8joSs94WM3UWg0b6" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white shadow-sm border border-gray-100 flex items-center justify-center hover:bg-[#25D366] hover:text-white transition-all hover:scale-110" aria-label="WhatsApp">
+            <MessageCircle size={16} />
+          </a>
+          <a href="mailto:awscloudclubpgc@gmail.com" className="w-10 h-10 rounded-full bg-white shadow-sm border border-gray-100 flex items-center justify-center hover:bg-brand-purple hover:text-white transition-all hover:scale-110" aria-label="Email">
+            <Mail size={16} />
           </a>
         </div>
       </div>

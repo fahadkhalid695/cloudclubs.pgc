@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
+import { LinkIcon, Mail, MessageCircle } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "AWS Cloud Club PGC | Team",
@@ -11,7 +12,10 @@ const captain = {
   role: "Founding Captain",
   badge: "Captain",
   image: "/profile.png",
-  bio: "Leading strategy, partnerships, and student growth with a cloud-first vision.",
+  bio: "As a Club Captain, I lead initiatives to empower students with practical knowledge of AWS and open-source tools, fostering a culture of learning, building, and collaboration.",
+  linkedin: "https://www.linkedin.com/company/aws-cloud-club-pgc/",
+  whatsapp: "https://chat.whatsapp.com/LKpcfS8joSs94WM3UWg0b6",
+  email: "awscloudclubpgc@gmail.com",
 };
 
 const coreTeamMembers = [
@@ -97,6 +101,33 @@ export default function Team() {
             <h3 className="font-headline text-4xl font-bold mb-2">{captain.name}</h3>
             <p className="text-brand-orange font-semibold text-lg mb-4">{captain.role}</p>
             <p className="text-on-surface-variant leading-relaxed text-lg">{captain.bio}</p>
+            <div className="mt-6 flex items-center gap-3">
+              <a
+                href={captain.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Captain LinkedIn"
+                className="w-11 h-11 rounded-full bg-surface-container-low border border-outline-variant/30 flex items-center justify-center text-brand-purple hover:bg-brand-purple hover:text-white transition-all"
+              >
+                <LinkIcon size={18} />
+              </a>
+              <a
+                href={`mailto:${captain.email}`}
+                aria-label="Captain Email"
+                className="w-11 h-11 rounded-full bg-surface-container-low border border-outline-variant/30 flex items-center justify-center text-brand-purple hover:bg-brand-purple hover:text-white transition-all"
+              >
+                <Mail size={18} />
+              </a>
+              <a
+                href={captain.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Captain WhatsApp"
+                className="w-11 h-11 rounded-full bg-surface-container-low border border-outline-variant/30 flex items-center justify-center text-brand-purple hover:bg-[#25D366] hover:text-white transition-all"
+              >
+                <MessageCircle size={18} />
+              </a>
+            </div>
           </div>
         </article>
       </section>

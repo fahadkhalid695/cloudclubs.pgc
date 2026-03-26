@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Metadata } from "next";
 import Image from "next/image";
+import { ArrowRight, Globe2, BriefcaseBusiness, WalletCards, TerminalSquare, GraduationCap } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "AWS Cloud Club PGC | Home",
@@ -40,12 +41,6 @@ export default function Home() {
               >
                 Explore Roadmap
               </Link>
-            </div>
-
-            <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce hidden md:block">
-              <span className="material-symbols-outlined text-white/50 text-4xl">
-                mouse
-              </span>
             </div>
           </div>
         </div>
@@ -93,21 +88,21 @@ export default function Home() {
             <div className="md:col-span-2 bg-surface-container-high p-10 rounded-[2.5rem] flex flex-col justify-between group hover:bg-brand-purple/5 transition-all duration-500 hover-lift">
               <div className="space-y-6">
                 <div className="w-16 h-16 rounded-2xl bg-brand-orange/20 flex items-center justify-center">
-                  <span className="material-symbols-outlined text-brand-orange text-3xl">school</span>
+                  <GraduationCap className="text-brand-orange" size={30} />
                 </div>
                 <h4 className="text-3xl font-headline font-bold">AWS Certification Support</h4>
                 <p className="text-on-surface-variant text-lg max-w-md">Get guided roadmaps and exclusive vouchers for Cloud Practitioner and Solutions Architect certifications.</p>
               </div>
               <Link href="/programs" className="mt-12 flex items-center gap-3 text-brand-orange font-bold group-hover:gap-6 transition-all text-lg w-max">
                 <span>View Roadmap</span>
-                <span className="material-symbols-outlined">arrow_forward</span>
+                <ArrowRight size={18} />
               </Link>
             </div>
             {/* Workshops */}
             <div className="bg-brand-purple p-10 rounded-[2.5rem] text-white flex flex-col justify-between shadow-2xl shadow-brand-purple/20 hover-lift">
               <div className="space-y-6">
                 <div className="w-16 h-16 rounded-2xl bg-white/20 flex items-center justify-center">
-                  <span className="material-symbols-outlined text-3xl">terminal</span>
+                  <TerminalSquare size={30} />
                 </div>
                 <h4 className="text-3xl font-headline font-bold">Hands-on Workshops</h4>
                 <p className="opacity-80 text-lg">Weekly sessions on S3, EC2, Lambda, and SageMaker. Build real projects, not just theory.</p>
@@ -118,19 +113,19 @@ export default function Home() {
             </div>
             {/* Global Network */}
             <div className="bg-white p-8 rounded-[2rem] border border-outline-variant/30 hover:border-brand-purple transition-all hover-lift">
-              <span className="material-symbols-outlined text-4xl mb-6 text-brand-purple">hub</span>
+              <Globe2 className="mb-6 text-brand-purple" size={34} />
               <h4 className="text-xl font-headline font-bold mb-3">Global Network</h4>
               <p className="text-on-surface-variant">Connect with Cloud Club members from across the globe and AWS community builders.</p>
             </div>
             {/* Job Placements */}
             <div className="bg-white p-8 rounded-[2rem] border border-outline-variant/30 hover:border-brand-purple transition-all hover-lift">
-              <span className="material-symbols-outlined text-4xl mb-6 text-brand-purple">work</span>
+              <BriefcaseBusiness className="mb-6 text-brand-purple" size={34} />
               <h4 className="text-xl font-headline font-bold mb-3">Job Placements</h4>
               <p className="text-on-surface-variant">Direct access to hiring events and cloud-specific job boards through the AWS network.</p>
             </div>
             {/* Free Credits */}
             <div className="bg-white p-8 rounded-[2rem] border border-outline-variant/30 hover:border-brand-purple transition-all hover-lift">
-              <span className="material-symbols-outlined text-4xl mb-6 text-brand-purple">auto_stories</span>
+              <WalletCards className="mb-6 text-brand-purple" size={34} />
               <h4 className="text-xl font-headline font-bold mb-3">Free Credits</h4>
               <p className="text-on-surface-variant">Receive AWS promotional credits to experiment with cloud services at no cost.</p>
             </div>
@@ -147,7 +142,7 @@ export default function Home() {
               <p className="text-on-surface-variant text-lg">Stay updated with our recent adventures in the cloud ecosystem.</p>
             </div>
             <Link className="text-brand-purple font-bold flex items-center gap-2 hover:underline group hover:scale-105 transition-all" href="/news">
-              All News <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">chevron_right</span>
+              All News <ArrowRight className="group-hover:translate-x-1 transition-transform" size={18} />
             </Link>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
@@ -171,7 +166,7 @@ export default function Home() {
                 <div className="mt-8 flex items-center justify-between border-t border-outline-variant/20 pt-6">
                   <span className="text-sm font-medium text-on-surface-variant">October 12, 2024</span>
                   <Link href="/events/serverless-deep-dive" className="w-12 h-12 rounded-full border border-brand-purple text-brand-purple flex items-center justify-center group-hover:bg-brand-purple group-hover:text-white transition-all hover:scale-110">
-                    <span className="material-symbols-outlined">north_east</span>
+                    <ArrowRight size={18} />
                   </Link>
                 </div>
               </div>
@@ -179,35 +174,38 @@ export default function Home() {
             {/* News Items */}
             <div className="flex flex-col gap-8">
               <Link href="/team" className="p-8 rounded-3xl bg-surface-container-low hover:bg-white transition-all border border-transparent hover:border-brand-purple/20 flex gap-6 hover-lift cursor-pointer group">
-                <div className="flex-shrink-0 w-20 h-20 rounded-2xl bg-brand-orange text-white flex flex-col items-center justify-center font-headline font-bold shadow-lg">
-                  <span className="text-2xl">6</span>
-                  <span className="text-xs uppercase">Feb</span>
+                <div className="flex-shrink-0 w-20 h-20 rounded-2xl overflow-hidden shadow-lg">
+                  <Image
+                    alt="Captain News"
+                    width={180}
+                    height={180}
+                    className="w-full h-full object-cover"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDW4tziVPFdWHSKlGZf7l9b1ZN3azOq_4m9EIluEqgN4TTuOSdfK6DTsTP5TLcqox01YS-q6d8lHTZ191jt35P2gY_v6TRUAxURpY7SS6tuWeGhWr7FT2TZcpdCaiUMZdfZYDhLK_tRVOFdoMyOUzjo-c3rblkQjXXHn2p-Xh8OpaI6hNKTQY-5TLOm8tr0YIJyT4AWIiSegGTX9v77FZ88zJpM3_z35Q_YawBx9fK5V16sUlWLIpZs2dAg6V5e1SNOZN9kArgOiH4Q"
+                  />
                 </div>
                 <div>
+                  <p className="text-xs text-on-surface-variant mb-1">Feb 06, 2026</p>
                   <h5 className="font-headline font-bold text-xl mb-2 group-hover:text-brand-purple">New Captain Appointment</h5>
                   <p className="text-on-surface-variant">Welcoming our new captain for the 2026-27 session. Read their vision for the club.</p>
                 </div>
               </Link>
               <Link href="/news" className="p-8 rounded-3xl bg-surface-container-low hover:bg-white transition-all border border-transparent hover:border-brand-purple/20 flex gap-6 hover-lift cursor-pointer group">
-                <div className="flex-shrink-0 w-20 h-20 rounded-2xl bg-brand-purple text-white flex flex-col items-center justify-center font-headline font-bold shadow-lg">
-                  <span className="text-2xl">13</span>
-                  <span className="text-xs uppercase">March</span>
+                <div className="flex-shrink-0 w-20 h-20 rounded-2xl overflow-hidden shadow-lg">
+                  <Image
+                    alt="Sponsor News"
+                    width={180}
+                    height={180}
+                    className="w-full h-full object-cover"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUzs4BQtBllLj5QaEoMtFnQZZP1L5w2tMCvaixctSkJVRO7_8gaHjNXAX2SSejyWE6AVNIv2aEcdExaabB-OfCFGq4eNz_QiCi_BnFbUJeP4K0BNrAjmSvv9103DTY4bIF5ACjBJ0aVAVVqmaZpN2pzP3lkjVx_vVHa4A30jMWKChAF0UpdXJD60ROzbxtqdD-_9gsO81LVi_oY991ccD6HmaZyov-O9XoL-kag8ANacn2nOI27J3X-3PGHJa_4IoYCJ2dN1t_Lh7_"
+                  />
                 </div>
                 <div>
+                  <p className="text-xs text-on-surface-variant mb-1">Mar 13, 2026</p>
                   <h5 className="font-headline font-bold text-xl mb-2 group-hover:text-brand-purple">Official Sponsor</h5>
                   <p className="text-on-surface-variant">We are excited to share an important milestone for our community — AWS Cloud Club PGC has received its first official sponsorship!
 A big thank you to Certopus for supporting our initiative.</p>
                 </div>
               </Link>
-              <div className="flex-grow flex items-center justify-center bg-brand-orange/5 border-2 border-dashed border-brand-orange/20 rounded-[3rem] p-12 text-center">
-                <Image
-                  alt="AWS Logo"
-                  width={96}
-                  height={96}
-                  className="w-24 opacity-20 grayscale"
-                  src="https://lh3.googleusercontent.com/aida/ADBb0ujeenimgmkVGSGH5ZIB0a1fqk0_MePscqAqmUWS7UBQ0dAogRCUWUM-bviTW0q7FX3jM_4fVvTKNqmQKHsLfOC0wMyTtG-vawLT3iR7Q_chQ6s6EcTrS_6-bkF9BWWL_RXYgCySwvGQux8G1zerEhM4xBcB8X9hewg0VVTfadLuKgqny1jgdk3mjzJfOpNiHFwA79adKFAChzf_8kszxCDIdm68w6INmGhqlKiM30l4FmKnJHkmUUiE4Pz74tH-1AxaRF85F9GBsw4"
-                />
-              </div>
             </div>
           </div>
         </div>
