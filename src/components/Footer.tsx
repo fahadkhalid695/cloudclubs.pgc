@@ -20,9 +20,9 @@ export default function Footer() {
           </p>
         </div>
         <div className="flex flex-wrap justify-center gap-x-12 gap-y-4">
-          <a href="#" className="text-xs text-gray-500 hover:text-brand-purple transition-all hover:translate-y-[-2px] hover:underline decoration-brand-purple underline-offset-4">Meetup</a>
-          <a href="#" className="text-xs text-gray-500 hover:text-brand-purple transition-all hover:translate-y-[-2px] hover:underline decoration-brand-purple underline-offset-4">LinkedIn</a>
-          <a href="#" className="text-xs text-gray-500 hover:text-brand-purple transition-all hover:translate-y-[-2px] hover:underline decoration-brand-purple underline-offset-4">WhatsApp</a>
+          <a href="https://www.meetup.com/aws-cloud-club-at-punjab-group-of-colleges/" className="text-xs text-gray-500 hover:text-brand-purple transition-all hover:translate-y-[-2px] hover:underline decoration-brand-purple underline-offset-4">Meetup</a>
+          <a href="https://www.linkedin.com/company/aws-cloud-club-pgc/" className="text-xs text-gray-500 hover:text-brand-purple transition-all hover:translate-y-[-2px] hover:underline decoration-brand-purple underline-offset-4">LinkedIn</a>
+          <a href="https://chat.whatsapp.com/LKpcfS8joSs94WM3UWg0b6" className="text-xs text-gray-500 hover:text-brand-purple transition-all hover:translate-y-[-2px] hover:underline decoration-brand-purple underline-offset-4">WhatsApp</a>
           <a href="#" className="text-xs text-gray-500 hover:text-brand-purple transition-all hover:translate-y-[-2px] hover:underline decoration-brand-purple underline-offset-4">Facebook</a>
           <Link href="/guidelines" className="text-xs text-gray-500 hover:text-brand-purple transition-all hover:translate-y-[-2px] hover:underline decoration-brand-purple underline-offset-4">Guidelines</Link>
         </div>

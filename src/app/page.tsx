@@ -28,7 +28,7 @@ export default function Home() {
 
             <div className="flex flex-col sm:flex-row justify-center items-center gap-6 pt-8">
               <Link
-                href="https://forms.google.com" target="_blank" rel="noopener noreferrer"
+                href="https://www.meetup.com/aws-cloud-club-at-punjab-group-of-colleges/" target="_blank" rel="noopener noreferrer"
                 className="w-full sm:w-auto bg-[#e60000] text-white px-10 py-4 rounded-full font-body font-bold text-lg shadow-lg hover:bg-[#cc0000] transition-all hover:-translate-y-1 hover:shadow-red-500/30 active:scale-95"
               >
                 Become a club member
@@ -174,22 +174,23 @@ export default function Home() {
             <div className="flex flex-col gap-8">
               <div className="p-8 rounded-3xl bg-surface-container-low hover:bg-white transition-all border border-transparent hover:border-brand-purple/20 flex gap-6 hover-lift cursor-pointer group">
                 <div className="flex-shrink-0 w-20 h-20 rounded-2xl bg-brand-orange text-white flex flex-col items-center justify-center font-headline font-bold shadow-lg">
-                  <span className="text-2xl">24</span>
-                  <span className="text-xs uppercase">OCT</span>
+                  <span className="text-2xl">6</span>
+                  <span className="text-xs uppercase">Feb</span>
                 </div>
                 <div>
                   <h5 className="font-headline font-bold text-xl mb-2 group-hover:text-brand-purple">New Captain Appointment</h5>
-                  <p className="text-on-surface-variant">Welcoming our new Student Captain for the 2024-25 session. Read their vision for the club.</p>
+                  <p className="text-on-surface-variant">Welcoming our New Founding Captain for the 2026-27 session. Read their vision for the club.</p>
                 </div>
               </div>
               <div className="p-8 rounded-3xl bg-surface-container-low hover:bg-white transition-all border border-transparent hover:border-brand-purple/20 flex gap-6 hover-lift cursor-pointer group">
                 <div className="flex-shrink-0 w-20 h-20 rounded-2xl bg-brand-purple text-white flex flex-col items-center justify-center font-headline font-bold shadow-lg">
-                  <span className="text-2xl">02</span>
-                  <span className="text-xs uppercase">NOV</span>
+                  <span className="text-2xl">13</span>
+                  <span className="text-xs uppercase">March</span>
                 </div>
                 <div>
-                  <h5 className="font-headline font-bold text-xl mb-2 group-hover:text-brand-purple">AWS Academy Integration</h5>
-                  <p className="text-on-surface-variant">PGC Muridke is now officially an AWS Academy member, bringing curriculum-ready cloud labs to campus.</p>
+                  <h5 className="font-headline font-bold text-xl mb-2 group-hover:text-brand-purple">Official Sponsor</h5>
+                  <p className="text-on-surface-variant">We are excited to share an important milestone for our community — AWS Cloud Club PGC has received its first official sponsorship!
+A big thank you to Certopus for supporting our initiative.</p>
                 </div>
               </div>
               <div className="flex-grow flex items-center justify-center bg-brand-orange/5 border-2 border-dashed border-brand-orange/20 rounded-[3rem] p-12 text-center">
@@ -217,7 +218,7 @@ export default function Home() {
                 No prior experience required. Whether you&apos;re a coder or a dreamer, there&apos;s a place for you in the cloud.
               </p>
               <Link
-                href="https://forms.google.com" target="_blank" rel="noopener noreferrer"
+                href="https://www.meetup.com/aws-cloud-club-at-punjab-group-of-colleges/" target="_blank" rel="noopener noreferrer"
                 className="inline-block bg-brand-orange text-white px-16 py-6 rounded-full font-headline font-extrabold text-2xl shadow-2xl hover:scale-110 transition-all duration-300 hover:shadow-brand-orange/40 active:scale-95"
               >
                 Join the Cloud
