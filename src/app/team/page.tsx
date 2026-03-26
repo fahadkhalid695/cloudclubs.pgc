@@ -6,14 +6,15 @@ export const metadata: Metadata = {
   title: "AWS Cloud Club PGC | Team",
 };
 
+const captain = {
+  name: "Rana Fahad Khalid",
+  role: "Founding Captain",
+  badge: "Captain",
+  image: "/profile.png",
+  bio: "Leading strategy, partnerships, and student growth with a cloud-first vision.",
+};
+
 const coreTeamMembers = [
-  {
-    name: "Rana Fahad Khalid",
-    role: "Founding Captain",
-    badge: "Leadership",
-    image: "/profile.png",
-    bio: "Leading strategy, partnerships, and student growth with a cloud-first vision.",
-  },
   {
     name: "Sarah Ahmed",
     role: "Vice Captain",
@@ -76,8 +77,34 @@ export default function Team() {
 
       <section className="mb-20 animate-fade-up animate-stagger-1">
         <div className="flex items-end justify-between mb-8 gap-4">
-          <h2 className="font-headline text-3xl md:text-4xl font-bold">Core Team Members</h2>
+          <h2 className="font-headline text-3xl md:text-4xl font-bold">Captain</h2>
           <span className="text-xs font-bold uppercase tracking-[0.2em] text-brand-orange">Leadership</span>
+        </div>
+        <article className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center rounded-[2rem] border border-brand-purple/20 bg-white p-6 md:p-8 hover-lift card-shine">
+          <div className="aspect-[4/4.2] rounded-2xl overflow-hidden">
+            <Image
+              alt={captain.name}
+              width={640}
+              height={680}
+              className="w-full h-full object-cover"
+              src={captain.image}
+            />
+          </div>
+          <div>
+            <span className="inline-block text-[11px] font-bold uppercase tracking-[0.2em] text-brand-purple bg-brand-purple/10 px-4 py-2 rounded-full mb-4">
+              {captain.badge}
+            </span>
+            <h3 className="font-headline text-4xl font-bold mb-2">{captain.name}</h3>
+            <p className="text-brand-orange font-semibold text-lg mb-4">{captain.role}</p>
+            <p className="text-on-surface-variant leading-relaxed text-lg">{captain.bio}</p>
+          </div>
+        </article>
+      </section>
+
+      <section className="mb-20 animate-fade-up animate-stagger-2">
+        <div className="flex items-end justify-between mb-8 gap-4">
+          <h2 className="font-headline text-3xl md:text-4xl font-bold">Core Team Members</h2>
+          <span className="text-xs font-bold uppercase tracking-[0.2em] text-brand-orange">Core Team</span>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {coreTeamMembers.map((member, index) => (
@@ -109,7 +136,7 @@ export default function Team() {
         </div>
       </section>
 
-      <section className="mb-20 animate-fade-up animate-stagger-2">
+      <section className="mb-20 animate-fade-up animate-stagger-3">
         <div className="flex items-end justify-between mb-8 gap-4">
           <h2 className="font-headline text-3xl md:text-4xl font-bold">Team Members</h2>
           <span className="text-xs font-bold uppercase tracking-[0.2em] text-brand-purple">Execution Team</span>
@@ -138,7 +165,7 @@ export default function Team() {
         </div>
       </section>
 
-      <section className="bg-inverse-surface rounded-[2.5rem] p-10 md:p-16 text-center relative overflow-hidden animate-fade-up animate-stagger-3">
+      <section className="bg-inverse-surface rounded-[2.5rem] p-10 md:p-16 text-center relative overflow-hidden animate-fade-up animate-stagger-2">
         <div className="absolute top-0 right-0 w-56 h-56 bg-brand-orange/20 rounded-full blur-3xl -mr-28 -mt-28" />
         <div className="absolute bottom-0 left-0 w-56 h-56 bg-brand-purple/20 rounded-full blur-3xl -ml-28 -mb-28" />
         <div className="relative z-10">

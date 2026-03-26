@@ -32,18 +32,6 @@ const roadmapItems = [
       "Members gain strong conceptual understanding of key AWS services.",
   },
   {
-    phase: "Seminar 3",
-    title: "Careers and Real-World Applications",
-    focus: "Industry awareness, career direction, and practical motivation.",
-    topics: [
-      "Cloud career paths",
-      "Role of DevOps and open source in teams",
-      "Real-world case studies: streaming, e-commerce, startups",
-      "AWS Cloud Practitioner certification path",
-    ],
-    outcome: "Members leave with clearer career direction and roadmap clarity.",
-  },
-  {
     phase: "Workshop 1",
     title: "AWS Hands-On (Beginner)",
     focus: "First practical interaction with AWS.",
@@ -54,6 +42,18 @@ const roadmapItems = [
       "Upload and run a simple webpage",
     ],
     outcome: "Members deploy their first live server.",
+  },
+  {
+    phase: "Seminar 3",
+    title: "Careers and Real-World Applications",
+    focus: "Industry awareness, career direction, and practical motivation.",
+    topics: [
+      "Cloud career paths",
+      "Role of DevOps and open source in teams",
+      "Real-world case studies: streaming, e-commerce, startups",
+      "AWS Cloud Practitioner certification path",
+    ],
+    outcome: "Members leave with clearer career direction and roadmap clarity.",
   },
   {
     phase: "Workshop 2",
@@ -92,11 +92,10 @@ export default function Programs() {
               index % 3 === 1 ? "animate-stagger-1" : index % 3 === 2 ? "animate-stagger-2" : ""
             }`}
           >
-            <div className="flex items-center justify-between mb-5">
+            <div className="mb-5">
               <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-brand-purple bg-brand-purple/10 px-4 py-2 rounded-full">
                 {item.phase}
               </span>
-              <span className="material-symbols-outlined text-brand-orange">school</span>
             </div>
             <h3 className="font-bold text-2xl mb-3 font-headline group-hover:text-brand-orange transition-colors">
               {item.title}
