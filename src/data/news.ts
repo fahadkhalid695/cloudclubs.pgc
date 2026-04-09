@@ -18,7 +18,7 @@ export const newsItems: NewsItem[] = [
     date: "Feb 06, 2026",
     category: "Announcement",
     image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuB3uQZikpvsTeHQT7yJq4L99RiNKRSWhMnuaDb1tb5jOXPTW7238tPV0R6NmxV4--p9HTZNtHrjH-F_WIHu15612MkozXq6AuRiRo6HV-vG57YlMqebm0a6qDrQhooMOxcM0MIpFxBrupJbKv6ADdz_6lopvDjrOFooBDk3S3u0f_kluSPXM3863Dd27vXMgQAecUor6Lk_RnadLSHIzeNzGBcToTOkNM80sgxqpqb6VskV8SJgVvZGnJAzLxAPanpzMuKI9Aa2x9kK",
+      "profile.png",
     link: "/team",
     linkLabel: "Meet the Team",
   },
