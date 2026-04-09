@@ -63,12 +63,12 @@ export default function Home() {
               </p>
               <div className="grid grid-cols-2 gap-8">
                 <div className="p-6 rounded-2xl bg-white shadow-sm hover-lift">
-                  <span className="block text-5xl font-headline font-bold text-brand-orange">15+</span>
+                  <span className="block text-5xl font-headline font-bold text-brand-orange">5+</span>
                   <span className="text-sm text-on-surface-variant uppercase tracking-wider font-bold">Expert Mentors</span>
                 </div>
                 <div className="p-6 rounded-2xl bg-white shadow-sm hover-lift">
-                  <span className="block text-5xl font-headline font-bold text-brand-purple">500+</span>
-                  <span className="text-sm text-on-surface-variant uppercase tracking-wider font-bold">Members Enrolled</span>
+                  <span className="block text-5xl font-headline font-bold text-brand-purple">100+</span>
+                  <span className="text-sm text-on-surface-variant uppercase tracking-wider font-bold">Members Joined</span>
                 </div>
               </div>
             </div>
@@ -160,11 +160,11 @@ export default function Home() {
               <div className="p-10 flex flex-col justify-between flex-grow">
                 <div>
                   <div className="text-xs font-bold text-brand-orange uppercase tracking-widest mb-4">Recent Event</div>
-                  <h4 className="text-3xl font-headline font-bold mb-4 group-hover:text-brand-purple transition-colors">Serverless Deep Dive 1.0</h4>
-                  <p className="text-on-surface-variant text-lg leading-relaxed">Our last workshop covered the fundamentals of AWS Lambda and API Gateway with over 100 students participating in live coding sessions.</p>
+                  <h4 className="text-3xl font-headline font-bold mb-4 group-hover:text-brand-purple transition-colors">Club Established & Captains Onboarding</h4>
+                  <p className="text-on-surface-variant text-lg leading-relaxed">Official onboarding by AWS Cloud Club of Captain also Club is established in Feb.</p>
                 </div>
                 <div className="mt-8 flex items-center justify-between border-t border-outline-variant/20 pt-6">
-                  <span className="text-sm font-medium text-on-surface-variant">October 12, 2024</span>
+                  <span className="text-sm font-medium text-on-surface-variant">Feburary 18, 2026</span>
                   <Link href="/events/serverless-deep-dive" className="w-12 h-12 rounded-full border border-brand-purple text-brand-purple flex items-center justify-center group-hover:bg-brand-purple group-hover:text-white transition-all hover:scale-110">
                     <ArrowRight size={18} />
                   </Link>
