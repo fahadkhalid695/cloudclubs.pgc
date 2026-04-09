@@ -35,18 +35,6 @@ export const newsItems: NewsItem[] = [
     linkLabel: "View on LinkedIn",
   },
   {
-    id: "serverless-workshop-highlight",
-    title: "Serverless Deep Dive Workshop Recap",
-    summary:
-      "More than 100 students joined a live coding workshop to build practical serverless APIs using Lambda and API Gateway.",
-    date: "Oct 12, 2024",
-    category: "Event",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuA-c3vU-f2rZGjwD6ATc8GAc39ugHLcYlq015RApbMp95-Dzsw4tH-S66poNew4tW4cY0P8rrW205SJ5aAZ8LmrTXcORH_EzYWDT0P53Y9Lh30QexKjXFACqmSUlRbRTLtKSDyV8MN3hEKNE29EOHv8HxFgD3m_rmIFUcwx_QVNxxhsPj56JVHu1hPXhDdjkEVTuKKoBvzgTQ53MK_BVldHnzOmuFiAA44YxVbAvDDPu9kaz04zy9OwelNiXCwqPNUbtGVUmmAW1AP3",
-    link: "/events/serverless-deep-dive",
-    linkLabel: "Read Event Details",
-  },
-  {
     id: "team-recruitment-open",
     title: "Team Recruitment Is Open",
     summary:
