@@ -14,7 +14,7 @@ const captain = {
   image: "/profile.png",
   bio: "As a Club Captain, I lead initiatives to empower students with practical knowledge of AWS and open-source tools, fostering a culture of learning, building, and collaboration.",
   linkedin: "https://www.linkedin.com/in/fahadkhalid695",
-  whatsapp: "+923154343753",
+  whatsapp: "wa.link/zh29bt",
   email: "fahadkhalid695@gmail.com",
 };
 
