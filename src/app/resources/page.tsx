@@ -31,6 +31,30 @@ const resources = [
     tag: "Docs",
   },
   {
+    icon: "school",
+    title: "AWS Cloud Quest",
+    description:
+      "Get Gamified Learning for cloud and AI.",
+    link: "https://skillbuilder.aws/search?searchText=aws-cloud-quest-cloud-practitioner",
+    tag: "Learning",
+  },
+  {
+    icon: "school",
+    title: "AI/ML Scholars Program 2026",
+    description:
+      "Get free learning of AI/ML with practical labs.",
+    link: "https://www.udacity.com/scholarships/aws-ai-ml-scholars",
+    tag: "Learning",
+  },
+  {
+    icon: "school",
+    title: "AWS Educate",
+    description:
+      "Designed specifically for students and educators.Offers free access to cloud learning content, labs, and even sandbox environments.",
+    link: "https://aws.amazon.com/education/awseducate/",
+    tag: "Learning",
+  },  
+  {
     icon: "group",
     title: "AWS Cloud Club Community",
     description:
