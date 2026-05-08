@@ -88,7 +88,7 @@ export default function Programs() {
         {roadmapItems.map((item, index) => (
           <div
             key={item.title}
-            className={`bg-white p-8 rounded-[1.75rem] border border-brand-purple/15 hover-lift card-shine group animate-fade-up ${
+            className={`bg-white p-8 rounded-[1.75rem] border border-brand-purple/15 hover-lift card-shine group animate-fade-up transition-smooth ${
               index % 3 === 1 ? "animate-stagger-1" : index % 3 === 2 ? "animate-stagger-2" : ""
             }`}
           >
@@ -97,7 +97,7 @@ export default function Programs() {
                 {item.phase}
               </span>
             </div>
-            <h3 className="font-bold text-2xl mb-3 font-headline group-hover:text-brand-orange transition-colors">
+            <h3 className="font-bold text-2xl mb-3 font-headline group-hover:text-brand-orange transition-smooth">
               {item.title}
             </h3>
             <p className="text-on-surface font-semibold mb-4">Focus: {item.focus}</p>
@@ -116,8 +116,8 @@ export default function Programs() {
         ))}
       </div>
 
-      <div className="mt-20 bg-brand-purple text-white rounded-[2rem] p-12 text-center shadow-2xl shadow-brand-purple/20 relative overflow-hidden animate-fade-up animate-stagger-2">
-        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_0%,rgba(255,153,0,0.2),transparent_70%)]" />
+      <div className="mt-20 bg-brand-purple text-white rounded-[2rem] p-12 text-center shadow-2xl shadow-brand-purple/20 relative overflow-hidden animate-scale-in animate-stagger-2">
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_0%,rgba(255,153,0,0.2),transparent_70%)] animate-glow-pulse" />
         <div className="relative z-10">
           <h2 className="text-3xl font-headline font-bold mb-4">
             Start This Roadmap With Us
@@ -129,7 +129,7 @@ export default function Programs() {
             href="https://www.meetup.com/aws-cloud-club-at-punjab-group-of-colleges/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-white text-brand-purple px-10 py-4 rounded-full font-bold text-lg hover:shadow-lg hover:-translate-y-1 transition-all active:scale-95"
+            className="inline-block bg-white text-brand-purple px-10 py-4 rounded-full font-bold text-lg hover:shadow-lg hover:-translate-y-1 transition-smooth active:scale-95"
           >
             Join the Group
           </Link>

@@ -27,12 +27,12 @@ export default async function EventDetails({ params }: { params: Promise<{ id: s
   return (
     <div className="pt-32 pb-24 max-w-5xl mx-auto px-6 md:px-8">
       {/* Back Button */}
-      <Link href="/events" className="inline-flex items-center gap-2 text-brand-purple font-bold hover:gap-4 transition-all mb-8 animate-fade-up">
+      <Link href="/events" className="inline-flex items-center gap-2 text-brand-purple font-bold hover:gap-4 transition-smooth mb-8 animate-fade-up">
         <span className="material-symbols-outlined">arrow_back</span>
         Back to Events
       </Link>
 
-      <article className="bg-white rounded-[2rem] overflow-hidden border border-outline-variant/20 shadow-xl animate-fade-up animate-stagger-1">
+      <article className="bg-white rounded-[2rem] overflow-hidden border border-outline-variant/20 shadow-xl animate-scale-in animate-stagger-1">
         {/* Banner */}
         <div className="h-64 md:h-96 w-full relative overflow-hidden">
           <Image
@@ -92,7 +92,7 @@ export default async function EventDetails({ params }: { params: Promise<{ id: s
                   href={event.meetupLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full block text-center bg-brand-orange text-white py-4 rounded-xl font-headline font-bold hover:shadow-[0_0_20px_rgba(255,153,0,0.4)] transition-all hover:-translate-y-1 active:scale-95 text-lg"
+                  className="w-full block text-center bg-brand-orange text-white py-4 rounded-xl font-headline font-bold hover:shadow-[0_0_20px_rgba(255,153,0,0.4)] transition-smooth hover:-translate-y-1 active:scale-95 text-lg"
                 >
                   {event.isPast ? "Watch Recording" : "Register on Meetup"}
                 </a>

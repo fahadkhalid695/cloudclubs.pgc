@@ -84,7 +84,7 @@ export default function Team() {
           <h2 className="font-headline text-3xl md:text-4xl font-bold">Captain</h2>
           <span className="text-xs font-bold uppercase tracking-[0.2em] text-brand-orange">Leadership</span>
         </div>
-        <article className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center rounded-[2rem] border border-brand-purple/20 bg-white p-6 md:p-8 hover-lift card-shine">
+        <article className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center rounded-[2rem] border border-brand-purple/20 bg-white p-6 md:p-8 hover-lift card-shine animate-scale-in">
           <div className="aspect-[4/4.2] rounded-2xl overflow-hidden">
             <Image
               alt={captain.name}
@@ -107,14 +107,14 @@ export default function Team() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Captain LinkedIn"
-                className="w-11 h-11 rounded-full bg-surface-container-low border border-outline-variant/30 flex items-center justify-center text-brand-purple hover:bg-brand-purple hover:text-white transition-all"
+                className="w-11 h-11 rounded-full bg-surface-container-low border border-outline-variant/30 flex items-center justify-center text-brand-purple hover:bg-brand-purple hover:text-white transition-smooth"
               >
                 <LinkIcon size={18} />
               </a>
               <a
                 href={`mailto:${captain.email}`}
                 aria-label="Captain Email"
-                className="w-11 h-11 rounded-full bg-surface-container-low border border-outline-variant/30 flex items-center justify-center text-brand-purple hover:bg-brand-purple hover:text-white transition-all"
+                className="w-11 h-11 rounded-full bg-surface-container-low border border-outline-variant/30 flex items-center justify-center text-brand-purple hover:bg-brand-purple hover:text-white transition-smooth"
               >
                 <Mail size={18} />
               </a>
@@ -123,7 +123,7 @@ export default function Team() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Captain WhatsApp"
-                className="w-11 h-11 rounded-full bg-surface-container-low border border-outline-variant/30 flex items-center justify-center text-brand-purple hover:bg-[#25D366] hover:text-white transition-all"
+                className="w-11 h-11 rounded-full bg-surface-container-low border border-outline-variant/30 flex items-center justify-center text-brand-purple hover:bg-[#25D366] hover:text-white transition-smooth"
               >
                 <MessageCircle size={18} />
               </a>
@@ -141,7 +141,7 @@ export default function Team() {
           {coreTeamMembers.map((member, index) => (
             <article
               key={member.name}
-              className={`group rounded-[2rem] border border-brand-purple/15 bg-white p-6 hover-lift card-shine animate-fade-up ${
+              className={`group rounded-[2rem] border border-brand-purple/15 bg-white p-6 hover-lift card-shine animate-fade-up transition-smooth ${
                 index === 1 ? "animate-stagger-1" : index === 2 ? "animate-stagger-2" : ""
               }`}
             >
@@ -176,7 +176,7 @@ export default function Team() {
           {teamMembers.map((member, index) => (
             <article
               key={member.name}
-              className={`group rounded-3xl bg-surface-container-low p-4 border border-transparent hover:border-brand-purple/25 hover-lift animate-fade-up ${
+              className={`group rounded-3xl bg-surface-container-low p-4 border border-transparent hover:border-brand-purple/25 hover-lift animate-fade-up transition-smooth ${
                 index === 1 ? "animate-stagger-1" : index === 2 ? "animate-stagger-2" : index === 3 ? "animate-stagger-3" : ""
               }`}
             >
@@ -211,13 +211,13 @@ export default function Team() {
               href="https://forms.gle/dbgRxAiYFdLFWfme7"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-brand-orange text-white px-10 py-4 rounded-xl font-headline font-bold hover:shadow-[0_0_30px_rgba(255,153,0,0.4)] transition-all duration-300 active:scale-95"
+              className="bg-brand-orange text-white px-10 py-4 rounded-xl font-headline font-bold hover:shadow-[0_0_30px_rgba(255,153,0,0.4)] transition-smooth active:scale-95"
             >
               Join the Team
             </Link>
             <Link
               href="/guidelines"
-              className="bg-transparent border border-gray-600 text-white px-10 py-4 rounded-xl font-headline font-bold hover:bg-white/10 transition-all duration-300"
+              className="bg-transparent border border-gray-600 text-white px-10 py-4 rounded-xl font-headline font-bold hover:bg-white/10 transition-smooth"
             >
               View Guidelines
             </Link>

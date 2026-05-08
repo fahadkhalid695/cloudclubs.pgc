@@ -15,7 +15,7 @@ export default function Events() {
   return (
     <div className="pt-24 pb-24 max-w-7xl mx-auto px-6 md:px-8">
       {featuredEvent && (
-        <section className="relative mb-16 overflow-hidden rounded-[2.2rem] bg-inverse-surface text-white animate-fade-up">
+        <section className="relative mb-16 overflow-hidden rounded-[2.2rem] bg-inverse-surface text-white animate-scale-in hero-gradient">
           <div
             className="absolute inset-0 opacity-30 pointer-events-none"
             style={{
@@ -83,7 +83,7 @@ export default function Events() {
         {upcomingEvents.map((event, index) => (
           <article
             key={event.title}
-            className={`group bg-white rounded-[1.8rem] overflow-hidden transition-all duration-500 cursor-pointer shadow-sm hover:shadow-2xl flex flex-col border border-brand-purple/10 hover:-translate-y-2 card-shine animate-fade-up ${
+            className={`group bg-white rounded-[1.8rem] overflow-hidden transition-smooth cursor-pointer shadow-sm hover:shadow-2xl flex flex-col border border-brand-purple/10 hover:-translate-y-2 card-shine animate-fade-up ${
               index === 1 ? "animate-stagger-1" : index === 2 ? "animate-stagger-2" : ""
             }`}
           >
@@ -113,7 +113,7 @@ export default function Events() {
                 </span>
               </div>
               <h3 className="text-xl font-bold mb-3 group-hover:text-brand-orange transition-colors">
-                <Link href={`/events/${event.id}`} className="before:absolute before:inset-0">
+                <Link href={`/events/${event.id}`} className="before:absolute before:inset-0 transition-smooth">
                   {event.title}
                 </Link>
               </h3>
@@ -148,7 +148,7 @@ export default function Events() {
           {pastEvents.map((event, index) => (
             <article
               key={event.title}
-              className={`flex gap-6 p-6 rounded-2xl bg-surface-container-highest/30 items-center hover:bg-white transition-all duration-300 relative border border-outline-variant/15 hover:border-brand-purple/20 hover-lift ${
+              className={`flex gap-6 p-6 rounded-2xl bg-surface-container-highest/30 items-center hover:bg-white transition-smooth relative border border-outline-variant/15 hover:border-brand-purple/20 hover-lift ${
                 index === 1 ? "animate-fade-up animate-stagger-1" : "animate-fade-up"
               }`}
             >

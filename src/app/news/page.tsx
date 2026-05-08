@@ -28,7 +28,7 @@ export default function NewsPage() {
           return (
             <article
               key={item.id}
-              className={`group bg-white border border-brand-purple/10 rounded-[1.8rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 card-shine animate-fade-up ${
+              className={`group bg-white border border-brand-purple/10 rounded-[1.8rem] overflow-hidden shadow-sm hover:shadow-xl transition-smooth hover:-translate-y-2 card-shine animate-fade-up ${
                 index === 1 ? "animate-stagger-1" : index === 2 ? "animate-stagger-2" : index === 3 ? "animate-stagger-3" : ""
               }`}
             >
@@ -61,14 +61,14 @@ export default function NewsPage() {
                     className="inline-flex items-center gap-2 text-brand-orange font-bold"
                   >
                     {item.linkLabel}
-                    <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">
+                    <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-smooth">
                       arrow_forward
                     </span>
                   </a>
                 ) : (
                   <Link href={item.link} className="inline-flex items-center gap-2 text-brand-orange font-bold">
                     {item.linkLabel}
-                    <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">
+                    <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-smooth">
                       arrow_forward
                     </span>
                   </Link>
@@ -79,7 +79,7 @@ export default function NewsPage() {
         })}
       </section>
 
-      <section className="mt-20 rounded-[2.5rem] bg-inverse-surface p-10 md:p-14 text-center relative overflow-hidden animate-fade-up animate-stagger-2">
+      <section className="mt-20 rounded-[2.5rem] bg-inverse-surface p-10 md:p-14 text-center relative overflow-hidden animate-scale-in animate-stagger-2">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,153,0,0.25),transparent_60%)]" />
         <div className="relative z-10">
           <h2 className="font-headline text-4xl md:text-5xl font-bold text-white mb-5">
@@ -92,7 +92,7 @@ export default function NewsPage() {
             href="https://forms.gle/dbgRxAiYFdLFWfme7"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-brand-orange text-white px-10 py-4 rounded-full font-headline font-bold hover:shadow-[0_0_24px_rgba(255,153,0,0.45)] transition-all"
+            className="inline-block bg-brand-orange text-white px-10 py-4 rounded-full font-headline font-bold hover:shadow-[0_0_24px_rgba(255,153,0,0.45)] transition-smooth"
           >
             Join the Team
           </a>

@@ -46,7 +46,7 @@ const guidelines = [
 export default function Guidelines() {
   return (
     <div className="pt-32 pb-24 max-w-5xl mx-auto px-8">
-      <div className="mb-16 text-center animate-in fade-in duration-700">
+      <div className="mb-16 text-center animate-scale-in">
         <span className="font-headline text-brand-purple uppercase tracking-widest text-xs font-bold mb-4 block">
           Our Standards
         </span>
@@ -63,9 +63,9 @@ export default function Guidelines() {
         {guidelines.map((item, i) => (
           <div
             key={item.title}
-            className="flex items-start gap-6 bg-surface-container-low p-8 rounded-2xl border border-brand-purple/5 hover-lift"
+            className="flex items-start gap-6 bg-surface-container-low p-8 rounded-2xl border border-brand-purple/5 hover-lift transition-smooth animate-fade-up"
           >
-            <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-brand-purple/10 flex items-center justify-center">
+              <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-brand-purple/10 flex items-center justify-center transition-smooth group-hover:scale-105">
               <span className="material-symbols-outlined text-brand-purple text-2xl">
                 {item.icon}
               </span>

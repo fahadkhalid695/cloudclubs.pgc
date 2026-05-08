@@ -11,33 +11,36 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden hero-gradient">
         <div
-          className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+          className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat scale-105 animate-scale-in"
           style={{ backgroundImage: "url('/pgc4.png')" }}
         >
-          <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px]" />
+          <div className="absolute inset-0 bg-black/58 backdrop-blur-[2px]" />
         </div>
 
         <div className="max-w-7xl mx-auto px-8 relative z-10 w-full text-center">
           <div className="space-y-8">
-            <h1 className="font-headline text-5xl md:text-7xl lg:text-[5.5rem] font-bold tracking-tight text-white leading-[1.1]">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.25em] text-white/85 animate-fade-up">
+              Future builders, modern cloud skills
+            </div>
+            <h1 className="font-headline text-5xl md:text-7xl lg:text-[5.5rem] font-bold tracking-tight text-white leading-[1.1] animate-fade-up reveal-delay-1">
               Learn Cloud Skills.<br />Build Real Projects.
             </h1>
-            <p className="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto font-light leading-relaxed">
+            <p className="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto font-light leading-relaxed animate-fade-up reveal-delay-2">
               Join AWS Student Builder Group at PGC Muridke to grow with workshops, mentorship, and hands-on learning.
             </p>
 
-            <div className="flex flex-col sm:flex-row justify-center items-center gap-6 pt-8">
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-6 pt-8 animate-fade-up reveal-delay-3">
               <Link
                 href="https://www.meetup.com/aws-cloud-club-at-punjab-group-of-colleges/" target="_blank" rel="noopener noreferrer"
-                className="w-full sm:w-auto bg-brand-orange text-white px-10 py-4 rounded-full font-body font-bold text-lg shadow-lg hover:bg-[#e68900] transition-all hover:-translate-y-1 hover:shadow-brand-orange/30 active:scale-95"
+                className="w-full sm:w-auto bg-brand-orange text-white px-10 py-4 rounded-full font-body font-bold text-lg shadow-lg hover:bg-[#e68900] transition-smooth hover:-translate-y-1 hover:shadow-brand-orange/30 active:scale-95"
               >
                 Join the Group
               </Link>
               <Link
                 href="/programs"
-                className="w-full sm:w-auto px-10 py-4 rounded-full border border-white/40 bg-white/10 backdrop-blur-md text-white font-body font-bold text-lg hover:bg-white/20 transition-all hover:-translate-y-1 active:scale-95"
+                className="w-full sm:w-auto px-10 py-4 rounded-full border border-white/40 bg-white/10 backdrop-blur-md text-white font-body font-bold text-lg hover:bg-white/20 transition-smooth hover:-translate-y-1 active:scale-95"
               >
                 Explore Roadmap
               </Link>
@@ -62,11 +65,11 @@ export default function Home() {
                 From beginner-friendly orientations to advanced architecture sessions, our programs help students move from curiosity to confidence.
               </p>
               <div className="grid grid-cols-2 gap-8">
-                <div className="p-6 rounded-2xl bg-white shadow-sm hover-lift">
+                <div className="p-6 rounded-2xl bg-white shadow-sm hover-lift transition-smooth animate-fade-up reveal-delay-1">
                   <span className="block text-5xl font-headline font-bold text-brand-orange">5+</span>
                   <span className="text-sm text-on-surface-variant uppercase tracking-wider font-bold">Expert Mentors</span>
                 </div>
-                <div className="p-6 rounded-2xl bg-white shadow-sm hover-lift">
+                <div className="p-6 rounded-2xl bg-white shadow-sm hover-lift transition-smooth animate-fade-up reveal-delay-2">
                   <span className="block text-5xl font-headline font-bold text-brand-purple">100+</span>
                   <span className="text-sm text-on-surface-variant uppercase tracking-wider font-bold">Members Joined</span>
                 </div>
@@ -85,7 +88,7 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Certifications */}
-            <div className="md:col-span-2 bg-surface-container-high p-10 rounded-[2.5rem] flex flex-col justify-between group hover:bg-brand-purple/5 transition-all duration-500 hover-lift">
+            <div className="md:col-span-2 bg-surface-container-high p-10 rounded-[2.5rem] flex flex-col justify-between group hover:bg-brand-purple/5 transition-smooth hover-lift animate-fade-up">
               <div className="space-y-6">
                 <div className="w-16 h-16 rounded-2xl bg-brand-orange/20 flex items-center justify-center">
                   <GraduationCap className="text-brand-orange" size={30} />
@@ -93,13 +96,13 @@ export default function Home() {
                 <h4 className="text-3xl font-headline font-bold">AWS Certification Support</h4>
                 <p className="text-on-surface-variant text-lg max-w-md">Get guided roadmaps and exclusive vouchers for Cloud Practitioner and Solutions Architect certifications.</p>
               </div>
-              <Link href="/programs" className="mt-12 flex items-center gap-3 text-brand-orange font-bold group-hover:gap-6 transition-all text-lg w-max">
+              <Link href="/programs" className="mt-12 flex items-center gap-3 text-brand-orange font-bold group-hover:gap-6 transition-smooth text-lg w-max">
                 <span>View Roadmap</span>
                 <ArrowRight size={18} />
               </Link>
             </div>
             {/* Workshops */}
-            <div className="bg-brand-purple p-10 rounded-[2.5rem] text-white flex flex-col justify-between shadow-2xl shadow-brand-purple/20 hover-lift">
+            <div className="bg-brand-purple p-10 rounded-[2.5rem] text-white flex flex-col justify-between shadow-2xl shadow-brand-purple/20 hover-lift transition-smooth animate-fade-up reveal-delay-1">
               <div className="space-y-6">
                 <div className="w-16 h-16 rounded-2xl bg-white/20 flex items-center justify-center">
                   <TerminalSquare size={30} />
@@ -112,19 +115,19 @@ export default function Home() {
               </div>
             </div>
             {/* Global Network */}
-            <div className="bg-white p-8 rounded-[2rem] border border-outline-variant/30 hover:border-brand-purple transition-all hover-lift">
+            <div className="bg-white p-8 rounded-[2rem] border border-outline-variant/30 hover:border-brand-purple transition-smooth hover-lift animate-fade-up reveal-delay-1">
               <Globe2 className="mb-6 text-brand-purple" size={34} />
               <h4 className="text-xl font-headline font-bold mb-3">Global Network</h4>
               <p className="text-on-surface-variant">Connect with Cloud Club members from across the globe and AWS community builders.</p>
             </div>
             {/* Job Placements */}
-            <div className="bg-white p-8 rounded-[2rem] border border-outline-variant/30 hover:border-brand-purple transition-all hover-lift">
+            <div className="bg-white p-8 rounded-[2rem] border border-outline-variant/30 hover:border-brand-purple transition-smooth hover-lift animate-fade-up reveal-delay-2">
               <BriefcaseBusiness className="mb-6 text-brand-purple" size={34} />
               <h4 className="text-xl font-headline font-bold mb-3">Job Placements</h4>
               <p className="text-on-surface-variant">Direct access to hiring events and cloud-specific job boards through the AWS network.</p>
             </div>
             {/* Free Credits */}
-            <div className="bg-white p-8 rounded-[2rem] border border-outline-variant/30 hover:border-brand-purple transition-all hover-lift">
+            <div className="bg-white p-8 rounded-[2rem] border border-outline-variant/30 hover:border-brand-purple transition-smooth hover-lift animate-fade-up reveal-delay-3">
               <WalletCards className="mb-6 text-brand-purple" size={34} />
               <h4 className="text-xl font-headline font-bold mb-3">Free Credits</h4>
               <p className="text-on-surface-variant">Receive AWS promotional credits to experiment with cloud services at no cost.</p>
@@ -141,19 +144,19 @@ export default function Home() {
               <h2 className="font-headline text-5xl font-bold tracking-tight mb-4">Latest from Muridke Campus</h2>
               <p className="text-on-surface-variant text-lg">Stay updated with our recent adventures in the cloud ecosystem.</p>
             </div>
-            <Link className="text-brand-purple font-bold flex items-center gap-2 hover:underline group hover:scale-105 transition-all" href="/news">
-              All News <ArrowRight className="group-hover:translate-x-1 transition-transform" size={18} />
+            <Link className="text-brand-purple font-bold flex items-center gap-2 hover:underline group hover:scale-105 transition-smooth" href="/news">
+              All News <ArrowRight className="group-hover:translate-x-1 transition-smooth" size={18} />
             </Link>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             {/* Event Card */}
-            <div className="group overflow-hidden rounded-[3rem] bg-white shadow-xl hover:shadow-2xl transition-all duration-700 flex flex-col h-full hover-lift card-shine">
+            <div className="group overflow-hidden rounded-[3rem] bg-white shadow-xl hover:shadow-2xl transition-smooth flex flex-col h-full hover-lift card-shine animate-fade-up">
               <div className="overflow-hidden h-72">
                 <Image
                   alt="Cloud Workshop"
                   width={960}
                   height={720}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-smooth duration-1000"
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3uQZikpvsTeHQT7yJq4L99RiNKRSWhMnuaDb1tb5jOXPTW7238tPV0R6NmxV4--p9HTZNtHrjH-F_WIHu15612MkozXq6AuRiRo6HV-vG57YlMqebm0a6qDrQhooMOxcM0MIpFxBrupJbKv6ADdz_6lopvDjrOFooBDk3S3u0f_kluSPXM3863Dd27vXMgQAecUor6Lk_RnadLSHIzeNzGBcToTOkNM80sgxqpqb6VskV8SJgVvZGnJAzLxAPanpzMuKI9Aa2x9kK"
                 />
               </div>
@@ -165,7 +168,7 @@ export default function Home() {
                 </div>
                 <div className="mt-8 flex items-center justify-between border-t border-outline-variant/20 pt-6">
                   <span className="text-sm font-medium text-on-surface-variant">Feburary 18, 2026</span>
-                  <Link href="/events/serverless-deep-dive" className="w-12 h-12 rounded-full border border-brand-purple text-brand-purple flex items-center justify-center group-hover:bg-brand-purple group-hover:text-white transition-all hover:scale-110">
+                  <Link href="/events/serverless-deep-dive" className="w-12 h-12 rounded-full border border-brand-purple text-brand-purple flex items-center justify-center group-hover:bg-brand-purple group-hover:text-white transition-smooth hover:scale-110">
                     <ArrowRight size={18} />
                   </Link>
                 </div>
@@ -173,7 +176,7 @@ export default function Home() {
             </div>
             {/* News Items */}
             <div className="flex flex-col gap-8">
-              <Link href="/team" className="p-8 rounded-3xl bg-surface-container-low hover:bg-white transition-all border border-transparent hover:border-brand-purple/20 flex gap-6 hover-lift cursor-pointer group">
+              <Link href="/team" className="p-8 rounded-3xl bg-surface-container-low hover:bg-white transition-smooth border border-transparent hover:border-brand-purple/20 flex gap-6 hover-lift cursor-pointer group animate-fade-up reveal-delay-1">
                 <div className="flex-shrink-0 w-20 h-20 rounded-2xl overflow-hidden shadow-lg">
                   <Image
                     alt="Captain News"
@@ -189,7 +192,7 @@ export default function Home() {
                   <p className="text-on-surface-variant">Welcoming our new captain for the 2026-27 session. Read their vision for the club.</p>
                 </div>
               </Link>
-              <Link href="/news" className="p-8 rounded-3xl bg-surface-container-low hover:bg-white transition-all border border-transparent hover:border-brand-purple/20 flex gap-6 hover-lift cursor-pointer group">
+              <Link href="/news" className="p-8 rounded-3xl bg-surface-container-low hover:bg-white transition-smooth border border-transparent hover:border-brand-purple/20 flex gap-6 hover-lift cursor-pointer group animate-fade-up reveal-delay-2">
                 <div className="flex-shrink-0 w-20 h-20 rounded-2xl overflow-hidden shadow-lg">
                   <Image
                     alt="Sponsor News"
@@ -214,8 +217,8 @@ A big thank you to Certopus for supporting our initiative.</p>
       {/* CTA Section */}
       <section className="py-32">
         <div className="max-w-5xl mx-auto px-8">
-          <div className="bg-brand-purple rounded-[4rem] p-16 md:p-24 text-center relative overflow-hidden shadow-2xl shadow-brand-purple/40">
-            <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_0%,rgba(255,153,0,0.25),transparent_70%)]" />
+          <div className="bg-brand-purple rounded-[4rem] p-16 md:p-24 text-center relative overflow-hidden shadow-2xl shadow-brand-purple/40 animate-scale-in">
+            <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_0%,rgba(255,153,0,0.25),transparent_70%)] animate-glow-pulse" />
             <div className="relative z-10">
               <h2 className="font-headline text-5xl md:text-7xl font-extrabold text-white mb-10 tracking-tighter leading-[1.1]">
                 Ready to <span className="text-brand-orange">Cloud-Scale</span> your future?
@@ -225,7 +228,7 @@ A big thank you to Certopus for supporting our initiative.</p>
               </p>
               <Link
                 href="https://www.meetup.com/aws-cloud-club-at-punjab-group-of-colleges/" target="_blank" rel="noopener noreferrer"
-                className="inline-block bg-brand-orange text-white px-16 py-6 rounded-full font-headline font-extrabold text-2xl shadow-2xl hover:scale-110 transition-all duration-300 hover:shadow-brand-orange/40 active:scale-95"
+                className="inline-block bg-brand-orange text-white px-16 py-6 rounded-full font-headline font-extrabold text-2xl shadow-2xl hover:scale-110 transition-smooth hover:shadow-brand-orange/40 active:scale-95"
               >
                 Become a Member
               </Link>
