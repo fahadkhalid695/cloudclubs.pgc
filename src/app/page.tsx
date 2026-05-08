@@ -4,7 +4,7 @@ import Image from "next/image";
 import { ArrowRight, Globe2, BriefcaseBusiness, WalletCards, TerminalSquare, GraduationCap } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "AWS Cloud Club PGC | Home",
+  title: "AWS Student Builder Group | Home",
 };
 
 export default function Home() {
@@ -25,7 +25,7 @@ export default function Home() {
               Learn Cloud Skills.<br />Build Real Projects.
             </h1>
             <p className="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto font-light leading-relaxed">
-              Join the AWS Cloud Club at PGC Muridke to grow with workshops, mentorship, and hands-on learning.
+              Join AWS Student Builder Group at PGC Muridke to grow with workshops, mentorship, and hands-on learning.
             </p>
 
             <div className="flex flex-col sm:flex-row justify-center items-center gap-6 pt-8">
@@ -33,7 +33,7 @@ export default function Home() {
                 href="https://www.meetup.com/aws-cloud-club-at-punjab-group-of-colleges/" target="_blank" rel="noopener noreferrer"
                 className="w-full sm:w-auto bg-brand-orange text-white px-10 py-4 rounded-full font-body font-bold text-lg shadow-lg hover:bg-[#e68900] transition-all hover:-translate-y-1 hover:shadow-brand-orange/30 active:scale-95"
               >
-                Join the Club
+                Join the Group
               </Link>
               <Link
                 href="/programs"
@@ -56,7 +56,7 @@ export default function Home() {
             </div>
             <div className="md:w-2/3 space-y-8">
               <p className="text-xl text-on-surface-variant font-light leading-relaxed">
-                AWS Cloud Clubs are student-led organizations for higher education students who are passionate about Amazon Web Services (AWS) and Cloud Computing. At the PGC Muridke Campus, we foster an environment of peer-to-peer learning, hands-on experimentation, and professional networking.
+                AWS Student Builder Group is a student-led community for higher education students who are passionate about Amazon Web Services (AWS) and cloud computing. At the PGC Muridke campus, we foster peer-to-peer learning, hands-on experimentation, and professional networking.
               </p>
               <p className="text-lg text-on-surface-variant leading-relaxed">
                 From beginner-friendly orientations to advanced architecture sessions, our programs help students move from curiosity to confidence.
@@ -161,7 +161,7 @@ export default function Home() {
                 <div>
                   <div className="text-xs font-bold text-brand-orange uppercase tracking-widest mb-4">Recent Event</div>
                   <h4 className="text-3xl font-headline font-bold mb-4 group-hover:text-brand-purple transition-colors">Club Established & Captains Onboarding</h4>
-                  <p className="text-on-surface-variant text-lg leading-relaxed">Official onboarding by AWS Cloud Club of Captain also Club is established in Feb.</p>
+                  <p className="text-on-surface-variant text-lg leading-relaxed">Official onboarding for the founding captain and the first club milestone in February.</p>
                 </div>
                 <div className="mt-8 flex items-center justify-between border-t border-outline-variant/20 pt-6">
                   <span className="text-sm font-medium text-on-surface-variant">Feburary 18, 2026</span>
@@ -202,7 +202,7 @@ export default function Home() {
                 <div>
                   <p className="text-xs text-on-surface-variant mb-1">Mar 13, 2026</p>
                   <h5 className="font-headline font-bold text-xl mb-2 group-hover:text-brand-purple">Official Sponsor</h5>
-                  <p className="text-on-surface-variant">We are excited to share an important milestone for our community — AWS Cloud Club PGC has received its first official sponsorship!
+                  <p className="text-on-surface-variant">We are excited to share an important milestone for our community — AWS Student Builder Group has received its first official sponsorship!
 A big thank you to Certopus for supporting our initiative.</p>
                 </div>
               </Link>

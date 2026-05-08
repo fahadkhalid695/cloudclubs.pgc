@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "AWS Cloud Club PGC | Roadmap",
+  title: "AWS Student Builder Group | Roadmap",
 };
 
 const roadmapItems = [
@@ -77,7 +77,7 @@ export default function Programs() {
           Learning Path
         </span>
         <h1 className="text-5xl md:text-7xl font-headline font-bold tracking-tighter mb-6">
-          Club <span className="text-brand-orange">Roadmap</span>
+          Builder <span className="text-brand-orange">Roadmap</span>
         </h1>
         <p className="text-xl text-on-surface-variant max-w-3xl mx-auto leading-relaxed">
           A practical progression from cloud basics to deployment workflows. Each phase is designed to build confidence through clarity first, then hands-on execution.
@@ -131,7 +131,7 @@ export default function Programs() {
             rel="noopener noreferrer"
             className="inline-block bg-white text-brand-purple px-10 py-4 rounded-full font-bold text-lg hover:shadow-lg hover:-translate-y-1 transition-all active:scale-95"
           >
-            Join the Club
+            Join the Group
           </Link>
         </div>
       </div>

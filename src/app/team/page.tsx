@@ -4,7 +4,7 @@ import Image from "next/image";
 import { LinkIcon, Mail, MessageCircle } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "AWS Cloud Club PGC | Team",
+  title: "AWS Student Builder Group | Team",
 };
 
 const captain = {
@@ -75,7 +75,7 @@ export default function Team() {
           Meet Our <span className="text-brand-orange">Team</span>
         </h1>
         <p className="text-lg text-on-surface-variant max-w-3xl leading-relaxed">
-          We are a student-led team building cloud talent at PGC Muridke through events, mentorship, and real project experience.
+          We are the student-led team building cloud talent at PGC Muridke through events, mentorship, and real project experience.
         </p>
       </section>
 
@@ -213,7 +213,7 @@ export default function Team() {
               rel="noopener noreferrer"
               className="bg-brand-orange text-white px-10 py-4 rounded-xl font-headline font-bold hover:shadow-[0_0_30px_rgba(255,153,0,0.4)] transition-all duration-300 active:scale-95"
             >
-              Apply for Team
+              Join the Team
             </Link>
             <Link
               href="/guidelines"

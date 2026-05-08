@@ -26,18 +26,18 @@ export default function Navigation() {
   }, [mobileOpen]);
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md shadow-sm border-b border-surface-container-low/30">
-      <div className="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+    <nav className="fixed top-0 w-full z-50 bg-white/75 backdrop-blur-xl shadow-sm border-b border-white/60">
+      <div className="flex justify-between items-center px-6 md:px-8 py-4 max-w-7xl mx-auto">
         <Link href="/" className="flex items-center gap-3 group cursor-pointer">
           <Image
-            alt="AWS Cloud Club Logo"
+            alt="AWS Student Builder Group logo"
             width={40}
             height={40}
-            className="h-10 w-10 object-contain transition-transform group-hover:rotate-12"
-            src="/club_logo.png"
+            className="h-10 w-10 object-contain transition-transform group-hover:rotate-6"
+            src="/logo.jpeg"
           />
-          <span className="text-xl font-bold tracking-tighter text-gray-900 font-headline">
-            AWS Cloud Club PGC
+          <span className="text-lg md:text-xl font-bold tracking-tight text-brand-ink font-headline">
+            AWS Student Builder Group
           </span>
         </Link>
 
@@ -55,8 +55,8 @@ export default function Navigation() {
                 href={link.href}
                 className={`transition-all duration-300 hover:scale-105 ${
                   isActive
-                    ? "text-brand-orange border-b-2 border-brand-orange pb-1"
-                    : "text-gray-600 hover:text-brand-orange"
+                    ? "text-brand-purple border-b-2 border-brand-purple pb-1"
+                    : "text-slate-600 hover:text-brand-purple"
                 }`}
               >
                 {link.name}
@@ -70,9 +70,9 @@ export default function Navigation() {
             href="https://www.meetup.com/aws-cloud-club-at-punjab-group-of-colleges/"
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden sm:inline-block bg-brand-orange text-white px-6 py-2.5 rounded-full font-headline font-bold text-sm hover:shadow-[0_0_20px_rgba(255,153,0,0.4)] transition-all duration-300 active:scale-95 hover:scale-105"
+            className="hidden sm:inline-flex items-center gap-2 bg-brand-ink text-white px-6 py-2.5 rounded-full font-headline font-bold text-sm hover:shadow-[0_0_20px_rgba(22,29,38,0.22)] transition-all duration-300 active:scale-95 hover:scale-105"
           >
-            Join the Club
+            Join the Group
           </Link>
 
           {/* Mobile Hamburger */}
@@ -90,7 +90,7 @@ export default function Navigation() {
 
       {/* Mobile Menu Overlay */}
       {mobileOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-surface/95 backdrop-blur-xl border-b border-surface-container-low shadow-2xl animate-in slide-in-from-top-2 duration-300">
+          <div className="md:hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-xl border-b border-slate-200 shadow-2xl animate-in slide-in-from-top-2 duration-300">
           <div className="flex flex-col px-8 py-6 gap-2">
             {links.map((link) => {
               const isActive =
@@ -105,8 +105,8 @@ export default function Navigation() {
                   onClick={() => setMobileOpen(false)}
                   className={`py-3 px-4 rounded-xl text-lg font-headline font-medium transition-all ${
                     isActive
-                      ? "text-brand-orange bg-brand-orange/10"
-                      : "text-gray-600 hover:text-brand-orange hover:bg-surface-container-low"
+                      ? "text-brand-purple bg-brand-purple/10"
+                      : "text-slate-600 hover:text-brand-purple hover:bg-surface-container-low"
                   }`}
                 >
                   {link.name}
@@ -118,9 +118,9 @@ export default function Navigation() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setMobileOpen(false)}
-              className="mt-4 bg-brand-orange text-white px-6 py-3 rounded-full font-headline font-bold text-center hover:shadow-[0_0_20px_rgba(255,153,0,0.4)] transition-all"
+              className="mt-4 bg-brand-ink text-white px-6 py-3 rounded-full font-headline font-bold text-center hover:shadow-[0_0_20px_rgba(22,29,38,0.22)] transition-all"
             >
-              Join the Club
+              Join the Group
             </Link>
           </div>
         </div>

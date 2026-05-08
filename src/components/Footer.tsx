@@ -8,18 +8,18 @@ export default function Footer() {
         <div className="flex flex-col items-center md:items-start gap-4">
           <div className="flex items-center gap-3">
             <Image
-              alt="AWS Cloud Club Logo"
+              alt="AWS Student Builder Group logo"
               width={32}
               height={32}
               className="h-8 w-8 hover:rotate-12 transition-transform"
-              src="/club_logo.png"
+              src="/logo.jpeg"
             />
-            <span className="text-xl font-bold text-gray-900 font-headline">
-              AWS Cloud Club PGC
+            <span className="text-xl font-bold text-brand-ink font-headline">
+              AWS Student Builder Group
             </span>
           </div>
           <p className="font-body text-sm text-on-surface-variant text-center md:text-left">
-            © {new Date().getFullYear()} AWS Cloud Club - Punjab Group of Colleges, Muridke Campus
+            © {new Date().getFullYear()} AWS Student Builder Group - Punjab Group of Colleges, Muridke Campus
           </p>
         </div>
         <div className="hidden lg:block" />

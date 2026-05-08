@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "AWS Cloud Club PGC | Community Guidelines",
+  title: "AWS Student Builder Group | Community Guidelines",
 };
 
 const guidelines = [

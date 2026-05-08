@@ -4,7 +4,7 @@ import Image from "next/image";
 import { newsItems } from "@/data/news";
 
 export const metadata: Metadata = {
-  title: "AWS Cloud Club PGC | News",
+  title: "AWS Student Builder Group | News",
 };
 
 export default function NewsPage() {
@@ -15,10 +15,10 @@ export default function NewsPage() {
           Campus Updates
         </span>
         <h1 className="text-5xl md:text-7xl font-headline font-bold tracking-tighter mb-6">
-          Cloud Club <span className="text-brand-orange">News</span>
+          Student Builder Group <span className="text-brand-orange">News</span>
         </h1>
         <p className="text-xl text-on-surface-variant max-w-3xl leading-relaxed">
-          Important announcements, sponsorship milestones, recruitment updates, and highlights from our latest cloud activities.
+            Important announcements, sponsorship milestones, recruitment updates, and highlights from our latest builder activities.
         </p>
       </section>
 
@@ -88,13 +88,13 @@ export default function NewsPage() {
           <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
             Join the team, participate in workshops, and contribute to the community to become part of the next headline.
           </p>
-          <a
+            <a
             href="https://forms.gle/dbgRxAiYFdLFWfme7"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block bg-brand-orange text-white px-10 py-4 rounded-full font-headline font-bold hover:shadow-[0_0_24px_rgba(255,153,0,0.45)] transition-all"
           >
-            Apply for Team
+            Join the Team
           </a>
         </div>
       </section>

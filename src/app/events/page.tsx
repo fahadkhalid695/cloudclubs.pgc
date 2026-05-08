@@ -4,7 +4,7 @@ import Image from "next/image";
 import { getFeaturedEvent, getUpcomingEvents, getPastEvents } from "@/data/events";
 
 export const metadata: Metadata = {
-  title: "AWS Cloud Club PGC | Events",
+  title: "AWS Student Builder Group | Events",
 };
 
 export default function Events() {

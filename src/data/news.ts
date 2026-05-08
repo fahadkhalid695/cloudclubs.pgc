@@ -26,7 +26,7 @@ export const newsItems: NewsItem[] = [
     id: "first-official-sponsor",
     title: "First Official Sponsorship Secured",
     summary:
-      "AWS Cloud Club PGC received its first official sponsorship from Certopus, enabling better learning initiatives and wider outreach.",
+      "AWS Student Builder Group received its first official sponsorship from Certopus, enabling better learning initiatives and wider outreach.",
     date: "Mar 13, 2026",
     category: "Sponsorship",
     image:
