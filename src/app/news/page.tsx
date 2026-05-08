@@ -1,103 +1,91 @@
-import { Metadata } from "next";
-import Link from "next/link";
-import Image from "next/image";
-import { newsItems } from "@/data/news";
+'use client';
 
-export const metadata: Metadata = {
-  title: "AWS Student Builder Group | News",
-};
+import Image from "next/image";
+import Link from "next/link";
+import { newsItems } from "@/data/news";
+import { useScrollRevealGroup } from "@/hooks/useScrollReveal";
 
 export default function NewsPage() {
+  const newsRef = useScrollRevealGroup({ threshold: 0.1 });
   return (
-    <div className="pt-32 pb-24 max-w-7xl mx-auto px-8">
-      <section className="mb-16 animate-fade-up">
-        <span className="font-headline text-brand-purple uppercase tracking-widest text-xs font-bold mb-4 block">
-          Campus Updates
-        </span>
-        <h1 className="text-5xl md:text-7xl font-headline font-bold tracking-tighter mb-6">
-          Student Builder Group <span className="text-brand-orange">News</span>
-        </h1>
-        <p className="text-xl text-on-surface-variant max-w-3xl leading-relaxed">
-            Important announcements, sponsorship milestones, recruitment updates, and highlights from our latest builder activities.
-        </p>
-      </section>
+    <div className="pt-32 pb-20 md:pb-24">
+      <div className="page-shell">
+        <section className="section-card relative overflow-hidden rounded-[2rem] p-6 md:p-10 animate-scale-in">
+          <div className="accent-orb accent-magenta h-56 w-56 -top-16 right-8 animate-glow-pulse" />
+          <div className="accent-orb accent-blue h-52 w-52 -bottom-12 left-10 animate-glow-pulse" />
+          <div className="relative z-10 max-w-3xl animate-fade-up">
+            <span className="badge-chip badge-purple animate-bounce-in">Community updates</span>
+            <h1 className="mt-4 font-headline text-4xl font-bold tracking-tight text-brand-ink md:text-6xl animate-lift-up animate-stagger-1">
+              Student Builder Group Newsroom
+            </h1>
+            <p className="mt-4 text-base leading-relaxed text-on-surface-variant md:text-lg animate-fade-up animate-stagger-2">
+              Announcements, milestones, sponsorship updates, and opportunities from our campus builder ecosystem.
+            </p>
+          </div>
+        </section>
 
-      <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {newsItems.map((item, index) => {
-          const isExternal = item.link.startsWith("http");
-          return (
-            <article
-              key={item.id}
-              className={`group bg-white border border-brand-purple/10 rounded-[1.8rem] overflow-hidden shadow-sm hover:shadow-xl transition-smooth hover:-translate-y-2 card-shine animate-fade-up ${
-                index === 1 ? "animate-stagger-1" : index === 2 ? "animate-stagger-2" : index === 3 ? "animate-stagger-3" : ""
-              }`}
-            >
-              <div className="h-56 overflow-hidden">
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  width={720}
-                  height={420}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-              </div>
-              <div className="p-7 md:p-8">
-                <div className="flex items-center justify-between mb-4 gap-3">
-                  <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-purple bg-brand-purple/10 px-3 py-1.5 rounded-full">
-                    {item.category}
-                  </span>
-                  <span className="text-xs text-on-surface-variant">{item.date}</span>
+        <section ref={newsRef} className="mt-10 grid gap-6 md:grid-cols-2">
+          {newsItems.map((item, index) => {
+            const isExternal = item.link.startsWith("http");
+            return (
+              <article
+                key={item.id}
+                className={`scroll-reveal-stagger section-card card-shine hover-pop overflow-hidden rounded-2xl will-change-transform ${
+                  index === 1 ? "animate-stagger-1" : index === 2 ? "animate-stagger-2" : index === 3 ? "animate-stagger-3" : ""
+                }`}
+              >
+                <div className="h-56 overflow-hidden">
+                  <Image src={item.image} alt={item.title} width={780} height={460} className="h-full w-full object-cover transition-transform duration-500 hover:scale-110" />
                 </div>
-                <h2 className="text-2xl font-headline font-bold mb-3 group-hover:text-brand-orange transition-colors">
-                  {item.title}
-                </h2>
-                <p className="text-on-surface-variant leading-relaxed mb-6">{item.summary}</p>
+                <div className="p-6">
+                  <div className="flex items-center justify-between gap-3">
+                    <span className="badge-chip badge-blue">{item.category}</span>
+                    <span className="text-xs font-semibold uppercase tracking-[0.16em] text-on-surface-variant">{item.date}</span>
+                  </div>
+                  <h2 className="mt-4 font-headline text-2xl font-bold tracking-tight text-brand-ink">{item.title}</h2>
+                  <p className="mt-3 text-sm leading-relaxed text-on-surface-variant">{item.summary}</p>
 
-                {isExternal ? (
-                  <a
-                    href={item.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-brand-orange font-bold"
-                  >
-                    {item.linkLabel}
-                    <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-smooth">
-                      arrow_forward
-                    </span>
-                  </a>
-                ) : (
-                  <Link href={item.link} className="inline-flex items-center gap-2 text-brand-orange font-bold">
-                    {item.linkLabel}
-                    <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-smooth">
-                      arrow_forward
-                    </span>
-                  </Link>
-                )}
-              </div>
-            </article>
-          );
-        })}
-      </section>
+                  {isExternal ? (
+                    <a
+                      href={item.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-5 inline-flex text-sm font-bold uppercase tracking-[0.14em] text-brand-purple transition-premium hover-glow"
+                    >
+                      {item.linkLabel}
+                    </a>
+                  ) : (
+                    <Link
+                      href={item.link}
+                      className="mt-5 inline-flex text-sm font-bold uppercase tracking-[0.14em] text-brand-purple transition-premium hover-glow"
+                    >
+                      {item.linkLabel}
+                    </Link>
+                  )}
+                </div>
+              </article>
+            );
+          })}
+        </section>
 
-      <section className="mt-20 rounded-[2.5rem] bg-inverse-surface p-10 md:p-14 text-center relative overflow-hidden animate-scale-in animate-stagger-2">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,153,0,0.25),transparent_60%)]" />
-        <div className="relative z-10">
-          <h2 className="font-headline text-4xl md:text-5xl font-bold text-white mb-5">
-            Want to Be Featured in Club News?
-          </h2>
-          <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
-            Join the team, participate in workshops, and contribute to the community to become part of the next headline.
-          </p>
+        <section className="mt-12 section-dark relative overflow-hidden rounded-[2rem] p-8 md:p-10">
+          <div className="accent-orb accent-amber h-48 w-48 -top-12 right-10 animate-glow-pulse" />
+          <div className="relative z-10 text-center animate-fade-up">
+            <h2 className="font-headline text-3xl font-bold tracking-tight md:text-4xl animate-lift-up animate-stagger-1">Want to be in our next headline?</h2>
+            <p className="mx-auto mt-4 max-w-2xl text-white/75 animate-fade-up animate-stagger-2">
+              Join the AWS Student Builder Group team, contribute to workshops, and build impact through your work.
+            </p>
             <a
-            href="https://forms.gle/dbgRxAiYFdLFWfme7"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block bg-brand-orange text-white px-10 py-4 rounded-full font-headline font-bold hover:shadow-[0_0_24px_rgba(255,153,0,0.45)] transition-smooth"
-          >
-            Join the Team
-          </a>
-        </div>
-      </section>
+              href="https://forms.gle/dbgRxAiYFdLFWfme7"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 inline-flex rounded-xl bg-white px-7 py-3 text-sm font-bold uppercase tracking-[0.16em] text-brand-ink transition-premium hover-pop will-change-transform"
+            >
+              Join The Team
+            </a>
+          </div>
+        </section>
+      </div>
     </div>
   );
 }

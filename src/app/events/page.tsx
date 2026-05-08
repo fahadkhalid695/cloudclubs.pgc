@@ -1,180 +1,145 @@
-import { Metadata } from "next";
-import Link from "next/link";
-import Image from "next/image";
-import { getFeaturedEvent, getUpcomingEvents, getPastEvents } from "@/data/events";
+'use client';
 
-export const metadata: Metadata = {
-  title: "AWS Student Builder Group | Events",
-};
+import Image from "next/image";
+import Link from "next/link";
+import { getFeaturedEvent, getPastEvents, getUpcomingEvents } from "@/data/events";
+import { useScrollRevealGroup } from "@/hooks/useScrollReveal";
+import { ScrollParallax } from "@/components/Parallax";
 
 export default function Events() {
   const featuredEvent = getFeaturedEvent();
   const upcomingEvents = getUpcomingEvents();
   const pastEvents = getPastEvents();
+  const upcomingRef = useScrollRevealGroup({ threshold: 0.1 });
+  const recapsRef = useScrollRevealGroup({ threshold: 0.1 });
 
   return (
-    <div className="pt-24 pb-24 max-w-7xl mx-auto px-6 md:px-8">
-      {featuredEvent && (
-        <section className="relative mb-16 overflow-hidden rounded-[2.2rem] bg-inverse-surface text-white animate-scale-in hero-gradient">
-          <div
-            className="absolute inset-0 opacity-30 pointer-events-none"
-            style={{
-              backgroundImage:
-                "radial-gradient(circle at 12% 22%, #ff9900 0%, transparent 44%), radial-gradient(circle at 85% 70%, #6b4fa9 0%, transparent 50%)",
-            }}
-          />
-          <div className="relative grid md:grid-cols-2 items-center gap-10 p-8 md:p-14">
-            <div>
-              <span className="inline-block px-4 py-1.5 rounded-full bg-brand-orange text-white font-headline text-xs font-bold uppercase tracking-widest mb-6">
-                Featured Event
-              </span>
-              <h1 className="text-4xl md:text-6xl font-bold font-headline tracking-tighter mb-5 leading-[1.05]">
-                {featuredEvent.title}
-              </h1>
-              <p className="text-lg text-gray-300 mb-8 max-w-xl leading-relaxed">{featuredEvent.description}</p>
-              <div className="flex flex-wrap gap-5 mb-10">
-                <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-white/10">
-                  <span className="material-symbols-outlined text-brand-orange">calendar_today</span>
-                  <span className="text-sm font-medium">{featuredEvent.date}</span>
+    <div className="pt-32 pb-20 md:pb-24">
+      <div className="page-shell">
+        {featuredEvent && (
+          <section className="section-dark relative overflow-hidden rounded-[2rem] p-6 md:p-10 animate-scale-in">
+            <div className="accent-orb accent-blue h-56 w-56 -top-10 right-8 animate-glow-pulse" />
+            <div className="accent-orb accent-amber h-52 w-52 -bottom-12 left-10 animate-glow-pulse" />
+            <div className="relative z-10 grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+              <div className="animate-fade-up">
+                <span className="badge-chip bg-white/14 text-white animate-bounce-in">Featured Event</span>
+                <h1 className="mt-4 font-headline text-4xl font-bold tracking-tight md:text-6xl animate-lift-up animate-stagger-1">{featuredEvent.title}</h1>
+                <p className="mt-4 max-w-2xl text-white/75 animate-fade-up animate-stagger-2">{featuredEvent.description}</p>
+                <div className="mt-6 flex flex-wrap gap-3 text-xs uppercase tracking-[0.18em] text-white/70">
+                  <span className="rounded-full bg-white/10 px-3 py-2">{featuredEvent.date}</span>
+                  <span className="rounded-full bg-white/10 px-3 py-2">{featuredEvent.time}</span>
+                  <span className="rounded-full bg-white/10 px-3 py-2">{featuredEvent.location}</span>
                 </div>
-                <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-white/10">
-                  <span className="material-symbols-outlined text-brand-orange">location_on</span>
-                  <span className="text-sm font-medium">{featuredEvent.location}</span>
+                <div className="mt-7 flex flex-wrap gap-3 animate-fade-up animate-stagger-3">
+                  <a
+                    href={featuredEvent.meetupLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-xl bg-brand-white px-5 py-3 text-xs font-bold uppercase tracking-[0.16em] text-brand-ink transition-premium hover-pop will-change-transform"
+                  >
+                    Register Now
+                  </a>
+                  <Link
+                    href={`/events/${featuredEvent.id}`}
+                    className="rounded-xl border border-white/30 px-5 py-3 text-xs font-bold uppercase tracking-[0.16em] text-white transition-premium hover-glow hover:border-white/50"
+                  >
+                    Event Details
+                  </Link>
                 </div>
               </div>
-              <div className="flex gap-4 flex-wrap">
-                <a
-                  href={featuredEvent.meetupLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-brand-orange text-white px-8 py-4 rounded-full font-headline font-bold transition-all hover:shadow-[0_0_20px_rgba(255,153,0,0.4)] hover:scale-105 active:scale-95"
-                >
-                  Register Now
-                </a>
-                <Link
-                  href={`/events/${featuredEvent.id}`}
-                  className="block border border-gray-500 px-8 py-4 rounded-full font-headline font-bold hover:bg-white/10 transition-all hover:scale-105"
-                >
-                  Event Details
-                </Link>
+              <div className="overflow-hidden rounded-[1.4rem] border border-white/20 shadow-2xl hover-pop will-change-transform">
+                <ScrollParallax offset={0.8}>
+                  <Image
+                    src={featuredEvent.image}
+                    alt={featuredEvent.title}
+                    width={900}
+                    height={680}
+                    className="h-[320px] w-full object-cover md:h-[420px] transition-transform duration-500"
+                  />
+                </ScrollParallax>
               </div>
             </div>
-            <div className="hidden md:block relative">
-              <div className="aspect-[4/4.2] rounded-[1.6rem] overflow-hidden shadow-2xl rotate-2 transform hover:rotate-0 transition-transform duration-500">
-                <Image alt="Featured Event" className="w-full h-full object-cover" src={featuredEvent.image} width={620} height={660} />
-              </div>
-              <div className="absolute -bottom-6 -left-6 bg-brand-purple p-5 rounded-2xl shadow-xl -rotate-3">
-                <span className="text-2xl font-bold text-white">Community First</span>
-                <p className="text-xs uppercase tracking-tighter font-bold text-white/80">Hands-on and Practical</p>
-              </div>
-            </div>
+          </section>
+        )}
+
+        <section className="mt-12">
+          <div className="mb-6 animate-fade-up">
+            <span className="badge-chip badge-blue animate-bounce-in">Upcoming</span>
+            <h2 className="mt-3 font-headline text-3xl font-bold tracking-tight md:text-4xl">Explore Events</h2>
+          </div>
+          <div ref={upcomingRef} className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {upcomingEvents.map((event, index) => (
+              <article
+                key={event.id}
+                className={`scroll-reveal-stagger section-card card-shine hover-pop rounded-2xl will-change-transform ${
+                  index === 1 ? "animate-stagger-1" : index === 2 ? "animate-stagger-2" : ""
+                }`}
+              >
+                <div className="relative h-48 overflow-hidden rounded-t-2xl">
+                  <Image src={event.image} alt={event.title} width={700} height={440} className="h-full w-full object-cover transition-transform duration-500 hover:scale-105" />
+                  <span className={`absolute right-3 top-3 rounded-full ${event.tagColor} px-3 py-1 text-[10px] font-bold uppercase tracking-[0.16em] text-white`}>
+                    {event.tag}
+                  </span>
+                </div>
+                <div className="p-5">
+                  <h3 className="font-headline text-xl font-bold tracking-tight text-brand-ink">{event.title}</h3>
+                  <p className="mt-2 text-sm text-on-surface-variant">{event.description}</p>
+                  <div className="mt-4 flex flex-wrap gap-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-on-surface-variant">
+                    <span className="rounded-full bg-slate-100 px-2.5 py-1">{event.date}</span>
+                    <span className="rounded-full bg-slate-100 px-2.5 py-1">{event.time}</span>
+                  </div>
+                  <div className="mt-5 flex items-center justify-between border-t border-slate-200 pt-4">
+                    <Link href={`/events/${event.id}`} className="text-sm font-bold text-brand-purple transition-premium hover:text-brand-ink hover-glow">
+                      View Details
+                    </Link>
+                    <a
+                      href={event.meetupLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm font-bold text-brand-amber transition-premium hover-shift-up"
+                    >
+                      Register
+                    </a>
+                  </div>
+                </div>
+              </article>
+            ))}
           </div>
         </section>
-      )}
 
-      <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6 animate-fade-up animate-stagger-1">
-        <div>
-          <h2 className="text-3xl md:text-4xl font-bold font-headline tracking-tight mb-2">Explore Events</h2>
-          <p className="text-on-surface-variant">Workshops, seminars, and networking sessions that move members from theory to execution.</p>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {upcomingEvents.map((event, index) => (
-          <article
-            key={event.title}
-            className={`group bg-white rounded-[1.8rem] overflow-hidden transition-smooth cursor-pointer shadow-sm hover:shadow-2xl flex flex-col border border-brand-purple/10 hover:-translate-y-2 card-shine animate-fade-up ${
-              index === 1 ? "animate-stagger-1" : index === 2 ? "animate-stagger-2" : ""
-            }`}
-          >
-            <div className="h-48 overflow-hidden relative">
-              <Image
-                src={event.image}
-                alt={event.title}
-                width={560}
-                height={360}
-                className="w-full h-full object-cover grayscale-[15%] group-hover:grayscale-0 transition-all duration-500"
-              />
-              <div
-                className={`absolute top-4 right-4 ${event.tagColor} text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest`}
+        <section className="mt-14">
+          <div className="mb-6 animate-fade-up">
+            <span className="badge-chip badge-mint animate-bounce-in">Recaps</span>
+            <h2 className="mt-3 font-headline text-2xl font-bold tracking-tight md:text-3xl">Recent Sessions</h2>
+          </div>
+          <div ref={recapsRef} className="grid gap-4 md:grid-cols-2">
+            {pastEvents.map((event, index) => (
+              <article
+                key={event.id}
+                className={`scroll-reveal-stagger section-card hover-pop rounded-2xl p-4 md:p-5 will-change-transform ${index === 1 ? "animate-stagger-1" : ""}`}
               >
-                {event.tag}
-              </div>
-            </div>
-            <div className="p-7 flex-grow flex flex-col">
-              <div className="flex items-center gap-3 mb-4 text-xs font-semibold text-on-surface-variant">
-                <span className="flex items-center gap-1">
-                  <span className="material-symbols-outlined text-sm text-brand-purple">event</span>
-                  {event.date}
-                </span>
-                <span className="flex items-center gap-1">
-                  <span className="material-symbols-outlined text-sm text-brand-purple">schedule</span>
-                  {event.time}
-                </span>
-              </div>
-              <h3 className="text-xl font-bold mb-3 group-hover:text-brand-orange transition-colors">
-                <Link href={`/events/${event.id}`} className="before:absolute before:inset-0 transition-smooth">
-                  {event.title}
-                </Link>
-              </h3>
-              <p className="text-sm text-on-surface-variant mb-6 flex-grow leading-relaxed">{event.description}</p>
-              <div className="flex items-center justify-between pt-5 border-t border-outline-variant/20 relative z-10">
-                <div className="flex items-center gap-1 text-xs font-medium text-on-surface">
-                  <span className="material-symbols-outlined text-sm text-brand-purple">
-                    {event.location === "Online" ? "map" : "location_on"}
-                  </span>
-                  {event.location}
+                <div className="flex gap-4">
+                  <div className="h-20 w-20 shrink-0 overflow-hidden rounded-xl hover:scale-110 transition-transform duration-300">
+                    <Image src={event.image} alt={event.title} width={220} height={220} className="h-full w-full object-cover" />
+                  </div>
+                  <div>
+                    <h3 className="font-headline text-lg font-bold tracking-tight">{event.title}</h3>
+                    <p className="mt-1 text-sm text-on-surface-variant">{event.description}</p>
+                    <a
+                      href={event.meetupLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-2 inline-flex text-xs font-bold uppercase tracking-[0.16em] text-brand-purple transition-premium hover-glow"
+                    >
+                      Watch Recording
+                    </a>
+                  </div>
                 </div>
-                <a
-                  href={event.meetupLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm font-bold text-brand-orange flex items-center gap-1 group/btn hover:text-[#ff9900]"
-                >
-                  Register
-                  <span className="material-symbols-outlined text-sm group-hover/btn:translate-x-1 transition-transform">
-                    arrow_forward
-                  </span>
-                </a>
-              </div>
-            </div>
-          </article>
-        ))}
+              </article>
+            ))}
+          </div>
+        </section>
       </div>
-
-      <section className="mt-24 animate-fade-up animate-stagger-2">
-        <h2 className="text-2xl md:text-3xl font-bold font-headline mb-8">Recent Recaps</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {pastEvents.map((event, index) => (
-            <article
-              key={event.title}
-              className={`flex gap-6 p-6 rounded-2xl bg-surface-container-highest/30 items-center hover:bg-white transition-smooth relative border border-outline-variant/15 hover:border-brand-purple/20 hover-lift ${
-                index === 1 ? "animate-fade-up animate-stagger-1" : "animate-fade-up"
-              }`}
-            >
-              <div className="w-24 h-24 rounded-xl overflow-hidden shrink-0">
-                <Image alt={event.title} className="w-full h-full object-cover" src={event.image} width={200} height={200} />
-              </div>
-              <div>
-                <h4 className="font-bold mb-1 text-lg">
-                  <Link href={`/events/${event.id}`} className="before:absolute before:inset-0">
-                    {event.title}
-                  </Link>
-                </h4>
-                <p className="text-sm text-on-surface-variant mb-3">{event.description}</p>
-                <a
-                  href={event.meetupLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-xs font-bold text-brand-purple hover:text-brand-orange underline underline-offset-4 transition-colors cursor-pointer relative z-10"
-                >
-                  Watch Recording
-                </a>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
     </div>
   );
 }

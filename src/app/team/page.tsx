@@ -1,18 +1,16 @@
-import { Metadata } from "next";
-import Link from "next/link";
-import Image from "next/image";
-import { LinkIcon, Mail, MessageCircle } from "lucide-react";
+'use client';
 
-export const metadata: Metadata = {
-  title: "AWS Student Builder Group | Team",
-};
+import Image from "next/image";
+import Link from "next/link";
+import { LinkIcon, Mail, MessageCircle } from "lucide-react";
+import { useScrollRevealGroup } from "@/hooks/useScrollReveal";
 
 const captain = {
   name: "Rana Fahad Khalid",
   role: "Founding Captain",
-  badge: "Captain",
+  badge: "Leadership",
   image: "/profile.png",
-  bio: "As a Club Captain, I lead initiatives to empower students with practical knowledge of AWS and open-source tools, fostering a culture of learning, building, and collaboration.",
+  bio: "As club captain, I lead initiatives that help students build practical AWS and open-source skills through project-based learning.",
   linkedin: "https://www.linkedin.com/in/fahadkhalid695",
   whatsapp: "https://wa.link/zh29bt",
   email: "fahadkhalid695@gmail.com",
@@ -64,166 +62,99 @@ const teamMembers = [
   },
 ];
 
-export default function Team() {
+export default function TeamPage() {
+  const coreTeamRef = useScrollRevealGroup({ threshold: 0.1 });
+  const teamRef = useScrollRevealGroup({ threshold: 0.1 });
   return (
-    <div className="pt-32 pb-24 max-w-7xl mx-auto px-8">
-      <section className="mb-16 animate-fade-up">
-        <span className="font-headline text-brand-purple uppercase tracking-widest text-xs font-bold mb-4 block">
-          People Behind the Club
-        </span>
-        <h1 className="font-headline text-5xl md:text-7xl font-bold tracking-tighter text-on-surface mb-6 max-w-4xl">
-          Meet Our <span className="text-brand-orange">Team</span>
-        </h1>
-        <p className="text-lg text-on-surface-variant max-w-3xl leading-relaxed">
-          We are the student-led team building cloud talent at PGC Muridke through events, mentorship, and real project experience.
-        </p>
-      </section>
+    <div className="pt-32 pb-20 md:pb-24">
+      <div className="page-shell">
+        <section className="section-card rounded-[2rem] p-6 md:p-10 animate-scale-in">
+          <span className="badge-chip badge-mint">People behind the chapter</span>
+          <h1 className="mt-4 font-headline text-4xl font-bold tracking-tight text-brand-ink md:text-6xl">Meet Our Team</h1>
+          <p className="mt-4 max-w-3xl text-on-surface-variant">
+            We are a student-led crew building cloud talent at PGC Muridke through events, mentorship, and practical project culture.
+          </p>
+        </section>
 
-      <section className="mb-20 animate-fade-up animate-stagger-1">
-        <div className="flex items-end justify-between mb-8 gap-4">
-          <h2 className="font-headline text-3xl md:text-4xl font-bold">Captain</h2>
-          <span className="text-xs font-bold uppercase tracking-[0.2em] text-brand-orange">Leadership</span>
-        </div>
-        <article className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center rounded-[2rem] border border-brand-purple/20 bg-white p-6 md:p-8 hover-lift card-shine animate-scale-in">
-          <div className="aspect-[4/4.2] rounded-2xl overflow-hidden">
-            <Image
-              alt={captain.name}
-              width={640}
-              height={680}
-              className="w-full h-full object-cover"
-              src={captain.image}
-            />
-          </div>
-          <div>
-            <span className="inline-block text-[11px] font-bold uppercase tracking-[0.2em] text-brand-purple bg-brand-purple/10 px-4 py-2 rounded-full mb-4">
-              {captain.badge}
-            </span>
-            <h3 className="font-headline text-4xl font-bold mb-2">{captain.name}</h3>
-            <p className="text-brand-orange font-semibold text-lg mb-4">{captain.role}</p>
-            <p className="text-on-surface-variant leading-relaxed text-lg">{captain.bio}</p>
-            <div className="mt-6 flex items-center gap-3">
-              <a
-                href={captain.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Captain LinkedIn"
-                className="w-11 h-11 rounded-full bg-surface-container-low border border-outline-variant/30 flex items-center justify-center text-brand-purple hover:bg-brand-purple hover:text-white transition-smooth"
-              >
-                <LinkIcon size={18} />
-              </a>
-              <a
-                href={`mailto:${captain.email}`}
-                aria-label="Captain Email"
-                className="w-11 h-11 rounded-full bg-surface-container-low border border-outline-variant/30 flex items-center justify-center text-brand-purple hover:bg-brand-purple hover:text-white transition-smooth"
-              >
-                <Mail size={18} />
-              </a>
-              <a
-                href={captain.whatsapp}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Captain WhatsApp"
-                className="w-11 h-11 rounded-full bg-surface-container-low border border-outline-variant/30 flex items-center justify-center text-brand-purple hover:bg-[#25D366] hover:text-white transition-smooth"
-              >
-                <MessageCircle size={18} />
-              </a>
+        <section className="mt-10 section-card card-shine rounded-[2rem] p-6 md:p-8 animate-fade-up">
+          <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+            <div className="overflow-hidden rounded-2xl">
+              <Image src={captain.image} alt={captain.name} width={800} height={840} className="h-full w-full object-cover" />
+            </div>
+            <div>
+              <span className="badge-chip badge-purple">{captain.badge}</span>
+              <h2 className="mt-4 font-headline text-3xl font-bold tracking-tight">{captain.name}</h2>
+              <p className="mt-1 text-sm font-semibold uppercase tracking-[0.15em] text-brand-amber">{captain.role}</p>
+              <p className="mt-5 text-on-surface-variant">{captain.bio}</p>
+              <div className="mt-6 flex gap-2">
+                <a href={captain.linkedin} target="_blank" rel="noopener noreferrer" aria-label="Captain LinkedIn" className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-brand-purple/10 text-brand-purple transition-smooth hover:bg-brand-purple hover:text-white">
+                  <LinkIcon size={16} />
+                </a>
+                <a href={`mailto:${captain.email}`} aria-label="Captain Email" className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-brand-blue/10 text-brand-blue transition-smooth hover:bg-brand-blue hover:text-brand-ink">
+                  <Mail size={16} />
+                </a>
+                <a href={captain.whatsapp} target="_blank" rel="noopener noreferrer" aria-label="Captain WhatsApp" className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-brand-mint/15 text-[#11a46a] transition-smooth hover:bg-brand-mint hover:text-brand-ink">
+                  <MessageCircle size={16} />
+                </a>
+              </div>
             </div>
           </div>
-        </article>
-      </section>
+        </section>
 
-      <section className="mb-20 animate-fade-up animate-stagger-2">
-        <div className="flex items-end justify-between mb-8 gap-4">
-          <h2 className="font-headline text-3xl md:text-4xl font-bold">Core Team Members</h2>
-          <span className="text-xs font-bold uppercase tracking-[0.2em] text-brand-orange">Core Team</span>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {coreTeamMembers.map((member, index) => (
-            <article
-              key={member.name}
-              className={`group rounded-[2rem] border border-brand-purple/15 bg-white p-6 hover-lift card-shine animate-fade-up transition-smooth ${
-                index === 1 ? "animate-stagger-1" : index === 2 ? "animate-stagger-2" : ""
-              }`}
-            >
-              <div className="aspect-[4/4.2] rounded-2xl overflow-hidden mb-5">
-                <Image
-                  alt={member.name}
-                  width={520}
-                  height={540}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  src={member.image}
-                />
-              </div>
-              <div className="flex items-center justify-between mb-2">
-                <h3 className="font-headline text-2xl font-bold">{member.name}</h3>
-                <span className="text-[10px] font-bold uppercase tracking-widest text-brand-purple bg-brand-purple/10 px-3 py-1 rounded-full">
-                  {member.badge}
-                </span>
-              </div>
-              <p className="text-brand-orange font-semibold mb-3">{member.role}</p>
-              <p className="text-sm text-on-surface-variant leading-relaxed">{member.bio}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="mb-20 animate-fade-up animate-stagger-3">
-        <div className="flex items-end justify-between mb-8 gap-4">
-          <h2 className="font-headline text-3xl md:text-4xl font-bold">Team Members</h2>
-          <span className="text-xs font-bold uppercase tracking-[0.2em] text-brand-purple">Execution Team</span>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {teamMembers.map((member, index) => (
-            <article
-              key={member.name}
-              className={`group rounded-3xl bg-surface-container-low p-4 border border-transparent hover:border-brand-purple/25 hover-lift animate-fade-up transition-smooth ${
-                index === 1 ? "animate-stagger-1" : index === 2 ? "animate-stagger-2" : index === 3 ? "animate-stagger-3" : ""
-              }`}
-            >
-              <div className="aspect-square rounded-2xl overflow-hidden mb-4">
-                <Image
-                  alt={member.name}
-                  width={420}
-                  height={420}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  src={member.image}
-                />
-              </div>
-              <h3 className="font-headline text-lg font-bold">{member.name}</h3>
-              <p className="text-sm text-brand-purple font-medium">{member.role}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="bg-inverse-surface rounded-[2.5rem] p-10 md:p-16 text-center relative overflow-hidden animate-fade-up animate-stagger-2">
-        <div className="absolute top-0 right-0 w-56 h-56 bg-brand-orange/20 rounded-full blur-3xl -mr-28 -mt-28" />
-        <div className="absolute bottom-0 left-0 w-56 h-56 bg-brand-purple/20 rounded-full blur-3xl -ml-28 -mb-28" />
-        <div className="relative z-10">
-          <h2 className="font-headline text-4xl md:text-5xl font-bold text-white mb-5">
-            We Are Currently Hiring Team Members
-          </h2>
-          <p className="text-gray-300 max-w-2xl mx-auto mb-10 text-lg">
-            If you are passionate about cloud, community building, and leadership, apply now and help us scale the AWS culture at campus.
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link
-              href="https://forms.gle/dbgRxAiYFdLFWfme7"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-brand-orange text-white px-10 py-4 rounded-xl font-headline font-bold hover:shadow-[0_0_30px_rgba(255,153,0,0.4)] transition-smooth active:scale-95"
-            >
-              Join the Team
-            </Link>
-            <Link
-              href="/guidelines"
-              className="bg-transparent border border-gray-600 text-white px-10 py-4 rounded-xl font-headline font-bold hover:bg-white/10 transition-smooth"
-            >
-              View Guidelines
-            </Link>
+        <section className="mt-10">
+          <h2 className="font-headline text-2xl font-bold tracking-tight md:text-3xl animate-fade-up">Core Team</h2>
+          <div ref={coreTeamRef} className="mt-5 grid gap-5 md:grid-cols-2">
+            {coreTeamMembers.map((member, index) => (
+              <article key={member.name} className={`scroll-reveal-stagger section-card hover-pop rounded-2xl p-5 will-change-transform ${index === 1 ? "animate-stagger-1" : ""}`}>
+                <div className="flex gap-4">
+                  <div className="h-24 w-24 shrink-0 overflow-hidden rounded-xl hover:scale-110 transition-transform duration-300">
+                    <Image src={member.image} alt={member.name} width={260} height={260} className="h-full w-full object-cover" />
+                  </div>
+                  <div>
+                    <span className="badge-chip badge-blue">{member.badge}</span>
+                    <h3 className="mt-2 font-headline text-xl font-bold">{member.name}</h3>
+                    <p className="text-sm font-semibold uppercase tracking-[0.14em] text-brand-amber">{member.role}</p>
+                    <p className="mt-2 text-sm text-on-surface-variant">{member.bio}</p>
+                  </div>
+                </div>
+              </article>
+            ))}
           </div>
-        </div>
-      </section>
+        </section>
+
+        <section className="mt-10">
+          <h2 className="font-headline text-2xl font-bold tracking-tight md:text-3xl animate-fade-up">Execution Team</h2>
+          <div ref={teamRef} className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {teamMembers.map((member, index) => (
+              <article key={member.name} className={`scroll-reveal-stagger section-card hover-pop rounded-2xl p-4 will-change-transform ${index > 0 ? "animate-stagger-1" : ""}`}>
+                <div className="overflow-hidden rounded-xl hover:scale-110 transition-transform duration-300">
+                  <Image src={member.image} alt={member.name} width={420} height={420} className="h-52 w-full object-cover" />
+                </div>
+                <h3 className="mt-3 font-headline text-lg font-bold tracking-tight">{member.name}</h3>
+                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-purple">{member.role}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="mt-12 section-dark relative overflow-hidden rounded-[2rem] p-8 md:p-10">
+          <div className="accent-orb accent-magenta h-44 w-44 -top-10 right-10" />
+          <div className="relative z-10 text-center">
+            <h2 className="font-headline text-3xl font-bold tracking-tight md:text-4xl">We are hiring student builders</h2>
+            <p className="mx-auto mt-4 max-w-2xl text-white/75">
+              Passionate about cloud and community? Join us and shape the next generation of builders.
+            </p>
+            <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
+              <Link href="https://forms.gle/dbgRxAiYFdLFWfme7" target="_blank" rel="noopener noreferrer" className="inline-flex justify-center rounded-xl bg-white px-7 py-3 text-sm font-bold uppercase tracking-[0.16em] text-brand-ink transition-smooth hover:-translate-y-0.5">
+                Join Team
+              </Link>
+              <Link href="/guidelines" className="inline-flex justify-center rounded-xl border border-white/30 px-7 py-3 text-sm font-bold uppercase tracking-[0.16em] text-white transition-smooth hover:bg-white/10">
+                View Guidelines
+              </Link>
+            </div>
+          </div>
+        </section>
+      </div>
     </div>
   );
 }

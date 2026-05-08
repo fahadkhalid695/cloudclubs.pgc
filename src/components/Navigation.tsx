@@ -1,22 +1,23 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import Image from "next/image";
+
+const links = [
+  { name: "Home", href: "/" },
+  { name: "Roadmap", href: "/programs" },
+  { name: "Events", href: "/events" },
+  { name: "News", href: "/news" },
+  { name: "Team", href: "/team" },
+  { name: "Resources", href: "/resources" },
+  { name: "Guidelines", href: "/guidelines" },
+];
 
 export default function Navigation() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
-
-  const links = [
-    { name: "Home", href: "/" },
-    { name: "Roadmap", href: "/programs" },
-    { name: "Team", href: "/team" },
-    { name: "Events", href: "/events" },
-    { name: "News", href: "/news" },
-    { name: "Resources", href: "/resources" },
-  ];
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
@@ -26,105 +27,102 @@ export default function Navigation() {
   }, [mobileOpen]);
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-white/75 backdrop-blur-xl shadow-sm border-b border-white/60">
-      <div className="flex justify-between items-center px-6 md:px-8 py-4 max-w-7xl mx-auto">
-        <Link href="/" className="flex items-center gap-3 group cursor-pointer">
-          <Image
-            alt="AWS Student Builder Group logo"
-            width={40}
-            height={40}
-            className="h-10 w-10 object-contain transition-transform group-hover:rotate-6"
-            src="/logo.jpeg"
-          />
-          <span className="text-lg md:text-xl font-bold tracking-tight text-brand-ink font-headline">
-            AWS Student Builder Group
-          </span>
-        </Link>
-
-        {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-8 font-headline text-sm font-medium tracking-tight">
-          {links.map((link) => {
-            const isActive =
-              link.href === "/"
-                ? pathname === "/"
-                : pathname?.startsWith(link.href);
-
-            return (
-              <Link
-                key={link.name}
-                href={link.href}
-                className={`transition-all duration-300 hover:scale-105 ${
-                  isActive
-                    ? "text-brand-purple border-b-2 border-brand-purple pb-1"
-                    : "text-slate-600 hover:text-brand-purple"
-                }`}
-              >
-                {link.name}
-              </Link>
-            );
-          })}
-        </div>
-
-        <div className="flex items-center gap-4">
-          <Link
-            href="https://www.meetup.com/aws-cloud-club-at-punjab-group-of-colleges/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden sm:inline-flex items-center gap-2 bg-brand-ink text-white px-6 py-2.5 rounded-full font-headline font-bold text-sm hover:shadow-[0_0_20px_rgba(22,29,38,0.22)] transition-all duration-300 active:scale-95 hover:scale-105"
-          >
-            Join the Group
-          </Link>
-
-          {/* Mobile Hamburger */}
-          <button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden flex flex-col gap-1.5 p-2 rounded-lg hover:bg-surface-container-low transition-colors"
-            aria-label="Toggle menu"
-          >
-            <span className={`block w-6 h-0.5 bg-on-surface transition-all duration-300 ${mobileOpen ? "rotate-45 translate-y-2" : ""}`} />
-            <span className={`block w-6 h-0.5 bg-on-surface transition-all duration-300 ${mobileOpen ? "opacity-0" : ""}`} />
-            <span className={`block w-6 h-0.5 bg-on-surface transition-all duration-300 ${mobileOpen ? "-rotate-45 -translate-y-2" : ""}`} />
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile Menu Overlay */}
-      {mobileOpen && (
-          <div className="md:hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-xl border-b border-slate-200 shadow-2xl animate-in slide-in-from-top-2 duration-300">
-          <div className="flex flex-col px-8 py-6 gap-2">
-            {links.map((link) => {
-              const isActive =
-                link.href === "/"
-                  ? pathname === "/"
-                  : pathname?.startsWith(link.href);
-
-              return (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => setMobileOpen(false)}
-                  className={`py-3 px-4 rounded-xl text-lg font-headline font-medium transition-all ${
-                    isActive
-                      ? "text-brand-purple bg-brand-purple/10"
-                      : "text-slate-600 hover:text-brand-purple hover:bg-surface-container-low"
-                  }`}
-                >
-                  {link.name}
-                </Link>
-              );
-            })}
-            <Link
-              href="https://www.meetup.com/aws-cloud-club-at-punjab-group-of-colleges/"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => setMobileOpen(false)}
-              className="mt-4 bg-brand-ink text-white px-6 py-3 rounded-full font-headline font-bold text-center hover:shadow-[0_0_20px_rgba(22,29,38,0.22)] transition-all"
-            >
-              Join the Group
+    <header className="fixed top-0 left-0 right-0 z-50 px-4 md:px-8 pt-4">
+      <div className="page-shell">
+        <nav className="section-card rounded-2xl px-4 py-3 md:px-6 md:py-4">
+          <div className="flex items-center justify-between gap-4">
+            <Link href="/" className="flex items-center gap-3 group min-w-0">
+              <Image
+                alt="AWS Student Builder Group logo"
+                src="/logo.jpeg"
+                width={42}
+                height={42}
+                className="h-10 w-10 rounded-xl object-cover border border-white shadow-sm transition-smooth group-hover:rotate-6"
+              />
+              <div className="min-w-0">
+                <p className="font-headline text-sm md:text-base font-bold text-brand-ink truncate">
+                  AWS Student Builder Group
+                </p>
+                <p className="hidden md:block text-[11px] tracking-[0.2em] uppercase text-on-surface-variant">
+                  PGC Muridke
+                </p>
+              </div>
             </Link>
+
+            <div className="hidden lg:flex items-center gap-1 rounded-xl bg-slate-100/75 p-1.5">
+              {links.map((link) => {
+                const isActive = link.href === "/" ? pathname === "/" : pathname?.startsWith(link.href);
+                return (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    className={`rounded-lg px-3 py-2 text-xs font-semibold tracking-wide transition-smooth ${
+                      isActive
+                        ? "bg-white text-brand-purple shadow-sm"
+                        : "text-on-surface-variant hover:text-brand-ink hover:bg-white/70"
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
+                );
+              })}
+            </div>
+
+            <div className="flex items-center gap-2">
+              <Link
+                href="https://www.meetup.com/aws-cloud-club-at-punjab-group-of-colleges/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hidden md:inline-flex rounded-xl bg-brand-ink px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-white transition-smooth hover:-translate-y-0.5 hover:shadow-lg hover:shadow-brand-ink/25"
+              >
+                Join Group
+              </Link>
+              <button
+                onClick={() => setMobileOpen((prev) => !prev)}
+                className="lg:hidden rounded-xl border border-slate-200 bg-white p-2.5 transition-smooth hover:bg-slate-50"
+                aria-label="Toggle menu"
+              >
+                <span className="block h-0.5 w-5 bg-brand-ink transition-smooth" />
+                <span className={`mt-1.5 block h-0.5 w-5 bg-brand-ink transition-smooth ${mobileOpen ? "opacity-0" : "opacity-100"}`} />
+                <span className={`mt-1.5 block h-0.5 w-5 bg-brand-ink transition-smooth ${mobileOpen ? "-translate-y-2 rotate-45" : ""}`} />
+              </button>
+            </div>
           </div>
-        </div>
-      )}
-    </nav>
+
+          {mobileOpen && (
+            <div className="mt-4 rounded-xl border border-slate-200 bg-white p-3 lg:hidden animate-fade-up">
+              <div className="grid grid-cols-2 gap-2">
+                {links.map((link) => {
+                  const isActive = link.href === "/" ? pathname === "/" : pathname?.startsWith(link.href);
+                  return (
+                    <Link
+                      key={link.name}
+                      href={link.href}
+                      onClick={() => setMobileOpen(false)}
+                      className={`rounded-lg px-3 py-2 text-sm font-semibold transition-smooth ${
+                        isActive
+                          ? "bg-brand-purple/10 text-brand-purple"
+                          : "text-on-surface-variant hover:bg-slate-100 hover:text-brand-ink"
+                      }`}
+                    >
+                      {link.name}
+                    </Link>
+                  );
+                })}
+              </div>
+              <Link
+                href="https://www.meetup.com/aws-cloud-club-at-punjab-group-of-colleges/"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMobileOpen(false)}
+                className="mt-3 inline-flex w-full items-center justify-center rounded-lg bg-brand-ink px-4 py-2.5 text-sm font-bold uppercase tracking-[0.18em] text-white"
+              >
+                Join Group
+              </Link>
+            </div>
+          )}
+        </nav>
+      </div>
+    </header>
   );
 }

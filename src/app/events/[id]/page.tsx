@@ -1,7 +1,7 @@
 import { getEventById, eventsData } from "@/data/events";
-import { notFound } from "next/navigation";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
+import { notFound } from "next/navigation";
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
@@ -11,9 +11,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
 }
 
 export async function generateStaticParams() {
-  return eventsData.map((event) => ({
-    id: event.id,
-  }));
+  return eventsData.map((event) => ({ id: event.id }));
 }
 
 export default async function EventDetails({ params }: { params: Promise<{ id: string }> }) {
@@ -25,82 +23,57 @@ export default async function EventDetails({ params }: { params: Promise<{ id: s
   }
 
   return (
-    <div className="pt-32 pb-24 max-w-5xl mx-auto px-6 md:px-8">
-      {/* Back Button */}
-      <Link href="/events" className="inline-flex items-center gap-2 text-brand-purple font-bold hover:gap-4 transition-smooth mb-8 animate-fade-up">
-        <span className="material-symbols-outlined">arrow_back</span>
-        Back to Events
-      </Link>
+    <div className="pt-32 pb-20 md:pb-24">
+      <div className="page-shell">
+        <Link href="/events" className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.16em] text-brand-purple transition-smooth hover:gap-3">
+          <span className="material-symbols-outlined text-base">arrow_back</span>
+          Back To Events
+        </Link>
 
-      <article className="bg-white rounded-[2rem] overflow-hidden border border-outline-variant/20 shadow-xl animate-scale-in animate-stagger-1">
-        {/* Banner */}
-        <div className="h-64 md:h-96 w-full relative overflow-hidden">
-          <Image
-            src={event.image}
-            alt={event.title}
-            width={1200}
-            height={540}
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-8">
-            <div>
-              <span className={`inline-block px-4 py-1 rounded-full ${event.tagColor} text-white font-headline text-xs font-bold uppercase tracking-widest mb-4`}>
-                {event.tag}
-              </span>
-              <h1 className="text-4xl md:text-5xl font-headline font-bold text-white mb-2">{event.title}</h1>
+        <article className="mt-6 overflow-hidden rounded-[2rem] section-card animate-scale-in">
+          <div className="relative h-64 md:h-96 overflow-hidden">
+            <Image src={event.image} alt={event.title} width={1300} height={620} className="h-full w-full object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-t from-brand-ink/90 to-transparent" />
+            <div className="absolute bottom-0 left-0 p-6 md:p-8">
+              <span className={`badge-chip ${event.tagColor} text-white`}>{event.tag}</span>
+              <h1 className="mt-3 font-headline text-3xl font-bold tracking-tight text-white md:text-5xl">{event.title}</h1>
             </div>
           </div>
-        </div>
 
-        {/* Content Body */}
-        <div className="p-8 md:p-12">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            <div className="md:col-span-2 space-y-8">
-              <div>
-                <h3 className="text-xl font-bold font-headline mb-4">About this Event</h3>
-                <p className="text-on-surface-variant text-lg leading-relaxed">{event.longDescription ?? event.description}</p>
-              </div>
+          <div className="grid gap-6 p-6 md:p-8 lg:grid-cols-[1.15fr_0.85fr]">
+            <div>
+              <h2 className="font-headline text-2xl font-bold tracking-tight text-brand-ink">About This Event</h2>
+              <p className="mt-3 text-on-surface-variant leading-relaxed">{event.longDescription ?? event.description}</p>
             </div>
 
-            <div className="bg-surface-container-low p-8 rounded-2xl h-max border border-outline-variant/30 text-on-surface">
-              <h4 className="font-bold font-headline mb-6 text-xl">Event Details</h4>
-              <ul className="space-y-6">
-                <li className="flex gap-4">
-                  <span className="material-symbols-outlined text-brand-orange mt-0.5">calendar_today</span>
-                  <div>
-                    <span className="block text-sm font-bold opacity-70 uppercase tracking-widest">Date</span>
-                    <span className="font-medium text-lg">{event.date}</span>
-                  </div>
+            <aside className="rounded-xl border border-slate-200 bg-white p-5">
+              <h3 className="font-headline text-xl font-bold text-brand-ink">Event Details</h3>
+              <ul className="mt-4 space-y-4 text-sm text-on-surface-variant">
+                <li>
+                  <p className="text-xs font-bold uppercase tracking-[0.16em] text-brand-amber">Date</p>
+                  <p className="mt-1 text-base text-brand-ink">{event.date}</p>
                 </li>
-                <li className="flex gap-4">
-                  <span className="material-symbols-outlined text-brand-orange mt-0.5">schedule</span>
-                  <div>
-                    <span className="block text-sm font-bold opacity-70 uppercase tracking-widest">Time</span>
-                    <span className="font-medium text-lg">{event.time}</span>
-                  </div>
+                <li>
+                  <p className="text-xs font-bold uppercase tracking-[0.16em] text-brand-blue">Time</p>
+                  <p className="mt-1 text-base text-brand-ink">{event.time}</p>
                 </li>
-                <li className="flex gap-4">
-                  <span className="material-symbols-outlined text-brand-orange mt-0.5">location_on</span>
-                  <div>
-                    <span className="block text-sm font-bold opacity-70 uppercase tracking-widest">Location</span>
-                    <span className="font-medium text-lg text-brand-purple">{event.location}</span>
-                  </div>
+                <li>
+                  <p className="text-xs font-bold uppercase tracking-[0.16em] text-brand-purple">Location</p>
+                  <p className="mt-1 text-base text-brand-ink">{event.location}</p>
                 </li>
               </ul>
-              <div className="mt-10">
-                <a
-                  href={event.meetupLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full block text-center bg-brand-orange text-white py-4 rounded-xl font-headline font-bold hover:shadow-[0_0_20px_rgba(255,153,0,0.4)] transition-smooth hover:-translate-y-1 active:scale-95 text-lg"
-                >
-                  {event.isPast ? "Watch Recording" : "Register on Meetup"}
-                </a>
-              </div>
-            </div>
+              <a
+                href={event.meetupLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 inline-flex w-full justify-center rounded-xl bg-brand-ink px-5 py-3 text-xs font-bold uppercase tracking-[0.16em] text-white transition-smooth hover:-translate-y-0.5"
+              >
+                {event.isPast ? "Watch Recording" : "Register On Meetup"}
+              </a>
+            </aside>
           </div>
-        </div>
-      </article>
+        </article>
+      </div>
     </div>
   );
 }
