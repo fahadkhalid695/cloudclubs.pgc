@@ -142,7 +142,7 @@ export default function ResourcesPage() {
               Keep learning, keep shipping
             </h2>
             <p className="mt-4 max-w-xl mx-auto text-[var(--color-on-surface-variant)]">
-              Join AWS Cloud Club and turn these resources into practical cloud outcomes.
+              Join AWS Student Builder Group and turn these resources into practical cloud outcomes.
             </p>
             <Link
               href="https://www.meetup.com/aws-cloud-club-at-punjab-group-of-colleges/"

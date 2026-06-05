@@ -85,7 +85,7 @@ export default function Home() {
 
             {/* Subtitle */}
             <motion.p variants={item} className="mt-6 max-w-2xl font-mono text-[14px] leading-relaxed text-[var(--color-on-surface-variant)]">
-              AWS Cloud Club at PGC Muridke helps students move from beginner to builder through guided roadmaps, execution-focused workshops, and peer mentorship.
+              AWS Student Builder Group at PGC Muridke helps students move from beginner to builder through guided roadmaps, execution-focused workshops, and peer mentorship.
             </motion.p>
 
             {/* CTA buttons */}

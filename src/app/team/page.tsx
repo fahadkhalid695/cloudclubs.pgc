@@ -16,12 +16,12 @@ const item = {
   show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] as const } },
 };
 
-const captain = {
+const leader = {
   name: "Rana Fahad Khalid",
-  role: "Founding Captain",
+  role: "Founding Leader",
   badge: "Leadership",
   image: "/profile.png",
-  bio: "As club captain, I lead initiatives that help students build practical AWS and open-source skills through project-based learning.",
+  bio: "As club leader, I lead initiatives that help students build practical AWS and open-source skills through project-based learning.",
   linkedin: "https://www.linkedin.com/in/fahadkhalid695",
   whatsapp: "https://wa.link/zh29bt",
   email: "fahadkhalid695@gmail.com",
@@ -30,7 +30,7 @@ const captain = {
 const coreTeamMembers = [
   {
     name: "Sarah Ahmed",
-    role: "Vice Captain",
+    role: "Vice Leader",
     badge: "Operations",
     image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDW4tziVPFdWHSKlGZf7l9b1ZN3azOq_4m9EIluEqgN4TTuOSdfK6DTsTP5TLcqox01YS-q6d8lHTZ191jt35P2gY_v6TRUAxURpY7SS6tuWeGhWr7FT2TZcpdCaiUMZdfZYDhLK_tRVOFdoMyOUzjo-c3rblkQjXXHn2p-Xh8OpaI6hNKTQY-5TLOm8tr0YIJyT4AWIiSegGTX9v77FZ88zJpM3_z35Q_YawBx9fK5V16sUlWLIpZs2dAg6V5e1SNOZN9kArgOiH4Q",
     bio: "Coordinates chapter operations and keeps execution aligned across teams.",
@@ -87,7 +87,7 @@ export default function TeamPage() {
           </p>
         </AnimatedSection>
 
-        {/* Captain */}
+        {/* Leader */}
         <motion.section
           className="mt-12 rounded-2xl border p-6 md:p-8 flex flex-col md:flex-row gap-8 items-center"
           style={{ background: 'rgba(255,255,255,0.02)', borderColor: 'rgba(255,255,255,0.06)' }}
@@ -97,23 +97,23 @@ export default function TeamPage() {
           transition={{ duration: 0.6 }}
         >
           <div className="w-40 h-40 md:w-48 md:h-48 shrink-0 rounded-full overflow-hidden border-2" style={{ borderColor: 'var(--aws-amber)' }}>
-            <Image src={captain.image} alt={captain.name} width={300} height={300} className="h-full w-full object-cover" />
+            <Image src={leader.image} alt={leader.name} width={300} height={300} className="h-full w-full object-cover" />
           </div>
           <div>
             <span className="font-mono text-[11px] uppercase tracking-[0.14em]" style={{ color: 'var(--aws-amber)' }}>
-              {captain.badge}
+              {leader.badge}
             </span>
-            <h2 className="mt-2 font-headline text-3xl font-bold text-white">{captain.name}</h2>
-            <p className="font-mono text-[12px] uppercase tracking-wide text-[var(--color-on-surface-variant)]">{captain.role}</p>
-            <p className="mt-4 text-[var(--color-on-surface-variant)] leading-relaxed">{captain.bio}</p>
+            <h2 className="mt-2 font-headline text-3xl font-bold text-white">{leader.name}</h2>
+            <p className="font-mono text-[12px] uppercase tracking-wide text-[var(--color-on-surface-variant)]">{leader.role}</p>
+            <p className="mt-4 text-[var(--color-on-surface-variant)] leading-relaxed">{leader.bio}</p>
             <div className="mt-5 flex gap-3">
-              <a href={captain.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-white/5 text-[var(--color-on-surface-variant)] transition-all duration-200 hover:text-[var(--aws-amber)] hover:scale-110">
+              <a href={leader.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-white/5 text-[var(--color-on-surface-variant)] transition-all duration-200 hover:text-[var(--aws-amber)] hover:scale-110">
                 <LinkIcon size={16} />
               </a>
-              <a href={`mailto:${captain.email}`} aria-label="Email" className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-white/5 text-[var(--color-on-surface-variant)] transition-all duration-200 hover:text-[var(--aws-amber)] hover:scale-110">
+              <a href={`mailto:${leader.email}`} aria-label="Email" className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-white/5 text-[var(--color-on-surface-variant)] transition-all duration-200 hover:text-[var(--aws-amber)] hover:scale-110">
                 <Mail size={16} />
               </a>
-              <a href={captain.whatsapp} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-white/5 text-[var(--color-on-surface-variant)] transition-all duration-200 hover:text-[var(--aws-amber)] hover:scale-110">
+              <a href={leader.whatsapp} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-white/5 text-[var(--color-on-surface-variant)] transition-all duration-200 hover:text-[var(--aws-amber)] hover:scale-110">
                 <MessageCircle size={16} />
               </a>
             </div>
@@ -130,25 +130,22 @@ export default function TeamPage() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            className="mt-6 grid gap-5 md:grid-cols-2"
+            className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-4"
           >
             {coreTeamMembers.map((member) => (
               <motion.article
                 key={member.name}
                 variants={item}
-                className="group rounded-xl border p-5 flex gap-4 transition-all duration-300"
+                className="group rounded-xl border p-4 text-center transition-all duration-300"
                 style={{ background: 'rgba(255,255,255,0.02)', borderColor: 'rgba(255,255,255,0.06)' }}
                 whileHover={{ y: -6 }}
               >
-                <div className="h-20 w-20 shrink-0 rounded-full overflow-hidden border-2 transition-all duration-300 group-hover:shadow-lg" style={{ borderColor: member.color }}>
-                  <Image src={member.image} alt={member.name} width={160} height={160} className="h-full w-full object-cover" />
+                <div className="mx-auto h-24 w-24 rounded-full overflow-hidden border-2 transition-all duration-300 group-hover:shadow-lg" style={{ borderColor: member.color }}>
+                  <Image src={member.image} alt={member.name} width={200} height={200} className="h-full w-full object-cover" />
                 </div>
-                <div>
-                  <span className="font-mono text-[10px] uppercase tracking-[0.14em]" style={{ color: member.color }}>{member.badge}</span>
-                  <h3 className="mt-1 font-headline text-lg font-bold text-white">{member.name}</h3>
-                  <p className="font-mono text-[11px] text-[var(--color-on-surface-variant)]">{member.role}</p>
-                  <p className="mt-2 text-sm text-[var(--color-on-surface-variant)]">{member.bio}</p>
-                </div>
+                <h3 className="mt-4 font-headline text-base font-bold text-white">{member.name}</h3>
+                <p className="font-mono text-[11px] uppercase tracking-wide" style={{ color: member.color }}>{member.role}</p>
+                <p className="mt-2 text-xs text-[var(--color-on-surface-variant)]">{member.bio}</p>
               </motion.article>
             ))}
           </motion.div>

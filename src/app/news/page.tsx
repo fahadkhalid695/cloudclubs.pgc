@@ -108,7 +108,7 @@ export default function NewsPage() {
               Want to be in our next headline?
             </h2>
             <p className="mt-4 max-w-xl mx-auto text-[var(--color-on-surface-variant)]">
-              Join the AWS Cloud Club team, contribute to workshops, and build impact through your work.
+              Join the AWS Student Builder Group team, contribute to workshops, and build impact through your work.
             </p>
             <a
               href="https://forms.gle/dbgRxAiYFdLFWfme7"

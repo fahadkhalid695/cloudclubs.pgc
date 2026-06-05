@@ -11,8 +11,8 @@ export interface NewsItem {
 
 export const newsItems: NewsItem[] = [
   {
-    id: "captain-appointment-2026",
-    title: "New Captain Appointment for 2026-27",
+    id: "leader-appointment-2026",
+    title: "New Leader Appointment for 2026-27",
     summary:
       "The chapter leadership has been updated with a renewed focus on mentorship, practical cloud labs, and stronger member engagement.",
     date: "Feb 06, 2026",
@@ -33,6 +33,18 @@ export const newsItems: NewsItem[] = [
       "https://lh3.googleusercontent.com/aida-public/AB6AXuDUzs4BQtBllLj5QaEoMtFnQZZP1L5w2tMCvaixctSkJVRO7_8gaHjNXAX2SSejyWE6AVNIv2aEcdExaabB-OfCFGq4eNz_QiCi_BnFbUJeP4K0BNrAjmSvv9103DTY4bIF5ACjBJ0aVAVVqmaZpN2pzP3lkjVx_vVHa4A30jMWKChAF0UpdXJD60ROzbxtqdD-_9gsO81LVi_oY991ccD6HmaZyov-O9XoL-kag8ANacn2nOI27J3X-3PGHJa_4IoYCJ2dN1t_Lh7_",
     link: "https://www.linkedin.com/company/aws-cloud-club-pgc/",
     linkLabel: "View on LinkedIn",
+  },
+  {
+    id: "datacamp-donates-partnership",
+    title: "DataCamp Donates Free Scholarships to Members",
+    summary:
+      "DataCamp Donates program is providing free DataCamp scholarships to AWS Student Builder Group members, unlocking premium data science and analytics courses.",
+    date: "Apr 02, 2026",
+    category: "Sponsorship",
+    image:
+      "DC_Donates_logo_regular.png",
+    link: "/sponsors",
+    linkLabel: "View Sponsors",
   },
   {
     id: "team-recruitment-open",

@@ -11,8 +11,8 @@ function normalizeImg(src: string) {
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   const event = getEventById(id);
-  if (!event) return { title: "Event Not Found | AWS Cloud Club PGC" };
-  return { title: `${event.title} | AWS Cloud Club PGC` };
+  if (!event) return { title: "Event Not Found | AWS Student Builder Group" };
+  return { title: `${event.title} | AWS Student Builder Group` };
 }
 
 export async function generateStaticParams() {

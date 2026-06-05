@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -11,6 +12,7 @@ const links = [
   { name: "Events", href: "/events" },
   { name: "News", href: "/news" },
   { name: "Team", href: "/team" },
+  { name: "Sponsors", href: "/sponsors" },
   { name: "Resources", href: "/resources" },
   { name: "Guidelines", href: "/guidelines" },
 ];
@@ -45,12 +47,15 @@ export default function Navigation() {
           <div className="flex items-center justify-between gap-4">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-3 group min-w-0">
-              <span
-                className="pulse-amber-dot inline-block h-3 w-3 rounded-full"
-                style={{ background: 'var(--aws-amber)' }}
+              <Image
+                src="/program_icon.png"
+                alt="AWS Student Builder Group"
+                width={32}
+                height={32}
+                className="h-8 w-8 rounded-lg object-cover"
               />
               <span className="font-headline text-sm md:text-base font-bold text-white tracking-tight">
-                AWS Cloud Club PGC
+                AWS Student Builder Group
               </span>
             </Link>
 

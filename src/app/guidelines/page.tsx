@@ -40,7 +40,7 @@ export default function GuidelinesPage() {
             Community Guidelines
           </h1>
           <p className="mt-4 max-w-2xl text-[var(--color-on-surface-variant)]">
-            These principles help us keep AWS Cloud Club safe, collaborative, and growth-focused for everyone.
+            These principles help us keep AWS Student Builder Group safe, collaborative, and growth-focused for everyone.
           </p>
         </AnimatedSection>
 

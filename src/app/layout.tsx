@@ -17,12 +17,12 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "AWS Cloud Club PGC",
-  description: "AWS Cloud Club at PGC Muridke",
+  title: "AWS Student Builder Group",
+  description: "AWS Student Builder Group at PGC Muridke",
   icons: {
-    icon: "/logo.jpeg",
-    shortcut: "/logo.jpeg",
-    apple: "/logo.jpeg",
+    icon: "/program_icon.png",
+    shortcut: "/program_icon.png",
+    apple: "/program_icon.png",
   },
 };
 
