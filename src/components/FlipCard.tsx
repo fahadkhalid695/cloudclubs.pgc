@@ -1,43 +1,51 @@
 'use client';
 
-import { ReactNode } from 'react';
 import { motion } from 'framer-motion';
+import { useState } from 'react';
 
-interface FlipCardProps {
-  front: ReactNode;
-  back: ReactNode;
-  className?: string;
+interface Props {
+  front: React.ReactNode;
+  back: React.ReactNode;
   height?: number;
+  triggerOnHover?: boolean;
 }
 
-export default function FlipCard({ front, back, className = '', height = 200 }: FlipCardProps) {
+export default function FlipCard({ front, back, height = 220, triggerOnHover = true }: Props) {
+  const [flipped, setFlipped] = useState(false);
+
   return (
-    <motion.div style={{ perspective: 800 }} className={className}>
+    <div
+      style={{ perspective: 900, height }}
+      onMouseEnter={() => triggerOnHover && setFlipped(true)}
+      onMouseLeave={() => triggerOnHover && setFlipped(false)}
+      onClick={() => !triggerOnHover && setFlipped(f => !f)}
+    >
       <motion.div
-        style={{ transformStyle: 'preserve-3d', position: 'relative', height }}
-        whileHover={{ rotateY: 180 }}
-        transition={{ duration: 0.6, ease: [0.4, 0.2, 0.2, 1] }}
+        animate={{ rotateY: flipped ? 180 : 0 }}
+        transition={{ duration: 0.65, ease: [0.4, 0.2, 0.2, 1] }}
+        style={{
+          width: '100%',
+          height: '100%',
+          position: 'relative',
+          transformStyle: 'preserve-3d'
+        }}
       >
-        <div
-          style={{
-            backfaceVisibility: 'hidden',
-            position: 'absolute',
-            inset: 0,
-          }}
-        >
+        <div style={{
+          position: 'absolute', inset: 0,
+          backfaceVisibility: 'hidden',
+          WebkitBackfaceVisibility: 'hidden'
+        }}>
           {front}
         </div>
-        <div
-          style={{
-            backfaceVisibility: 'hidden',
-            position: 'absolute',
-            inset: 0,
-            transform: 'rotateY(180deg)',
-          }}
-        >
+        <div style={{
+          position: 'absolute', inset: 0,
+          backfaceVisibility: 'hidden',
+          WebkitBackfaceVisibility: 'hidden',
+          transform: 'rotateY(180deg)'
+        }}>
           {back}
         </div>
       </motion.div>
-    </motion.div>
+    </div>
   );
 }

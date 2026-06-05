@@ -1,33 +1,36 @@
 'use client';
 
 import { ReactNode } from 'react';
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
+import { useTilt } from '@/hooks/useTilt';
 
-interface TiltCardProps {
+interface Props {
   children: ReactNode;
   className?: string;
+  maxDeg?: number;
+  glowColor?: string;
   style?: React.CSSProperties;
 }
 
-export default function TiltCard({ children, className = '', style }: TiltCardProps) {
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-
-  const rotX = useSpring(useTransform(y, [-0.5, 0.5], [12, -12]), { stiffness: 300, damping: 30 });
-  const rotY = useSpring(useTransform(x, [-0.5, 0.5], [-12, 12]), { stiffness: 300, damping: 30 });
-
-  function onMove(e: React.MouseEvent<HTMLDivElement>) {
-    const r = e.currentTarget.getBoundingClientRect();
-    x.set((e.clientX - r.left) / r.width - 0.5);
-    y.set((e.clientY - r.top) / r.height - 0.5);
-  }
+export default function TiltCard({ children, className, maxDeg = 10, glowColor = 'rgba(255,153,0,0.15)', style }: Props) {
+  const { rotateX, rotateY, onMouseMove, onMouseLeave } = useTilt(maxDeg);
 
   return (
     <motion.div
-      onMouseMove={onMove}
-      onMouseLeave={() => { x.set(0); y.set(0); }}
-      style={{ rotateX: rotX, rotateY: rotY, transformPerspective: 1000, ...style }}
       className={className}
+      onMouseMove={onMouseMove}
+      onMouseLeave={onMouseLeave}
+      style={{
+        rotateX,
+        rotateY,
+        transformPerspective: 1000,
+        transformStyle: 'preserve-3d',
+        ...style,
+      }}
+      whileHover={{
+        boxShadow: `0 24px 48px ${glowColor}`,
+      }}
+      transition={{ type: 'spring', stiffness: 300, damping: 30 }}
     >
       {children}
     </motion.div>

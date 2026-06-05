@@ -1,29 +1,25 @@
 'use client';
 
 import { ReactNode } from 'react';
-import { motion, useSpring } from 'framer-motion';
+import { motion } from 'framer-motion';
+import { useMagneticButton } from '@/hooks/useMagneticButton';
 
-interface MagneticButtonProps {
+interface Props {
   children: ReactNode;
   className?: string;
+  strength?: number;
 }
 
-export default function MagneticButton({ children, className = '' }: MagneticButtonProps) {
-  const x = useSpring(0, { stiffness: 200, damping: 20 });
-  const y = useSpring(0, { stiffness: 200, damping: 20 });
-
-  function onMove(e: React.MouseEvent<HTMLDivElement>) {
-    const r = e.currentTarget.getBoundingClientRect();
-    x.set((e.clientX - r.left - r.width / 2) * 0.35);
-    y.set((e.clientY - r.top - r.height / 2) * 0.35);
-  }
+export default function MagneticButton({ children, className = '', strength = 0.35 }: Props) {
+  const { springX, springY, onMouseMove, onMouseLeave } = useMagneticButton(strength);
 
   return (
     <motion.div
-      onMouseMove={onMove}
-      onMouseLeave={() => { x.set(0); y.set(0); }}
-      style={{ x, y }}
       className={className}
+      style={{ x: springX, y: springY }}
+      onMouseMove={onMouseMove}
+      onMouseLeave={onMouseLeave}
+      whileTap={{ scale: 0.96 }}
     >
       {children}
     </motion.div>
