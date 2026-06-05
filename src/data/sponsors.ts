@@ -18,7 +18,7 @@ export const sponsorsData: Sponsor[] = [
     logo: "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg",
     website: "https://aws.amazon.com",
     description: "Providing cloud credits, certification vouchers, and direct mentorship to our members through the AWS Educate and Builder programs.",
-    since: "2025",
+    since: "2026",
   },
   {
     id: "certopus",

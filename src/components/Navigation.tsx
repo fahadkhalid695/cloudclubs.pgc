@@ -34,7 +34,7 @@ export default function Navigation() {
           <div className="flex items-center justify-between gap-4">
             <Link href="/" className="flex items-center gap-3 group min-w-0">
               <Image src="/program_icon.png" alt="AWS Student Builder Group" width={32} height={32} className="h-8 w-8 rounded-lg object-cover" />
-              <span className="font-headline text-sm md:text-base font-bold text-white tracking-tight">AWS Student Builder Group</span>
+              <span className="font-headline text-sm md:text-base font-bold text-white tracking-tight">AWS Student Builder Group PGC</span>
             </Link>
 
             <div className="hidden lg:flex items-center gap-6">

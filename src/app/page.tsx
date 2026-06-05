@@ -20,8 +20,8 @@ const item = {
 };
 
 const stats = [
-  { value: 100, suffix: "+", label: "Members" },
-  { value: 10, suffix: "+", label: "Events" },
+  { value: 200, suffix: "+", label: "Members" },
+  { value: 2, suffix: "", label: "Events" },
   { value: 5, suffix: "", label: "Programs" },
   { value: 3, suffix: "", label: "Awards" },
 ];
@@ -72,13 +72,15 @@ export default function Home() {
             </motion.div>
 
             <motion.div variants={item} className="mt-6">
-              <AnimatedHeading
-                text="Build Real AWS Projects, Not Just Notes."
-                className="font-headline font-[800] leading-[1.05] tracking-tight text-white"
-                splitBy="word"
-                delay={0.2}
-                as="h1"
-              />
+              <h1 className="font-headline font-[800] leading-[1.05] tracking-tight" style={{ fontSize: 'clamp(2.4rem, 6vw, 4.2rem)' }}>
+                Build Real{' '}
+                <span style={{ color: 'var(--aws-amber)' }}>AWS</span>{' '}
+                Projects,
+                <br />
+                <span style={{ WebkitTextStroke: '1.5px rgba(255,255,255,0.7)', color: 'transparent' }}>
+                  Not Just Notes.
+                </span>
+              </h1>
             </motion.div>
 
             <motion.p variants={item} className="mt-6 max-w-2xl font-mono text-[14px] leading-relaxed text-[var(--color-on-surface-variant)]">
@@ -198,7 +200,7 @@ export default function Home() {
                 </div>
                 <div>
                   <p className="font-headline text-2xl font-bold" style={{ color: 'var(--aws-mint)' }}>
-                    <AnimatedCounter to={100} suffix="+" />
+                    <AnimatedCounter to={200} suffix="+" />
                   </p>
                   <p className="font-mono text-[11px] uppercase tracking-wide text-[var(--color-on-surface-variant)]">Active Members</p>
                 </div>
