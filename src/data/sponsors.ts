@@ -24,7 +24,7 @@ export const sponsorsData: Sponsor[] = [
     id: "certopus",
     name: "Certopus",
     tier: "gold",
-    logo: "https://lh3.googleusercontent.com/aida-public/AB6AXuDUzs4BQtBllLj5QaEoMtFnQZZP1L5w2tMCvaixctSkJVRO7_8gaHjNXAX2SSejyWE6AVNIv2aEcdExaabB-OfCFGq4eNz_QiCi_BnFbUJeP4K0BNrAjmSvv9103DTY4bIF5ACjBJ0aVAVVqmaZpN2pzP3lkjVx_vVHa4A30jMWKChAF0UpdXJD60ROzbxtqdD-_9gsO81LVi_oY991ccD6HmaZyov-O9XoL-kag8ANacn2nOI27J3X-3PGHJa_4IoYCJ2dN1t_Lh7_",
+    logo: "/certopus.png",
     website: "https://certopus.com",
     description: "Our first official sponsor — Certopus provides digital credentialing and certification solutions, enabling professional recognition for member achievements.",
     since: "2026",

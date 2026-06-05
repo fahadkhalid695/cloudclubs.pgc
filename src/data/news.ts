@@ -11,18 +11,6 @@ export interface NewsItem {
 
 export const newsItems: NewsItem[] = [
   {
-    id: "leader-appointment-2026",
-    title: "New Leader Appointment for 2026-27",
-    summary:
-      "The chapter leadership has been updated with a renewed focus on mentorship, practical cloud labs, and stronger member engagement.",
-    date: "Feb 06, 2026",
-    category: "Announcement",
-    image:
-      "profile.png",
-    link: "/team",
-    linkLabel: "Meet the Team",
-  },
-  {
     id: "first-official-sponsor",
     title: "First Official Sponsorship Secured",
     summary:
@@ -30,9 +18,9 @@ export const newsItems: NewsItem[] = [
     date: "Mar 13, 2026",
     category: "Sponsorship",
     image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuDUzs4BQtBllLj5QaEoMtFnQZZP1L5w2tMCvaixctSkJVRO7_8gaHjNXAX2SSejyWE6AVNIv2aEcdExaabB-OfCFGq4eNz_QiCi_BnFbUJeP4K0BNrAjmSvv9103DTY4bIF5ACjBJ0aVAVVqmaZpN2pzP3lkjVx_vVHa4A30jMWKChAF0UpdXJD60ROzbxtqdD-_9gsO81LVi_oY991ccD6HmaZyov-O9XoL-kag8ANacn2nOI27J3X-3PGHJa_4IoYCJ2dN1t_Lh7_",
-    link: "https://www.linkedin.com/company/aws-cloud-club-pgc/",
-    linkLabel: "View on LinkedIn",
+      "certopus.png",
+    link: "/sponsors",
+    linkLabel: "View Sponsors",
   },
   {
     id: "datacamp-donates-partnership",
