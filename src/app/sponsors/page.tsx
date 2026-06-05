@@ -6,6 +6,8 @@ import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { sponsorsData, tierConfig, getSponsorsByTier, SponsorTier } from "@/data/sponsors";
 import AnimatedSection from "@/components/AnimatedSection";
+import TiltCard from "@/components/TiltCard";
+import StaggeredText from "@/components/StaggeredText";
 
 const container = {
   hidden: {},
@@ -47,7 +49,7 @@ export default function SponsorsPage() {
               </span>
             </div>
             <h1 className="font-headline text-3xl md:text-5xl font-[800] text-white tracking-tight">
-              Powered by the best in the industry
+              <StaggeredText text="Powered by the best in the industry" />
             </h1>
             <p className="mt-4 max-w-2xl font-mono text-[13px] leading-relaxed text-[var(--color-on-surface-variant)]">
               These organizations make it possible for our members to learn, build, and grow on the cloud.
@@ -87,16 +89,14 @@ export default function SponsorsPage() {
                   <motion.div
                     key={sponsor.id}
                     variants={item}
-                    className="group rounded-[20px] border p-6 transition-all duration-300"
-                    style={{
-                      background: 'rgba(255,255,255,0.02)',
-                      borderColor: config.borderColor,
-                    }}
-                    whileHover={{
-                      y: -6,
-                      boxShadow: `0 12px 40px ${config.glowColor}`,
-                    }}
                   >
+                    <TiltCard
+                      className="group rounded-[20px] border p-6 h-full transition-all duration-300 hover:shadow-lg"
+                      style={{
+                        background: 'rgba(255,255,255,0.02)',
+                        borderColor: config.borderColor,
+                      }}
+                    >
                     {tier === 'title' || tier === 'gold' ? (
                       /* Large / medium card layout */
                       <div className="flex flex-col sm:flex-row gap-5">
@@ -162,6 +162,7 @@ export default function SponsorsPage() {
                         </a>
                       </div>
                     )}
+                    </TiltCard>
                   </motion.div>
                 ))}
               </motion.div>

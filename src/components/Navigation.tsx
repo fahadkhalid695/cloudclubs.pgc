@@ -5,6 +5,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import MagneticButton from "@/components/MagneticButton";
 
 const links = [
   { name: "Home", href: "/" },
@@ -84,14 +85,16 @@ export default function Navigation() {
 
             {/* CTA + hamburger */}
             <div className="flex items-center gap-3">
-              <Link
-                href="https://www.meetup.com/aws-cloud-club-at-punjab-group-of-colleges/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hidden md:inline-flex rounded-lg border border-[var(--aws-amber)] px-4 py-2 font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-[var(--aws-amber)] transition-all duration-200 hover:bg-[var(--aws-amber)] hover:text-black"
-              >
-                Join Club
-              </Link>
+              <MagneticButton className="hidden md:block">
+                <Link
+                  href="https://www.meetup.com/aws-cloud-club-at-punjab-group-of-colleges/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex rounded-lg border border-[var(--aws-amber)] px-4 py-2 font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-[var(--aws-amber)] transition-all duration-200 hover:bg-[var(--aws-amber)] hover:text-black"
+                >
+                  Join Club
+                </Link>
+              </MagneticButton>
               <button
                 onClick={() => setMobileOpen((prev) => !prev)}
                 className="lg:hidden p-2 text-white"

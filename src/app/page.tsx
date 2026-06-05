@@ -3,6 +3,9 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import AnimatedSection from "@/components/AnimatedSection";
+import Counter from "@/components/Counter";
+import StaggeredText from "@/components/StaggeredText";
+import TiltCard from "@/components/TiltCard";
 
 const container = {
   hidden: {},
@@ -15,10 +18,10 @@ const item = {
 };
 
 const stats = [
-  { value: "100+", label: "Members" },
-  { value: "10+", label: "Events" },
-  { value: "5", label: "Programs" },
-  { value: "3", label: "Awards" },
+  { value: 100, suffix: "+", label: "Members" },
+  { value: 10, suffix: "+", label: "Events" },
+  { value: 5, suffix: "", label: "Programs" },
+  { value: 3, suffix: "", label: "Awards" },
 ];
 
 const programs = [
@@ -72,16 +75,22 @@ export default function Home() {
               </span>
             </motion.div>
 
-            {/* H1 */}
-            <motion.h1 variants={item} className="mt-6 font-headline font-[800] leading-[1.05] tracking-tight" style={{ fontSize: 'clamp(2.4rem, 6vw, 4.2rem)' }}>
-              Build Real{' '}
-              <span style={{ color: 'var(--aws-amber)' }}>AWS</span>{' '}
-              Projects,
-              <br />
-              <span style={{ WebkitTextStroke: '1.5px rgba(255,255,255,0.7)', color: 'transparent' }}>
-                Not Just Notes.
-              </span>
-            </motion.h1>
+            {/* H1 with Staggered Text */}
+            <motion.div variants={item} className="mt-6">
+              <h1 className="font-headline font-[800] leading-[1.05] tracking-tight" style={{ fontSize: 'clamp(2.4rem, 6vw, 4.2rem)' }}>
+                <StaggeredText text="Build Real" />
+                {' '}
+                <span style={{ color: 'var(--aws-amber)' }}>
+                  <StaggeredText text="AWS" />
+                </span>
+                {' '}
+                <StaggeredText text="Projects," />
+                <br />
+                <span style={{ WebkitTextStroke: '1.5px rgba(255,255,255,0.7)', color: 'transparent' }}>
+                  <StaggeredText text="Not Just Notes." />
+                </span>
+              </h1>
+            </motion.div>
 
             {/* Subtitle */}
             <motion.p variants={item} className="mt-6 max-w-2xl font-mono text-[14px] leading-relaxed text-[var(--color-on-surface-variant)]">
@@ -110,30 +119,22 @@ export default function Home() {
               </Link>
             </motion.div>
 
-            {/* Stats */}
+            {/* Stats with Animated Counter */}
             <motion.div variants={item} className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-4">
               {stats.map((stat) => (
-                <motion.div
+                <TiltCard
                   key={stat.label}
-                  className="rounded-xl border p-4 text-center cursor-default"
+                  className="rounded-xl border p-4 text-center cursor-default transition-all duration-300 hover:border-[var(--aws-amber)] hover:shadow-[0_8px_32px_rgba(255,153,0,0.15)]"
                   style={{
                     background: 'rgba(255,255,255,0.03)',
                     borderColor: 'rgba(255,255,255,0.06)',
-                    transformStyle: 'preserve-3d',
-                    perspective: '1200px',
                   }}
-                  whileHover={{
-                    rotateX: -10,
-                    rotateY: 10,
-                    y: -6,
-                    borderColor: 'var(--aws-amber)',
-                    boxShadow: '0 8px 32px rgba(255,153,0,0.15)',
-                  }}
-                  transition={{ type: 'spring', stiffness: 300, damping: 20 }}
                 >
-                  <p className="font-headline text-2xl font-bold" style={{ color: 'var(--aws-amber)' }}>{stat.value}</p>
+                  <p className="font-headline text-2xl font-bold" style={{ color: 'var(--aws-amber)' }}>
+                    <Counter to={stat.value} suffix={stat.suffix} />
+                  </p>
                   <p className="font-mono text-[11px] uppercase tracking-wide text-[var(--color-on-surface-variant)]">{stat.label}</p>
-                </motion.div>
+                </TiltCard>
               ))}
             </motion.div>
           </motion.div>
@@ -157,7 +158,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PROGRAMS */}
+      {/* PROGRAMS with TiltCard */}
       <section className="py-24">
         <div className="page-shell">
           <AnimatedSection>
@@ -168,35 +169,35 @@ export default function Home() {
               </span>
             </div>
             <h2 className="font-headline text-3xl md:text-5xl font-bold tracking-tight text-white">
-              Programs & Tracks
+              <StaggeredText text="Programs & Tracks" />
             </h2>
           </AnimatedSection>
 
           <div className="mt-12 grid gap-6 md:grid-cols-3">
             {programs.map((program, index) => (
-              <motion.article
+              <motion.div
                 key={program.title}
-                className="group relative rounded-2xl border p-6 transition-all duration-300"
-                style={{
-                  background: 'rgba(255,255,255,0.03)',
-                  borderColor: 'rgba(255,255,255,0.06)',
-                  transformStyle: 'preserve-3d',
-                  perspective: '1200px',
-                }}
                 initial={{ opacity: 0, y: 32 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-80px' }}
                 transition={{ duration: 0.6, ease: 'easeOut', delay: index * 0.15 }}
-                whileHover={{ y: -8, rotateX: 4 }}
               >
-                {/* Bottom border accent on hover */}
-                <div
-                  className="absolute bottom-0 left-0 right-0 h-[2px] rounded-b-2xl transition-transform duration-300 origin-left scale-x-0 group-hover:scale-x-100"
-                  style={{ background: program.color }}
-                />
-                <h3 className="font-headline text-xl font-bold text-white">{program.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-[var(--color-on-surface-variant)]">{program.description}</p>
-              </motion.article>
+                <TiltCard
+                  className="group relative rounded-2xl border p-6 h-full transition-all duration-300 hover:-translate-y-2"
+                  style={{
+                    background: 'rgba(255,255,255,0.03)',
+                    borderColor: 'rgba(255,255,255,0.06)',
+                  }}
+                >
+                  {/* Bottom border accent on hover */}
+                  <div
+                    className="absolute bottom-0 left-0 right-0 h-[2px] rounded-b-2xl transition-transform duration-300 origin-left scale-x-0 group-hover:scale-x-100"
+                    style={{ background: program.color }}
+                  />
+                  <h3 className="font-headline text-xl font-bold text-white">{program.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-[var(--color-on-surface-variant)]">{program.description}</p>
+                </TiltCard>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -208,9 +209,11 @@ export default function Home() {
           <div className="grid gap-12 lg:grid-cols-2 items-center">
             <AnimatedSection direction="left">
               <h2 className="font-headline text-3xl md:text-5xl font-bold tracking-tight text-white leading-[1.1]">
-                A student-led
+                <StaggeredText text="A student-led" />
                 <br />
-                <span style={{ color: 'var(--aws-amber)' }}>cloud chapter</span>
+                <span style={{ color: 'var(--aws-amber)' }}>
+                  <StaggeredText text="cloud chapter" />
+                </span>
               </h2>
             </AnimatedSection>
 
@@ -220,11 +223,15 @@ export default function Home() {
               </p>
               <div className="mt-6 flex gap-6">
                 <div>
-                  <p className="font-headline text-2xl font-bold" style={{ color: 'var(--aws-amber)' }}>5+</p>
+                  <p className="font-headline text-2xl font-bold" style={{ color: 'var(--aws-amber)' }}>
+                    <Counter to={5} suffix="+" />
+                  </p>
                   <p className="font-mono text-[11px] uppercase tracking-wide text-[var(--color-on-surface-variant)]">Mentors</p>
                 </div>
                 <div>
-                  <p className="font-headline text-2xl font-bold" style={{ color: 'var(--aws-mint)' }}>100+</p>
+                  <p className="font-headline text-2xl font-bold" style={{ color: 'var(--aws-mint)' }}>
+                    <Counter to={100} suffix="+" />
+                  </p>
                   <p className="font-mono text-[11px] uppercase tracking-wide text-[var(--color-on-surface-variant)]">Active Members</p>
                 </div>
               </div>

@@ -3,6 +3,7 @@ import { Syne, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import PageTransition from "@/components/PageTransition";
 
 const syne = Syne({
   variable: "--font-syne",
@@ -37,7 +38,9 @@ export default function RootLayout({
         className={`${syne.variable} ${jetbrainsMono.variable} font-body antialiased flex flex-col min-h-screen`}
       >
         <Navigation />
-        <main className="flex-grow">{children}</main>
+        <main className="flex-grow">
+          <PageTransition>{children}</PageTransition>
+        </main>
         <Footer />
       </body>
     </html>

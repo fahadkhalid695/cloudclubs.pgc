@@ -5,6 +5,8 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { LinkIcon, Mail, MessageCircle } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
+import FlipCard from "@/components/FlipCard";
+import StaggeredText from "@/components/StaggeredText";
 
 const container = {
   hidden: {},
@@ -80,7 +82,7 @@ export default function TeamPage() {
         {/* Header */}
         <AnimatedSection>
           <h1 className="font-headline text-4xl md:text-6xl font-bold text-white tracking-tight">
-            Meet Our Team
+            <StaggeredText text="Meet Our Team" />
           </h1>
           <p className="mt-4 max-w-2xl text-[var(--color-on-surface-variant)]">
             We are a student-led crew building cloud talent at PGC Muridke through events, mentorship, and practical project culture.
@@ -164,19 +166,28 @@ export default function TeamPage() {
             className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-4"
           >
             {teamMembers.map((member) => (
-              <motion.article
-                key={member.name}
-                variants={item}
-                className="group rounded-xl border p-4 text-center transition-all duration-300"
-                style={{ background: 'rgba(255,255,255,0.02)', borderColor: 'rgba(255,255,255,0.06)' }}
-                whileHover={{ y: -6 }}
-              >
-                <div className="mx-auto h-24 w-24 rounded-full overflow-hidden border-2 transition-all duration-300 group-hover:shadow-lg" style={{ borderColor: member.color }}>
-                  <Image src={member.image} alt={member.name} width={200} height={200} className="h-full w-full object-cover" />
-                </div>
-                <h3 className="mt-4 font-headline text-base font-bold text-white">{member.name}</h3>
-                <p className="font-mono text-[11px] uppercase tracking-wide" style={{ color: member.color }}>{member.role}</p>
-              </motion.article>
+              <motion.div key={member.name} variants={item}>
+                <FlipCard
+                  height={240}
+                  className="w-full"
+                  front={
+                    <div className="h-full rounded-xl border p-4 text-center flex flex-col items-center justify-center" style={{ background: 'rgba(255,255,255,0.02)', borderColor: 'rgba(255,255,255,0.06)' }}>
+                      <div className="mx-auto h-24 w-24 rounded-full overflow-hidden border-2" style={{ borderColor: member.color }}>
+                        <Image src={member.image} alt={member.name} width={200} height={200} className="h-full w-full object-cover" />
+                      </div>
+                      <h3 className="mt-4 font-headline text-base font-bold text-white">{member.name}</h3>
+                      <p className="font-mono text-[11px] uppercase tracking-wide" style={{ color: member.color }}>{member.role}</p>
+                    </div>
+                  }
+                  back={
+                    <div className="h-full rounded-xl border p-4 flex flex-col items-center justify-center text-center" style={{ background: 'rgba(255,255,255,0.04)', borderColor: member.color }}>
+                      <h3 className="font-headline text-base font-bold text-white">{member.name}</h3>
+                      <p className="font-mono text-[11px] uppercase tracking-wide mt-1" style={{ color: member.color }}>{member.role}</p>
+                      <p className="mt-3 text-xs text-[var(--color-on-surface-variant)]">AWS Student Builder Group · Execution Team</p>
+                    </div>
+                  }
+                />
+              </motion.div>
             ))}
           </motion.div>
         </section>
