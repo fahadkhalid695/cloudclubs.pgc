@@ -1,7 +1,8 @@
 'use client';
 
 import Link from "next/link";
-import { useScrollRevealGroup } from "@/hooks/useScrollReveal";
+import { motion } from "framer-motion";
+import AnimatedSection from "@/components/AnimatedSection";
 
 const roadmapItems = [
   {
@@ -42,62 +43,82 @@ const roadmapItems = [
 ];
 
 export default function ProgramsPage() {
-  const roadmapRef = useScrollRevealGroup({ threshold: 0.1 });
   return (
-    <div className="pt-32 pb-20 md:pb-24">
+    <div className="pt-32 pb-20">
       <div className="page-shell">
-        <section className="section-card rounded-[2rem] p-6 md:p-10 animate-scale-in">
-          <span className="badge-chip badge-amber animate-bounce-in">Learning path</span>
-          <h1 className="mt-4 font-headline text-4xl font-bold tracking-tight text-brand-ink md:text-6xl animate-lift-up animate-stagger-1">Builder Roadmap</h1>
-          <p className="mt-4 max-w-3xl text-on-surface-variant animate-fade-up animate-stagger-2">
+        {/* Hero */}
+        <AnimatedSection>
+          <div className="flex items-center gap-3 mb-3">
+            <span className="block w-8 h-[2px]" style={{ background: 'var(--aws-amber)' }} />
+            <span className="font-mono text-[11px] uppercase tracking-[0.2em]" style={{ color: 'var(--aws-amber)' }}>
+              Learning path · {roadmapItems.length} phases
+            </span>
+          </div>
+          <h1 className="font-headline text-4xl md:text-6xl font-bold text-white tracking-tight">
+            Builder Roadmap
+          </h1>
+          <p className="mt-4 max-w-3xl text-[var(--color-on-surface-variant)]">
             A practical sequence from cloud fundamentals to deployment workflow, built for students who want execution, not theory alone.
           </p>
-        </section>
+        </AnimatedSection>
 
-        <section ref={roadmapRef} className="mt-10 grid gap-5 lg:grid-cols-2">
-          {roadmapItems.map((item, index) => (
-            <article
-              key={item.title}
-              className={`scroll-reveal-stagger section-card card-shine hover-pop rounded-2xl p-6 will-change-transform ${
-                index === 1 ? "animate-stagger-1" : index === 2 ? "animate-stagger-2" : index === 3 ? "animate-stagger-3" : ""
-              }`}
+        {/* Program cards */}
+        <div className="mt-12 grid gap-5 lg:grid-cols-2">
+          {roadmapItems.map((roadmapItem, index) => (
+            <motion.article
+              key={roadmapItem.title}
+              className="group rounded-2xl border p-6 transition-all duration-300"
+              style={{ background: 'rgba(255,255,255,0.03)', borderColor: 'rgba(255,255,255,0.06)' }}
+              initial={{ opacity: 0, y: 32 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-80px' }}
+              transition={{ duration: 0.6, ease: 'easeOut', delay: index * 0.1 }}
             >
               <div className="flex items-center justify-between gap-3">
-                <span className="badge-chip badge-purple">{item.phase}</span>
-                <span className="text-[11px] font-bold uppercase tracking-[0.15em] text-brand-amber">Phase</span>
+                <span className="font-mono text-[11px] uppercase tracking-[0.14em]" style={{ color: 'var(--aws-purple)' }}>
+                  {roadmapItem.phase}
+                </span>
+                <span className="font-mono text-[10px] uppercase tracking-wide text-[var(--color-on-surface-variant)]">
+                  Phase {index + 1}
+                </span>
               </div>
-              <h2 className="mt-4 font-headline text-2xl font-bold tracking-tight">{item.title}</h2>
-              <p className="mt-2 text-sm text-on-surface-variant">{item.focus}</p>
+              <h2 className="mt-4 font-headline text-xl font-bold text-white">{roadmapItem.title}</h2>
+              <p className="mt-2 text-sm text-[var(--color-on-surface-variant)]">{roadmapItem.focus}</p>
               <div className="mt-4 space-y-2">
-                {item.topics.map((topic) => (
-                  <p key={topic} className="flex items-start gap-2 text-sm text-on-surface-variant">
-                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-mint" />
+                {roadmapItem.topics.map((topic) => (
+                  <p key={topic} className="flex items-start gap-2 text-sm text-[var(--color-on-surface-variant)]">
+                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full" style={{ background: 'var(--aws-mint)' }} />
                     <span>{topic}</span>
                   </p>
                 ))}
               </div>
-              <p className="mt-5 border-t border-slate-200 pt-4 text-sm font-semibold text-brand-purple">Outcome: {item.outcome}</p>
-            </article>
+              <p className="mt-5 border-t pt-4 text-sm font-semibold" style={{ borderColor: 'rgba(255,255,255,0.06)', color: 'var(--aws-amber)' }}>
+                Outcome: {roadmapItem.outcome}
+              </p>
+            </motion.article>
           ))}
-        </section>
+        </div>
 
-        <section className="mt-12 section-dark relative overflow-hidden rounded-[2rem] p-8 md:p-10">
-          <div className="accent-orb accent-blue h-44 w-44 -top-10 right-12 animate-glow-pulse" />
-          <div className="relative z-10 text-center animate-fade-up">
-            <h2 className="font-headline text-3xl font-bold tracking-tight md:text-4xl animate-lift-up animate-stagger-1">Start this roadmap with us</h2>
-            <p className="mx-auto mt-4 max-w-2xl text-white/75 animate-fade-up animate-stagger-2">
+        {/* CTA */}
+        <AnimatedSection className="mt-16">
+          <div className="rounded-2xl border p-8 md:p-12 text-center" style={{ background: 'rgba(255,255,255,0.02)', borderColor: 'rgba(255,255,255,0.06)' }}>
+            <h2 className="font-headline text-3xl md:text-4xl font-bold text-white">
+              Start this roadmap with us
+            </h2>
+            <p className="mt-4 max-w-xl mx-auto text-[var(--color-on-surface-variant)]">
               Build momentum with workshops, guided mentorship, and peer collaboration.
             </p>
             <Link
               href="https://www.meetup.com/aws-cloud-club-at-punjab-group-of-colleges/"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-6 inline-flex rounded-xl bg-white px-7 py-3 text-sm font-bold uppercase tracking-[0.16em] text-brand-ink transition-smooth hover:-translate-y-0.5"
+              className="mt-6 inline-flex rounded-xl px-7 py-3 font-headline text-sm font-bold uppercase tracking-[0.1em] text-black transition-all duration-200 hover:-translate-y-1"
+              style={{ background: 'var(--aws-amber)' }}
             >
               Join The Group
             </Link>
           </div>
-        </section>
+        </AnimatedSection>
       </div>
     </div>
   );

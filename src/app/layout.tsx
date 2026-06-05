@@ -1,22 +1,24 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Inter } from "next/font/google";
+import { Syne, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
+const syne = Syne({
+  variable: "--font-syne",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
 });
 
-const inter = Inter({
-  variable: "--font-inter",
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains-mono",
   subsets: ["latin"],
+  weight: ["400", "500", "700"],
 });
 
 export const metadata: Metadata = {
-  title: "AWS Student Builder Group",
-  description: "AWS Student Builder Group at PGC Muridke",
+  title: "AWS Cloud Club PGC",
+  description: "AWS Cloud Club at PGC Muridke",
   icons: {
     icon: "/logo.jpeg",
     shortcut: "/logo.jpeg",
@@ -32,7 +34,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${spaceGrotesk.variable} ${inter.variable} font-body antialiased selection:bg-brand-purple/25 text-on-surface bg-background flex flex-col min-h-screen`}
+        className={`${syne.variable} ${jetbrainsMono.variable} font-body antialiased flex flex-col min-h-screen`}
       >
         <Navigation />
         <main className="flex-grow">{children}</main>

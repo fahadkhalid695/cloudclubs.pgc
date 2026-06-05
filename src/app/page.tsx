@@ -1,183 +1,273 @@
 'use client';
 
-import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, BriefcaseBusiness, Globe2, GraduationCap, TerminalSquare, WalletCards } from "lucide-react";
-import { useScrollRevealGroup } from "@/hooks/useScrollReveal";
-import { Parallax, ScrollParallax } from "@/components/Parallax";
+import { motion } from "framer-motion";
+import AnimatedSection from "@/components/AnimatedSection";
 
-const highlights = [
+const container = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.12 } },
+};
+
+const item = {
+  hidden: { opacity: 0, y: 24 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] as const } },
+};
+
+const stats = [
+  { value: "100+", label: "Members" },
+  { value: "10+", label: "Events" },
+  { value: "5", label: "Programs" },
+  { value: "3", label: "Awards" },
+];
+
+const programs = [
   {
     title: "Certification Support",
-    text: "Structured prep paths and weekly check-ins for Cloud Practitioner and Solutions Architect tracks.",
-    icon: GraduationCap,
-    badge: "Career Track",
+    description: "Structured prep paths and weekly check-ins for Cloud Practitioner and Solutions Architect tracks.",
+    color: "var(--aws-amber)",
   },
   {
     title: "Hands-On Labs",
-    text: "From IAM fundamentals to Lambda and architecture drills, members ship practical work each month.",
-    icon: TerminalSquare,
-    badge: "Project Labs",
+    description: "From IAM fundamentals to Lambda and architecture drills, members ship practical work each month.",
+    color: "var(--aws-mint)",
   },
   {
     title: "Global Community",
-    text: "Collaborate with student builders worldwide and learn from AWS-first communities.",
-    icon: Globe2,
-    badge: "Network",
-  },
-  {
-    title: "Opportunity Pipeline",
-    text: "Access cloud internships, hackathons, and referral pathways through partner networks.",
-    icon: BriefcaseBusiness,
-    badge: "Growth",
-  },
-  {
-    title: "AWS Credits",
-    text: "Use promotional credits to build and test your own cloud ideas without blockers.",
-    icon: WalletCards,
-    badge: "Build",
+    description: "Collaborate with student builders worldwide and learn from AWS-first communities.",
+    color: "var(--aws-purple)",
   },
 ];
 
-export default function Home() {
-  const highlightsRef = useScrollRevealGroup({ threshold: 0.1 });
+const marqueeServices = [
+  "AWS Lambda", "Amazon S3", "EC2", "CloudFormation", "DynamoDB",
+  "API Gateway", "Amazon EKS", "SageMaker", "Bedrock AI", "AWS CDK",
+  "IAM", "CloudWatch", "Route 53", "Amplify",
+];
 
+export default function Home() {
   return (
     <>
-      <section className="relative overflow-hidden pt-32 pb-20 md:pt-36 md:pb-24">
-        <div className="accent-orb accent-magenta h-52 w-52 -top-12 right-8 animate-glow-pulse" />
-        <div className="accent-orb accent-blue h-64 w-64 top-44 -left-12 animate-glow-pulse" />
+      {/* HERO */}
+      <section className="relative min-h-screen flex items-center overflow-hidden">
+        {/* Animated grid background */}
+        <div className="absolute inset-0 animated-grid-bg opacity-40" />
+
+        {/* Color orbs */}
+        <div className="absolute top-[-10%] left-[-5%] w-[500px] h-[500px] rounded-full opacity-[0.15]" style={{ background: 'var(--aws-purple)', filter: 'blur(80px)' }} />
+        <div className="absolute bottom-[-10%] right-[-5%] w-[450px] h-[450px] rounded-full opacity-[0.15]" style={{ background: 'var(--aws-amber)', filter: 'blur(80px)' }} />
+        <div className="absolute top-[30%] right-[15%] w-[350px] h-[350px] rounded-full opacity-[0.1]" style={{ background: 'var(--aws-mint)', filter: 'blur(80px)' }} />
+
+        <div className="page-shell relative z-10 pt-32 pb-20">
+          <motion.div
+            variants={container}
+            initial="hidden"
+            animate="show"
+            className="max-w-4xl"
+          >
+            {/* Badge */}
+            <motion.div variants={item}>
+              <span className="inline-flex items-center gap-2 rounded-full border px-4 py-2 font-mono text-[12px] tracking-wide" style={{ borderColor: 'var(--aws-amber)', color: 'var(--aws-amber)' }}>
+                ☁ Punjab Group of Colleges · Muridke Campus
+              </span>
+            </motion.div>
+
+            {/* H1 */}
+            <motion.h1 variants={item} className="mt-6 font-headline font-[800] leading-[1.05] tracking-tight" style={{ fontSize: 'clamp(2.4rem, 6vw, 4.2rem)' }}>
+              Build Real{' '}
+              <span style={{ color: 'var(--aws-amber)' }}>AWS</span>{' '}
+              Projects,
+              <br />
+              <span style={{ WebkitTextStroke: '1.5px rgba(255,255,255,0.7)', color: 'transparent' }}>
+                Not Just Notes.
+              </span>
+            </motion.h1>
+
+            {/* Subtitle */}
+            <motion.p variants={item} className="mt-6 max-w-2xl font-mono text-[14px] leading-relaxed text-[var(--color-on-surface-variant)]">
+              AWS Cloud Club at PGC Muridke helps students move from beginner to builder through guided roadmaps, execution-focused workshops, and peer mentorship.
+            </motion.p>
+
+            {/* CTA buttons */}
+            <motion.div variants={item} className="mt-8 flex flex-col gap-4 sm:flex-row">
+              <Link
+                href="https://www.meetup.com/aws-cloud-club-at-punjab-group-of-colleges/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center rounded-xl px-7 py-3.5 font-headline text-sm font-bold uppercase tracking-[0.1em] text-black transition-all duration-200 hover:-translate-y-1"
+                style={{ background: 'var(--aws-amber)', boxShadow: '0 0 0 0 rgba(255,153,0,0)' }}
+                onMouseEnter={(e) => { e.currentTarget.style.boxShadow = '0 8px 32px rgba(255,153,0,0.4)'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.boxShadow = '0 0 0 0 rgba(255,153,0,0)'; }}
+              >
+                Join The Club
+              </Link>
+              <Link
+                href="/programs"
+                className="inline-flex items-center justify-center rounded-xl border px-7 py-3.5 font-headline text-sm font-bold uppercase tracking-[0.1em] text-white transition-all duration-200 hover:border-[var(--aws-blue)] hover:text-[var(--aws-blue)]"
+                style={{ borderColor: 'rgba(255,255,255,0.3)' }}
+              >
+                Explore Roadmap
+              </Link>
+            </motion.div>
+
+            {/* Stats */}
+            <motion.div variants={item} className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-4">
+              {stats.map((stat) => (
+                <motion.div
+                  key={stat.label}
+                  className="rounded-xl border p-4 text-center cursor-default"
+                  style={{
+                    background: 'rgba(255,255,255,0.03)',
+                    borderColor: 'rgba(255,255,255,0.06)',
+                    transformStyle: 'preserve-3d',
+                    perspective: '1200px',
+                  }}
+                  whileHover={{
+                    rotateX: -10,
+                    rotateY: 10,
+                    y: -6,
+                    borderColor: 'var(--aws-amber)',
+                    boxShadow: '0 8px 32px rgba(255,153,0,0.15)',
+                  }}
+                  transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+                >
+                  <p className="font-headline text-2xl font-bold" style={{ color: 'var(--aws-amber)' }}>{stat.value}</p>
+                  <p className="font-mono text-[11px] uppercase tracking-wide text-[var(--color-on-surface-variant)]">{stat.label}</p>
+                </motion.div>
+              ))}
+            </motion.div>
+          </motion.div>
+
+          {/* Scroll indicator */}
+          <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
+            <div className="scroll-indicator" />
+          </div>
+        </div>
+      </section>
+
+      {/* MARQUEE */}
+      <section className="relative overflow-hidden border-y py-4" style={{ borderColor: 'rgba(255,255,255,0.06)' }}>
+        <div className="flex whitespace-nowrap marquee-track">
+          {[...marqueeServices, ...marqueeServices].map((service, i) => (
+            <span key={i} className="inline-flex items-center gap-3 px-6 font-mono text-[13px] text-[var(--color-on-surface-variant)]">
+              <span style={{ color: 'var(--aws-amber)', fontSize: '8px' }}>◆</span>
+              {service}
+            </span>
+          ))}
+        </div>
+      </section>
+
+      {/* PROGRAMS */}
+      <section className="py-24">
         <div className="page-shell">
-          <div className="section-card relative overflow-hidden rounded-[2rem] p-6 md:p-10">
-            <div className="absolute inset-0 surface-grid opacity-30" />
-            <div className="relative z-10 grid items-center gap-8 lg:grid-cols-[1.15fr_0.85fr]">
-              <div className="animate-fade-up">
-                <span className="badge-chip badge-purple animate-bounce-in">Student-led cloud chapter</span>
-                <h1 className="mt-4 font-headline text-4xl font-extrabold leading-[1.02] tracking-tight text-brand-ink md:text-6xl xl:text-7xl animate-lift-up animate-stagger-1">
-                  Build Real AWS Projects,
-                  <span className="block text-brand-purple">Not Just Notes.</span>
-                </h1>
-                <p className="mt-6 max-w-2xl text-base leading-relaxed text-on-surface-variant md:text-lg animate-fade-up animate-stagger-2">
-                  AWS Student Builder Group at PGC Muridke helps students move from beginner to builder through guided roadmaps,
-                  execution-focused workshops, and peer mentorship.
+          <AnimatedSection>
+            <div className="flex items-center gap-3 mb-3">
+              <span className="block w-8 h-[2px]" style={{ background: 'var(--aws-mint)' }} />
+              <span className="font-mono text-[11px] uppercase tracking-[0.2em]" style={{ color: 'var(--aws-mint)' }}>
+                What We Offer
+              </span>
+            </div>
+            <h2 className="font-headline text-3xl md:text-5xl font-bold tracking-tight text-white">
+              Programs & Tracks
+            </h2>
+          </AnimatedSection>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            {programs.map((program, index) => (
+              <motion.article
+                key={program.title}
+                className="group relative rounded-2xl border p-6 transition-all duration-300"
+                style={{
+                  background: 'rgba(255,255,255,0.03)',
+                  borderColor: 'rgba(255,255,255,0.06)',
+                  transformStyle: 'preserve-3d',
+                  perspective: '1200px',
+                }}
+                initial={{ opacity: 0, y: 32 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-80px' }}
+                transition={{ duration: 0.6, ease: 'easeOut', delay: index * 0.15 }}
+                whileHover={{ y: -8, rotateX: 4 }}
+              >
+                {/* Bottom border accent on hover */}
+                <div
+                  className="absolute bottom-0 left-0 right-0 h-[2px] rounded-b-2xl transition-transform duration-300 origin-left scale-x-0 group-hover:scale-x-100"
+                  style={{ background: program.color }}
+                />
+                <h3 className="font-headline text-xl font-bold text-white">{program.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-[var(--color-on-surface-variant)]">{program.description}</p>
+              </motion.article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* WHO WE ARE */}
+      <section className="py-24">
+        <div className="page-shell">
+          <div className="grid gap-12 lg:grid-cols-2 items-center">
+            <AnimatedSection direction="left">
+              <h2 className="font-headline text-3xl md:text-5xl font-bold tracking-tight text-white leading-[1.1]">
+                A student-led
+                <br />
+                <span style={{ color: 'var(--aws-amber)' }}>cloud chapter</span>
+              </h2>
+            </AnimatedSection>
+
+            <AnimatedSection direction="right" delay={0.2}>
+              <p className="text-[var(--color-on-surface-variant)] leading-relaxed">
+                We help students at PGC Muridke build practical AWS skills through workshops, certifications, and real-world project execution. Our community-driven approach means every member contributes and grows.
+              </p>
+              <div className="mt-6 flex gap-6">
+                <div>
+                  <p className="font-headline text-2xl font-bold" style={{ color: 'var(--aws-amber)' }}>5+</p>
+                  <p className="font-mono text-[11px] uppercase tracking-wide text-[var(--color-on-surface-variant)]">Mentors</p>
+                </div>
+                <div>
+                  <p className="font-headline text-2xl font-bold" style={{ color: 'var(--aws-mint)' }}>100+</p>
+                  <p className="font-mono text-[11px] uppercase tracking-wide text-[var(--color-on-surface-variant)]">Active Members</p>
+                </div>
+              </div>
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-24">
+        <div className="page-shell">
+          <AnimatedSection>
+            <div className="rounded-2xl border p-10 md:p-16 text-center relative overflow-hidden" style={{ background: 'rgba(255,255,255,0.02)', borderColor: 'rgba(255,255,255,0.06)' }}>
+              <div className="absolute top-[-50%] left-[-20%] w-[400px] h-[400px] rounded-full opacity-[0.08]" style={{ background: 'var(--aws-purple)', filter: 'blur(60px)' }} />
+              <div className="absolute bottom-[-50%] right-[-20%] w-[400px] h-[400px] rounded-full opacity-[0.08]" style={{ background: 'var(--aws-amber)', filter: 'blur(60px)' }} />
+              <div className="relative z-10">
+                <h2 className="font-headline text-3xl md:text-4xl font-bold text-white">
+                  Ready to become an AWS builder?
+                </h2>
+                <p className="mt-4 max-w-xl mx-auto text-[var(--color-on-surface-variant)]">
+                  Start with our roadmap, join live workshops, and ship practical projects with a peer-driven team culture.
                 </p>
-                <div className="mt-8 flex flex-col gap-3 sm:flex-row animate-fade-up animate-stagger-3">
+                <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
                   <Link
                     href="https://www.meetup.com/aws-cloud-club-at-punjab-group-of-colleges/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center rounded-xl bg-brand-ink px-6 py-3 text-sm font-bold uppercase tracking-[0.16em] text-white transition-premium hover-shift-up hover:shadow-xl hover:shadow-brand-ink/30"
+                    className="inline-flex items-center justify-center rounded-xl px-7 py-3.5 font-headline text-sm font-bold uppercase tracking-[0.1em] text-black transition-all duration-200 hover:-translate-y-1"
+                    style={{ background: 'var(--aws-amber)' }}
                   >
-                    Join The Group
+                    Become A Member
                   </Link>
                   <Link
-                    href="/programs"
-                    className="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-6 py-3 text-sm font-bold uppercase tracking-[0.16em] text-brand-ink transition-premium hover-shift-up hover:border-brand-purple hover:text-brand-purple"
+                    href="/team"
+                    className="inline-flex items-center justify-center rounded-xl border px-7 py-3.5 font-headline text-sm font-bold uppercase tracking-[0.1em] text-white transition-all duration-200 hover:border-white"
+                    style={{ borderColor: 'rgba(255,255,255,0.3)' }}
                   >
-                    Explore Roadmap
+                    Meet The Team
                   </Link>
                 </div>
               </div>
-
-              <div className="relative animate-scale-in animate-stagger-1">
-                <ScrollParallax offset={0.8}>
-                  <Parallax strength={8}>
-                    <div className="overflow-hidden rounded-[1.6rem] border border-white/80 shadow-2xl hover-pop will-change-transform">
-                      <Image
-                        src="/pgc4.png"
-                        alt="PGC campus"
-                        width={880}
-                        height={640}
-                        className="h-[360px] w-full object-cover md:h-[420px] transition-transform duration-500"
-                        priority
-                      />
-                    </div>
-                  </Parallax>
-                </ScrollParallax>
-                <div className="absolute -bottom-5 left-6 rounded-xl bg-brand-white px-4 py-3 shadow-lg animate-fade-up animate-stagger-2 hover-scale will-change-transform">
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-on-surface-variant">Members</p>
-                  <p className="font-headline text-2xl font-bold text-brand-ink">100+</p>
-                </div>
-                <div className="absolute -top-5 right-6 rounded-xl bg-brand-ink px-4 py-3 text-white shadow-lg animate-float-gentle hover-scale will-change-transform">
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/70">Mentors</p>
-                  <p className="font-headline text-2xl font-bold">5+</p>
-                </div>
-              </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="pb-20 md:pb-24">
-        <div className="page-shell">
-          <div className="mb-8 flex items-end justify-between gap-6 animate-fade-up">
-            <div>
-              <span className="badge-chip badge-blue animate-bounce-in">Why builders join</span>
-              <h2 className="mt-3 font-headline text-3xl font-bold tracking-tight text-brand-ink md:text-5xl">Modern skills, practical outcomes</h2>
-            </div>
-            <Link href="/events" className="hidden md:inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.16em] text-brand-purple transition-premium hover:gap-3 hover-glow will-change-transform">
-              View Events <ArrowRight size={16} />
-            </Link>
-          </div>
-
-          <div ref={highlightsRef} className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-            {highlights.map((item, index) => {
-              const Icon = item.icon;
-              return (
-                <article
-                  key={item.title}
-                  className={`scroll-reveal-stagger section-card card-shine hover-pop rounded-2xl p-6 will-change-transform ${
-                    index === 1 ? "animate-stagger-1" : index === 2 ? "animate-stagger-2" : index === 3 ? "animate-stagger-3" : index === 4 ? "animate-stagger-4" : ""
-                  }`}
-                >
-                  <div className="flex items-center justify-between">
-                    <span className="badge-chip badge-amber">{item.badge}</span>
-                    <div className="rounded-xl bg-brand-purple/10 p-2.5 text-brand-purple transition-all duration-300 hover:scale-110 hover:bg-brand-purple/20">
-                      <Icon size={18} />
-                    </div>
-                  </div>
-                  <h3 className="mt-4 font-headline text-2xl font-bold tracking-tight text-brand-ink">{item.title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-on-surface-variant">{item.text}</p>
-                </article>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      <section className="pb-20 md:pb-24">
-        <div className="page-shell">
-          <div className="section-dark relative overflow-hidden rounded-[2rem] p-8 md:p-12">
-            <div className="accent-orb accent-amber h-48 w-48 -top-10 right-14 animate-glow-pulse" />
-            <div className="accent-orb accent-magenta h-44 w-44 -bottom-8 left-10 animate-glow-pulse" />
-            <div className="relative z-10 grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
-              <div className="animate-fade-up">
-                <span className="badge-chip bg-white/14 text-white animate-bounce-in">Build your cloud career</span>
-                <h2 className="mt-4 font-headline text-3xl font-bold tracking-tight md:text-5xl animate-lift-up animate-stagger-1">
-                  Ready to become an AWS builder?
-                </h2>
-                <p className="mt-4 max-w-2xl text-white/75 animate-fade-up animate-stagger-2">
-                  Start with our roadmap, join live workshops, and ship practical projects with a peer-driven team culture.
-                </p>
-              </div>
-              <div className="flex flex-col gap-3 sm:flex-row lg:flex-col animate-fade-up animate-stagger-3">
-                <Link
-                  href="https://www.meetup.com/aws-cloud-club-at-punjab-group-of-colleges/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center rounded-xl bg-brand-white px-7 py-3 text-sm font-bold uppercase tracking-[0.16em] text-brand-ink transition-premium hover-pop will-change-transform"
-                >
-                  Become A Member
-                </Link>
-                <Link
-                  href="/team"
-                  className="inline-flex items-center justify-center rounded-xl border border-white/30 px-7 py-3 text-sm font-bold uppercase tracking-[0.16em] text-white transition-premium hover-glow hover:border-white/50"
-                >
-                  Meet The Team
-                </Link>
-              </div>
-            </div>
-          </div>
+          </AnimatedSection>
         </div>
       </section>
     </>

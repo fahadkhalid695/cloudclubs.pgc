@@ -2,8 +2,19 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { LinkIcon, Mail, MessageCircle } from "lucide-react";
-import { useScrollRevealGroup } from "@/hooks/useScrollReveal";
+import AnimatedSection from "@/components/AnimatedSection";
+
+const container = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.1 } },
+};
+
+const item = {
+  hidden: { opacity: 0, y: 24 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] as const } },
+};
 
 const captain = {
   name: "Rana Fahad Khalid",
@@ -21,17 +32,17 @@ const coreTeamMembers = [
     name: "Sarah Ahmed",
     role: "Vice Captain",
     badge: "Operations",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuDW4tziVPFdWHSKlGZf7l9b1ZN3azOq_4m9EIluEqgN4TTuOSdfK6DTsTP5TLcqox01YS-q6d8lHTZ191jt35P2gY_v6TRUAxURpY7SS6tuWeGhWr7FT2TZcpdCaiUMZdfZYDhLK_tRVOFdoMyOUzjo-c3rblkQjXXHn2p-Xh8OpaI6hNKTQY-5TLOm8tr0YIJyT4AWIiSegGTX9v77FZ88zJpM3_z35Q_YawBx9fK5V16sUlWLIpZs2dAg6V5e1SNOZN9kArgOiH4Q",
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDW4tziVPFdWHSKlGZf7l9b1ZN3azOq_4m9EIluEqgN4TTuOSdfK6DTsTP5TLcqox01YS-q6d8lHTZ191jt35P2gY_v6TRUAxURpY7SS6tuWeGhWr7FT2TZcpdCaiUMZdfZYDhLK_tRVOFdoMyOUzjo-c3rblkQjXXHn2p-Xh8OpaI6hNKTQY-5TLOm8tr0YIJyT4AWIiSegGTX9v77FZ88zJpM3_z35Q_YawBx9fK5V16sUlWLIpZs2dAg6V5e1SNOZN9kArgOiH4Q",
     bio: "Coordinates chapter operations and keeps execution aligned across teams.",
+    color: "var(--aws-blue)",
   },
   {
     name: "Ali Raza",
     role: "Technical Lead",
     badge: "Engineering",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuAMrU3CFt-p02N-DiIiY-_FCRy1UKFJVrG-WzY089Mq89K3wjsxgVbT0cpbmhp7jpiwJxcVdWIkH6DaGl5lTEkaCLzBmGWw2x0o4iafzb3d4hJdoE-XIzfSp7vrBmW6R_dam7TEGv0NZbF9D9bFmQe5sGZ50qw84Ul8_B3bkuAvUu8d4jRMBfreFiFZe5wL_PSkE1lcQ7Wfi6dhOfLfAMncfaTH6i6cZknHYTGwdL4lNfCuF4ZJ35-DY_2qsTafirdt-2wLWnlUVjNF",
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAMrU3CFt-p02N-DiIiY-_FCRy1UKFJVrG-WzY089Mq89K3wjsxgVbT0cpbmhp7jpiwJxcVdWIkH6DaGl5lTEkaCLzBmGWw2x0o4iafzb3d4hJdoE-XIzfSp7vrBmW6R_dam7TEGv0NZbF9D9bFmQe5sGZ50qw84Ul8_B3bkuAvUu8d4jRMBfreFiFZe5wL_PSkE1lcQ7Wfi6dhOfLfAMncfaTH6i6cZknHYTGwdL4lNfCuF4ZJ35-DY_2qsTafirdt-2wLWnlUVjNF",
     bio: "Designs technical workshops and supports members in building production-ready projects.",
+    color: "var(--aws-mint)",
   },
 ];
 
@@ -39,121 +50,169 @@ const teamMembers = [
   {
     name: "Fatima Zahra",
     role: "Marketing Lead",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuB53GJZ5QTXdUjeFqmexeGQNjXGgf3-0yCZcRryTYzOEwcOiRGdHDuESPd2xIVUJQ3d_fLjlUqsPLBMfdD0vTXjYH5lA-x8cr_-t-5n51erSh4aPvL8AqMNH27D7CKlAlPWDNilgtI2-7vJKGU60QPtd5rs1pHyCsOh9EyUs-q_Zj1odWAUFHsB1-U_Ng8oVkDb6ljet7JicrkLpqI9iGI0a2mDC9w3JkygbD6VWpvQDNEdrWGQEFX8npDHIak2GTCetbRI0PJFTdMi",
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuB53GJZ5QTXdUjeFqmexeGQNjXGgf3-0yCZcRryTYzOEwcOiRGdHDuESPd2xIVUJQ3d_fLjlUqsPLBMfdD0vTXjYH5lA-x8cr_-t-5n51erSh4aPvL8AqMNH27D7CKlAlPWDNilgtI2-7vJKGU60QPtd5rs1pHyCsOh9EyUs-q_Zj1odWAUFHsB1-U_Ng8oVkDb6ljet7JicrkLpqI9iGI0a2mDC9w3JkygbD6VWpvQDNEdrWGQEFX8npDHIak2GTCetbRI0PJFTdMi",
+    color: "var(--aws-magenta)",
   },
   {
     name: "Hamza Khalil",
     role: "Logistics Lead",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuACcEH3-I0XRf19UjreI_MubzGBfiaBWXyZsIqSJqB_F4__LF0hj3x5Hh76aWu0qLHX-XYc6Hbd183-BOkkx7-JxKX7rT7GufG-4ze4oLWNjKVhUbUqDJvi413zDHFZY4xNuuayZ9DIZtzi72vNhgZoopKXexwQOkQHMGla3j60yug36_0pg0dTCFcS0Dc3GXUiknUe57faSb_1h1W0rlsdZAmlMlaPH6lGhWiNNX2_1jbv633TAcqL2MA-IZTIQ1U-3ygF4z8KRcfD",
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuACcEH3-I0XRf19UjreI_MubzGBfiaBWXyZsIqSJqB_F4__LF0hj3x5Hh76aWu0qLHX-XYc6Hbd183-BOkkx7-JxKX7rT7GufG-4ze4oLWNjKVhUbUqDJvi413zDHFZY4xNuuayZ9DIZtzi72vNhgZoopKXexwQOkQHMGla3j60yug36_0pg0dTCFcS0Dc3GXUiknUe57faSb_1h1W0rlsdZAmlMlaPH6lGhWiNNX2_1jbv633TAcqL2MA-IZTIQ1U-3ygF4z8KRcfD",
+    color: "var(--aws-amber)",
   },
   {
     name: "Noor Fatima",
     role: "Content Creator",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuA8A97YU_nZCBYy93shGgBPywojLqIZlKnauXCj7aSmlGBZLSiH8-86evJbRrHobKq25yTLbmwJd6ZPBmFQLYCkbpNZ0bQxAZF1ToEjkQZ1zR0QnFp6CV4drufu7N-hmfm7fV5sCt8LCN3nvy4YJsGigTM66aCQA9P4vuAltUGMuwYG6XqVdCDSW_REtCnXYTuBXlky-d46eTK5NuT7FhzAZZG2pv3Ay03QGv411S6xqvfLyQLJFL4pZNiIOdmyWAAJg1gBvGP6rRht",
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuA8A97YU_nZCBYy93shGgBPywojLqIZlKnauXCj7aSmlGBZLSiH8-86evJbRrHobKq25yTLbmwJd6ZPBmFQLYCkbpNZ0bQxAZF1ToEjkQZ1zR0QnFp6CV4drufu7N-hmfm7fV5sCt8LCN3nvy4YJsGigTM66aCQA9P4vuAltUGMuwYG6XqVdCDSW_REtCnXYTuBXlky-d46eTK5NuT7FhzAZZG2pv3Ay03QGv411S6xqvfLyQLJFL4pZNiIOdmyWAAJg1gBvGP6rRht",
+    color: "var(--aws-purple)",
   },
   {
     name: "Bilal Nasir",
     role: "Event Manager",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuBYC6Z9GdvmeadxkAuhbaQwUVNZ_f6VlJK1JHZrXe-RUrnqUORlbWBTOBPxdQF10lfXhxKSRDtVKdZMkOA3A5xgGNITnZpGdmVCi3zzEQCP3evONriQpRm-1fYfr2-K-WFSQmS6ST2m08DgkXZAp4kxhb92_1THuVhCSLsH2is_UIZRTfSSz90yWMLJWHEyjU2lnhAZWZAC3WnbhKW2u99eJnaK64PC66RKO1_azGfgIZ_u37kc1m5S5ZcB3krMskwI6to0piXVF0R4",
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBYC6Z9GdvmeadxkAuhbaQwUVNZ_f6VlJK1JHZrXe-RUrnqUORlbWBTOBPxdQF10lfXhxKSRDtVKdZMkOA3A5xgGNITnZpGdmVCi3zzEQCP3evONriQpRm-1fYfr2-K-WFSQmS6ST2m08DgkXZAp4kxhb92_1THuVhCSLsH2is_UIZRTfSSz90yWMLJWHEyjU2lnhAZWZAC3WnbhKW2u99eJnaK64PC66RKO1_azGfgIZ_u37kc1m5S5ZcB3krMskwI6to0piXVF0R4",
+    color: "var(--aws-blue)",
   },
 ];
 
 export default function TeamPage() {
-  const coreTeamRef = useScrollRevealGroup({ threshold: 0.1 });
-  const teamRef = useScrollRevealGroup({ threshold: 0.1 });
   return (
-    <div className="pt-32 pb-20 md:pb-24">
+    <div className="pt-32 pb-20">
       <div className="page-shell">
-        <section className="section-card rounded-[2rem] p-6 md:p-10 animate-scale-in">
-          <span className="badge-chip badge-mint">People behind the chapter</span>
-          <h1 className="mt-4 font-headline text-4xl font-bold tracking-tight text-brand-ink md:text-6xl">Meet Our Team</h1>
-          <p className="mt-4 max-w-3xl text-on-surface-variant">
+        {/* Header */}
+        <AnimatedSection>
+          <h1 className="font-headline text-4xl md:text-6xl font-bold text-white tracking-tight">
+            Meet Our Team
+          </h1>
+          <p className="mt-4 max-w-2xl text-[var(--color-on-surface-variant)]">
             We are a student-led crew building cloud talent at PGC Muridke through events, mentorship, and practical project culture.
           </p>
-        </section>
+        </AnimatedSection>
 
-        <section className="mt-10 section-card card-shine rounded-[2rem] p-6 md:p-8 animate-fade-up">
-          <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
-            <div className="overflow-hidden rounded-2xl">
-              <Image src={captain.image} alt={captain.name} width={800} height={840} className="h-full w-full object-cover" />
+        {/* Captain */}
+        <motion.section
+          className="mt-12 rounded-2xl border p-6 md:p-8 flex flex-col md:flex-row gap-8 items-center"
+          style={{ background: 'rgba(255,255,255,0.02)', borderColor: 'rgba(255,255,255,0.06)' }}
+          initial={{ opacity: 0, scale: 0.96 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="w-40 h-40 md:w-48 md:h-48 shrink-0 rounded-full overflow-hidden border-2" style={{ borderColor: 'var(--aws-amber)' }}>
+            <Image src={captain.image} alt={captain.name} width={300} height={300} className="h-full w-full object-cover" />
+          </div>
+          <div>
+            <span className="font-mono text-[11px] uppercase tracking-[0.14em]" style={{ color: 'var(--aws-amber)' }}>
+              {captain.badge}
+            </span>
+            <h2 className="mt-2 font-headline text-3xl font-bold text-white">{captain.name}</h2>
+            <p className="font-mono text-[12px] uppercase tracking-wide text-[var(--color-on-surface-variant)]">{captain.role}</p>
+            <p className="mt-4 text-[var(--color-on-surface-variant)] leading-relaxed">{captain.bio}</p>
+            <div className="mt-5 flex gap-3">
+              <a href={captain.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-white/5 text-[var(--color-on-surface-variant)] transition-all duration-200 hover:text-[var(--aws-amber)] hover:scale-110">
+                <LinkIcon size={16} />
+              </a>
+              <a href={`mailto:${captain.email}`} aria-label="Email" className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-white/5 text-[var(--color-on-surface-variant)] transition-all duration-200 hover:text-[var(--aws-amber)] hover:scale-110">
+                <Mail size={16} />
+              </a>
+              <a href={captain.whatsapp} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-white/5 text-[var(--color-on-surface-variant)] transition-all duration-200 hover:text-[var(--aws-amber)] hover:scale-110">
+                <MessageCircle size={16} />
+              </a>
             </div>
-            <div>
-              <span className="badge-chip badge-purple">{captain.badge}</span>
-              <h2 className="mt-4 font-headline text-3xl font-bold tracking-tight">{captain.name}</h2>
-              <p className="mt-1 text-sm font-semibold uppercase tracking-[0.15em] text-brand-amber">{captain.role}</p>
-              <p className="mt-5 text-on-surface-variant">{captain.bio}</p>
-              <div className="mt-6 flex gap-2">
-                <a href={captain.linkedin} target="_blank" rel="noopener noreferrer" aria-label="Captain LinkedIn" className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-brand-purple/10 text-brand-purple transition-smooth hover:bg-brand-purple hover:text-white">
-                  <LinkIcon size={16} />
-                </a>
-                <a href={`mailto:${captain.email}`} aria-label="Captain Email" className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-brand-blue/10 text-brand-blue transition-smooth hover:bg-brand-blue hover:text-brand-ink">
-                  <Mail size={16} />
-                </a>
-                <a href={captain.whatsapp} target="_blank" rel="noopener noreferrer" aria-label="Captain WhatsApp" className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-brand-mint/15 text-[#11a46a] transition-smooth hover:bg-brand-mint hover:text-brand-ink">
-                  <MessageCircle size={16} />
-                </a>
-              </div>
-            </div>
           </div>
-        </section>
+        </motion.section>
 
-        <section className="mt-10">
-          <h2 className="font-headline text-2xl font-bold tracking-tight md:text-3xl animate-fade-up">Core Team</h2>
-          <div ref={coreTeamRef} className="mt-5 grid gap-5 md:grid-cols-2">
-            {coreTeamMembers.map((member, index) => (
-              <article key={member.name} className={`scroll-reveal-stagger section-card hover-pop rounded-2xl p-5 will-change-transform ${index === 1 ? "animate-stagger-1" : ""}`}>
-                <div className="flex gap-4">
-                  <div className="h-24 w-24 shrink-0 overflow-hidden rounded-xl hover:scale-110 transition-transform duration-300">
-                    <Image src={member.image} alt={member.name} width={260} height={260} className="h-full w-full object-cover" />
-                  </div>
-                  <div>
-                    <span className="badge-chip badge-blue">{member.badge}</span>
-                    <h3 className="mt-2 font-headline text-xl font-bold">{member.name}</h3>
-                    <p className="text-sm font-semibold uppercase tracking-[0.14em] text-brand-amber">{member.role}</p>
-                    <p className="mt-2 text-sm text-on-surface-variant">{member.bio}</p>
-                  </div>
+        {/* Core Team */}
+        <section className="mt-14">
+          <AnimatedSection>
+            <h2 className="font-headline text-2xl md:text-3xl font-bold text-white tracking-tight">Core Team</h2>
+          </AnimatedSection>
+          <motion.div
+            variants={container}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="mt-6 grid gap-5 md:grid-cols-2"
+          >
+            {coreTeamMembers.map((member) => (
+              <motion.article
+                key={member.name}
+                variants={item}
+                className="group rounded-xl border p-5 flex gap-4 transition-all duration-300"
+                style={{ background: 'rgba(255,255,255,0.02)', borderColor: 'rgba(255,255,255,0.06)' }}
+                whileHover={{ y: -6 }}
+              >
+                <div className="h-20 w-20 shrink-0 rounded-full overflow-hidden border-2 transition-all duration-300 group-hover:shadow-lg" style={{ borderColor: member.color }}>
+                  <Image src={member.image} alt={member.name} width={160} height={160} className="h-full w-full object-cover" />
                 </div>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section className="mt-10">
-          <h2 className="font-headline text-2xl font-bold tracking-tight md:text-3xl animate-fade-up">Execution Team</h2>
-          <div ref={teamRef} className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {teamMembers.map((member, index) => (
-              <article key={member.name} className={`scroll-reveal-stagger section-card hover-pop rounded-2xl p-4 will-change-transform ${index > 0 ? "animate-stagger-1" : ""}`}>
-                <div className="overflow-hidden rounded-xl hover:scale-110 transition-transform duration-300">
-                  <Image src={member.image} alt={member.name} width={420} height={420} className="h-52 w-full object-cover" />
+                <div>
+                  <span className="font-mono text-[10px] uppercase tracking-[0.14em]" style={{ color: member.color }}>{member.badge}</span>
+                  <h3 className="mt-1 font-headline text-lg font-bold text-white">{member.name}</h3>
+                  <p className="font-mono text-[11px] text-[var(--color-on-surface-variant)]">{member.role}</p>
+                  <p className="mt-2 text-sm text-[var(--color-on-surface-variant)]">{member.bio}</p>
                 </div>
-                <h3 className="mt-3 font-headline text-lg font-bold tracking-tight">{member.name}</h3>
-                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-purple">{member.role}</p>
-              </article>
+              </motion.article>
             ))}
-          </div>
+          </motion.div>
         </section>
 
-        <section className="mt-12 section-dark relative overflow-hidden rounded-[2rem] p-8 md:p-10">
-          <div className="accent-orb accent-magenta h-44 w-44 -top-10 right-10" />
-          <div className="relative z-10 text-center">
-            <h2 className="font-headline text-3xl font-bold tracking-tight md:text-4xl">We are hiring student builders</h2>
-            <p className="mx-auto mt-4 max-w-2xl text-white/75">
+        {/* Team Grid */}
+        <section className="mt-14">
+          <AnimatedSection>
+            <h2 className="font-headline text-2xl md:text-3xl font-bold text-white tracking-tight">Execution Team</h2>
+          </AnimatedSection>
+          <motion.div
+            variants={container}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-4"
+          >
+            {teamMembers.map((member) => (
+              <motion.article
+                key={member.name}
+                variants={item}
+                className="group rounded-xl border p-4 text-center transition-all duration-300"
+                style={{ background: 'rgba(255,255,255,0.02)', borderColor: 'rgba(255,255,255,0.06)' }}
+                whileHover={{ y: -6 }}
+              >
+                <div className="mx-auto h-24 w-24 rounded-full overflow-hidden border-2 transition-all duration-300 group-hover:shadow-lg" style={{ borderColor: member.color }}>
+                  <Image src={member.image} alt={member.name} width={200} height={200} className="h-full w-full object-cover" />
+                </div>
+                <h3 className="mt-4 font-headline text-base font-bold text-white">{member.name}</h3>
+                <p className="font-mono text-[11px] uppercase tracking-wide" style={{ color: member.color }}>{member.role}</p>
+              </motion.article>
+            ))}
+          </motion.div>
+        </section>
+
+        {/* CTA */}
+        <AnimatedSection className="mt-16">
+          <div className="rounded-2xl border p-8 md:p-12 text-center" style={{ background: 'rgba(255,255,255,0.02)', borderColor: 'rgba(255,255,255,0.06)' }}>
+            <h2 className="font-headline text-3xl md:text-4xl font-bold text-white">
+              We are hiring student builders
+            </h2>
+            <p className="mt-4 max-w-xl mx-auto text-[var(--color-on-surface-variant)]">
               Passionate about cloud and community? Join us and shape the next generation of builders.
             </p>
-            <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
-              <Link href="https://forms.gle/dbgRxAiYFdLFWfme7" target="_blank" rel="noopener noreferrer" className="inline-flex justify-center rounded-xl bg-white px-7 py-3 text-sm font-bold uppercase tracking-[0.16em] text-brand-ink transition-smooth hover:-translate-y-0.5">
+            <div className="mt-6 flex flex-col sm:flex-row justify-center gap-4">
+              <Link
+                href="https://forms.gle/dbgRxAiYFdLFWfme7"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex justify-center rounded-xl px-7 py-3 font-headline text-sm font-bold uppercase tracking-[0.1em] text-black transition-all duration-200 hover:-translate-y-1"
+                style={{ background: 'var(--aws-amber)' }}
+              >
                 Join Team
               </Link>
-              <Link href="/guidelines" className="inline-flex justify-center rounded-xl border border-white/30 px-7 py-3 text-sm font-bold uppercase tracking-[0.16em] text-white transition-smooth hover:bg-white/10">
+              <Link
+                href="/guidelines"
+                className="inline-flex justify-center rounded-xl border px-7 py-3 font-headline text-sm font-bold uppercase tracking-[0.1em] text-white transition-all duration-200 hover:border-white"
+                style={{ borderColor: 'rgba(255,255,255,0.3)' }}
+              >
                 View Guidelines
               </Link>
             </div>
           </div>
-        </section>
+        </AnimatedSection>
       </div>
     </div>
   );
