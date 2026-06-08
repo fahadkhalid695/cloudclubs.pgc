@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { CalendarDays, LinkIcon, Mail, MessageCircle } from "lucide-react";
+import { LinkIcon, MessageCircle } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -20,7 +20,7 @@ export default function Footer() {
                 className="h-8 w-8 rounded-lg object-cover"
               />
               <span className="font-headline text-lg font-bold text-white tracking-tight">
-                AWS Student Builder Group
+                AWS Student Builder Group PGC
               </span>
             </div>
             <p className="mt-4 max-w-md text-sm leading-relaxed text-[var(--color-on-surface-variant)]">
@@ -46,24 +46,6 @@ export default function Footer() {
           {/* Right: social icons */}
           <div className="flex flex-wrap gap-3 md:justify-end">
             <a
-              href="https://www.meetup.com/aws-cloud-club-at-punjab-group-of-colleges/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-white/5 text-[var(--color-on-surface-variant)] transition-all duration-200 hover:scale-110 hover:text-[var(--aws-amber)]"
-              aria-label="Meetup"
-            >
-              <CalendarDays size={18} />
-            </a>
-            <a
-              href="https://www.linkedin.com/company/aws-cloud-club-pgc/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-white/5 text-[var(--color-on-surface-variant)] transition-all duration-200 hover:scale-110 hover:text-[var(--aws-amber)]"
-              aria-label="LinkedIn"
-            >
-              <LinkIcon size={18} />
-            </a>
-            <a
               href="https://chat.whatsapp.com/LKpcfS8joSs94WM3UWg0b6"
               target="_blank"
               rel="noopener noreferrer"
@@ -73,11 +55,31 @@ export default function Footer() {
               <MessageCircle size={18} />
             </a>
             <a
-              href="mailto:awscloudclubpgc@gmail.com"
+              href="https://www.facebook.com/awssbgpgc/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-white/5 text-[var(--color-on-surface-variant)] transition-all duration-200 hover:scale-110 hover:text-[var(--aws-amber)]"
-              aria-label="Email"
+              aria-label="Facebook"
             >
-              <Mail size={18} />
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a
+              href="https://www.instagram.com/aws_sbg_pgc/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-white/5 text-[var(--color-on-surface-variant)] transition-all duration-200 hover:scale-110 hover:text-[var(--aws-amber)]"
+              aria-label="Instagram"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a
+              href="https://www.linkedin.com/company/aws-sbg-pgc"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-white/5 text-[var(--color-on-surface-variant)] transition-all duration-200 hover:scale-110 hover:text-[var(--aws-amber)]"
+              aria-label="LinkedIn"
+            >
+              <LinkIcon size={18} />
             </a>
           </div>
         </div>
