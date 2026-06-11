@@ -33,14 +33,14 @@ const leader = {
 const coreTeamMembers = [
   {
     name: "Ali Haider",
-    role: "Event Manager",
+    role: "Manager",
     image: "/Ali Haider.jpeg",
     bio: "Manages end-to-end event planning and execution for AWS Student Builder Group, ensuring every workshop and session runs seamlessly from logistics to delivery.",
     color: "var(--aws-amber)",
   },
   {
     name: "Muhammad Hasan",
-    role: "Event Moderator",
+    role: "Manager",
     image: "/Hassan .jpeg",
     bio: "Facilitates smooth event flow and audience engagement during sessions, keeping discussions focused and ensuring every participant gets value from the experience.",
     color: "var(--aws-mint)",
@@ -58,26 +58,30 @@ export default function TeamPage() {
           </p>
         </AnimatedSection>
 
-        {/* Leader — Vertical card */}
+        {/* Leader — Full width horizontal card */}
         <motion.section
-          className="mt-12 rounded-2xl border p-6 md:p-8 flex flex-col items-center text-center max-w-md mx-auto"
+          className="mt-12 rounded-2xl border p-6 md:p-8 flex flex-col md:flex-row gap-8 items-center"
           style={{ background: 'rgba(255,255,255,0.02)', borderColor: 'rgba(255,255,255,0.06)' }}
           initial={{ opacity: 0, scale: 0.96 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <PulsingRing color="#FF9900" rings={3} size={160}>
-            <Image src={leader.image} alt={leader.name} width={160} height={160} className="h-full w-full object-cover rounded-full" />
-          </PulsingRing>
-          <span className="mt-5 font-mono text-[11px] uppercase tracking-[0.14em]" style={{ color: 'var(--aws-amber)' }}>{leader.badge}</span>
-          <h2 className="mt-2 font-headline text-2xl font-bold text-white">{leader.name}</h2>
-          <p className="font-mono text-[12px] uppercase tracking-wide text-[var(--color-on-surface-variant)]">{leader.role}</p>
-          <p className="mt-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">{leader.bio}</p>
-          <div className="mt-5 flex gap-3">
-            <a href={leader.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-white/5 text-[var(--color-on-surface-variant)] transition-all duration-200 hover:text-[var(--aws-amber)] hover:scale-110"><LinkIcon size={16} /></a>
-            <a href={`mailto:${leader.email}`} aria-label="Email" className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-white/5 text-[var(--color-on-surface-variant)] transition-all duration-200 hover:text-[var(--aws-amber)] hover:scale-110"><Mail size={16} /></a>
-            <a href={leader.whatsapp} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-white/5 text-[var(--color-on-surface-variant)] transition-all duration-200 hover:text-[var(--aws-amber)] hover:scale-110"><MessageCircle size={16} /></a>
+          <div className="shrink-0">
+            <PulsingRing color="#FF9900" rings={3} size={160}>
+              <Image src={leader.image} alt={leader.name} width={160} height={160} className="h-full w-full object-cover rounded-full" />
+            </PulsingRing>
+          </div>
+          <div className="text-center md:text-left">
+            <span className="font-mono text-[11px] uppercase tracking-[0.14em]" style={{ color: 'var(--aws-amber)' }}>{leader.badge}</span>
+            <h2 className="mt-2 font-headline text-2xl md:text-3xl font-bold text-white">{leader.name}</h2>
+            <p className="font-mono text-[12px] uppercase tracking-wide text-[var(--color-on-surface-variant)]">{leader.role}</p>
+            <p className="mt-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed max-w-xl">{leader.bio}</p>
+            <div className="mt-5 flex gap-3 justify-center md:justify-start">
+              <a href={leader.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-white/5 text-[var(--color-on-surface-variant)] transition-all duration-200 hover:text-[var(--aws-amber)] hover:scale-110"><LinkIcon size={16} /></a>
+              <a href={`mailto:${leader.email}`} aria-label="Email" className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-white/5 text-[var(--color-on-surface-variant)] transition-all duration-200 hover:text-[var(--aws-amber)] hover:scale-110"><Mail size={16} /></a>
+              <a href={leader.whatsapp} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-white/5 text-[var(--color-on-surface-variant)] transition-all duration-200 hover:text-[var(--aws-amber)] hover:scale-110"><MessageCircle size={16} /></a>
+            </div>
           </div>
         </motion.section>
 
