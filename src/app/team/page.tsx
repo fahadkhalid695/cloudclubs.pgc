@@ -92,11 +92,11 @@ export default function TeamPage() {
             {coreTeamMembers.map((member) => (
               <motion.div key={member.name} variants={item}>
                 <FlipCard
-                  height={280}
+                  height={320}
                   front={
                     <div className="h-full rounded-xl border p-4 text-center flex flex-col items-center justify-center" style={{ background: 'rgba(255,255,255,0.02)', borderColor: 'rgba(255,255,255,0.06)' }}>
-                      <div className="mx-auto h-24 w-24 rounded-full overflow-hidden border-2" style={{ borderColor: member.color }}>
-                        <Image src={member.image} alt={member.name} width={200} height={200} className="h-full w-full object-cover" />
+                      <div className="mx-auto h-36 w-36 rounded-full overflow-hidden border-2" style={{ borderColor: member.color }}>
+                        <Image src={member.image} alt={member.name} width={300} height={300} className="h-full w-full object-cover" />
                       </div>
                       <h3 className="mt-4 font-headline text-base font-bold text-white">{member.name}</h3>
                       <p className="font-mono text-[11px] uppercase tracking-wide" style={{ color: member.color }}>{member.role}</p>
